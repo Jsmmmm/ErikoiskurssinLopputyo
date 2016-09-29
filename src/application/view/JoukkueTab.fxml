@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.JoukkueTabController">
+   <children>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="219.0" prefWidth="408.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="117.0" text="Joukkueen nimi" />
+                  <TextField fx:id="joukkueenNimiKentta" prefHeight="27.0" prefWidth="198.0" promptText="Joukkueen nimi" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="405.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.LajinLuominenController">
+   <children>
+      <VBox layoutX="20.0" layoutY="20.0" prefHeight="246.0" prefWidth="575.0">
+         <children>
+            <HBox prefHeight="37.0" prefWidth="446.0">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="81.0" text="Lajin nimi" />
+                  <TextField fx:id="lajinNimiKentta" prefHeight="25.0" prefWidth="157.0" promptText="Lajin nimi" />
+               </children>
+            </HBox>
+            <HBox prefHeight="31.0" prefWidth="446.0">
+               <children>
+                  <Label prefHeight="32.0" prefWidth="173.0" text="Lajissa kilpailtavat sarjat:" />
+               </children>
+            </HBox>
+            <HBox prefHeight="31.0" prefWidth="446.0">
+               <children>
+                  <CheckBox fx:id="yleisSarja" mnemonicParsing="false" prefHeight="29.0" prefWidth="108.0" text="Yleissarja" />
+               </children>
+            </HBox>
+            <HBox prefHeight="30.0" prefWidth="446.0">
+               <children>
+                  <CheckBox fx:id="miestenSarja" mnemonicParsing="false" prefHeight="17.0" prefWidth="151.0" text="Miesten yleissarja" />
+                  <CheckBox fx:id="naistenSarja" mnemonicParsing="false" text="Naisten yleissarja" />
+               </children>
+            </HBox>
+            <HBox prefHeight="31.0" prefWidth="446.0">
+               <children>
+                  <CheckBox fx:id="miestenU18" mnemonicParsing="false" prefHeight="17.0" prefWidth="151.0" text="Miesten U-18 sarja" />
+                  <CheckBox fx:id="naistenU18" mnemonicParsing="false" prefHeight="17.0" prefWidth="129.0" text="Naisten U-18 sarja" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="tallenna" layoutX="40.0" layoutY="300.0" mnemonicParsing="false" onAction="#tallennaNappiaPainettu" prefHeight="44.0" prefWidth="122.0" text="Tallenna" />
+      <Button fx:id="peruuta" layoutX="198.0" layoutY="300.0" mnemonicParsing="false" onAction="#suljeIkkuna" prefHeight="44.0" prefWidth="122.0" text="Peruuta" />
+   </children>
+</AnchorPane>
