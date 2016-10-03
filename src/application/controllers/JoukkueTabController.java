@@ -1,6 +1,8 @@
 package application.controllers;
 
 import application.model.Joukkue;
+import application.model.Kilpailija;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -15,7 +17,7 @@ public class JoukkueTabController {
 		Joukkue uusiJoukkue=null;
 		if(!joukkueenNimiKentta.getText().isEmpty()){
 			uusiJoukkue = new Joukkue(joukkueenNimiKentta.getText());
-			System.out.println(uusiJoukkue.toString());	
+			
 			
 		}return uusiJoukkue;
 	}
@@ -37,6 +39,26 @@ public class JoukkueTabController {
 	
 	public void avaaJoukkueenTiedot(Joukkue joukkue){
 		joukkueenNimiKentta.setText(joukkue.toString());
+	}
+	
+	@FXML
+	public void tallennaNappiaPainettu(ActionEvent e){
+		
+			Joukkue joukkue=tallennaJoukkue();
+			if(joukkue!=null){
+				main.joukkueet.add(joukkue);
+				main.treeViewViewController.lisaaJoukkueOlioPuunakymaan(joukkue);
+			}
+	}
+	
+	@FXML
+	public void tyhjennaNappiaPainettu(ActionEvent e){		
+		tyhjennaTekstikentat();	
+	}
+	
+	@FXML
+	public void poistaNappiaPainettu(ActionEvent e){
+		main.treeViewViewController.poista(e);		
 	}
 	
 }

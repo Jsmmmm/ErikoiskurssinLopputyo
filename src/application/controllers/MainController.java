@@ -42,6 +42,33 @@ public class MainController{
 	@FXML
 	Tab henkiloValilehti;
 	
+	
+	
+	
+	public void lisaaLajiPuunakymaan(Laji laji){
+		treeViewViewController.lisaaLajiOlioPuunakymaan(laji);
+	}
+	
+	
+	
+	/*
+	@FXML
+	public void poistaNappiaPainettu(ActionEvent e){
+		treeViewViewController.poista(e);		
+	} 
+	
+	@FXML
+	public void tyhjennaNappiaPainettu(ActionEvent e){
+		if(joukkueValilehti.isSelected()){
+			joukkueTabController.tyhjennaTekstikentat();
+		}else if(henkiloValilehti.isSelected()){
+			henkiloTabController.tyhjennaTekstikentat();
+		}else if(lajiValilehti.isSelected()){
+			lajiTabController.tyhjennaTekstikentat();
+		}
+	}
+	
+	
 	@FXML
 	public void tallennaNappiaPainettu(ActionEvent e){
 		if(joukkueValilehti.isSelected()){
@@ -60,29 +87,12 @@ public class MainController{
 			if(laji!=null){
 				lajit.add(laji);
 				treeViewViewController.lisaaLajiOlioPuunakymaan(laji); 
-			} */
+			} 
 		} 
 	}
 	
-	public void lisaaLajiPuunakymaan(Laji laji){
-		treeViewViewController.lisaaLajiOlioPuunakymaan(laji);
-	}
-	
-	@FXML
-	public void tyhjennaNappiaPainettu(ActionEvent e){
-		if(joukkueValilehti.isSelected()){
-			joukkueTabController.tyhjennaTekstikentat();
-		}else if(henkiloValilehti.isSelected()){
-			henkiloTabController.tyhjennaTekstikentat();
-		}else if(lajiValilehti.isSelected()){
-			lajiTabController.tyhjennaTekstikentat();
-		}
-	}
-	
-	@FXML
-	public void poistaNappiaPainettu(ActionEvent e){
-		treeViewViewController.poista(e);		
-	}
+	*
+	*/
 	
 	public void poistaHenkilo(String nimi){
 		Kilpailija kilpailija = haeKilpailija(nimi);	

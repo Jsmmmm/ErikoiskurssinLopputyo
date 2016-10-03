@@ -3,8 +3,11 @@ package application.controllers;
 
 
 import application.model.Henkilo;
+import application.model.Joukkue;
 import application.model.Kilpailija;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -22,6 +25,12 @@ public class HenkiloTabController{
 	@FXML Circle pallo1;
 	@FXML Circle pallo2;
 	@FXML Circle pallo3;
+	@FXML
+	Button tallenna;
+	Button tyhjenna;
+	Button poista;
+	
+	
 	
 	public void avaaHenkilonTiedot(Henkilo henkilo){
 		etunimiKentta.setText(henkilo.kerroEtunimi());
@@ -95,6 +104,27 @@ public class HenkiloTabController{
 		etunimiKentta.setPromptText("Etunimi");
 		sukunimiKentta.setPromptText("Sukunimi");
 		ikaKentta.setPromptText("Ikä");
+	}
+	
+	
+	
+	@FXML
+	public void tallennaNappiaPainettu(ActionEvent e){
+		Kilpailija kilpailija=tallennaHenkilo();
+		if(kilpailija!=null){
+			main.kilpailijat.add(kilpailija);
+			main.treeViewViewController.lisaaHenkiloOlioPuunakymaan(kilpailija); }		
+	}
+	
+	
+	@FXML
+	public void tyhjennaNappiaPainettu(ActionEvent e){	
+		tyhjennaTekstikentat();		
+	}
+	
+	@FXML
+	public void poistaNappiaPainettu(ActionEvent e){
+		main.treeViewViewController.poista(e);		
 	}
 	
 	
