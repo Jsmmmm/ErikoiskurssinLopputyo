@@ -34,7 +34,7 @@
    <center>
       <VBox prefHeight="465.0" prefWidth="697.0" BorderPane.alignment="CENTER">
          <children>
-            <TabPane fx:id="tabPane" prefHeight="432.0" prefWidth="697.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPane" prefHeight="374.0" prefWidth="697.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab fx:id="henkiloValilehti" text="Henkilo">
                      <content>
