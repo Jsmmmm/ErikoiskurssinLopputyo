@@ -20,7 +20,7 @@ public class MainController{
 	@FXML JoukkueTabController joukkueTabController;
 	@FXML LajiTabController lajiTabController;
 	@FXML TreeViewController treeViewViewController;
-	
+	@FXML ListViewController listViewController;
 	
 	@FXML TabPane tabPane;
 	
@@ -50,49 +50,6 @@ public class MainController{
 	}
 	
 	
-	
-	/*
-	@FXML
-	public void poistaNappiaPainettu(ActionEvent e){
-		treeViewViewController.poista(e);		
-	} 
-	
-	@FXML
-	public void tyhjennaNappiaPainettu(ActionEvent e){
-		if(joukkueValilehti.isSelected()){
-			joukkueTabController.tyhjennaTekstikentat();
-		}else if(henkiloValilehti.isSelected()){
-			henkiloTabController.tyhjennaTekstikentat();
-		}else if(lajiValilehti.isSelected()){
-			lajiTabController.tyhjennaTekstikentat();
-		}
-	}
-	
-	
-	@FXML
-	public void tallennaNappiaPainettu(ActionEvent e){
-		if(joukkueValilehti.isSelected()){
-			Joukkue joukkue=joukkueTabController.tallennaJoukkue();
-			if(joukkue!=null){
-				joukkueet.add(joukkue);
-				treeViewViewController.lisaaJoukkueOlioPuunakymaan(joukkue);
-			}
-		}else if(henkiloValilehti.isSelected()){
-			Kilpailija kilpailija=henkiloTabController.tallennaHenkilo();
-			if(kilpailija!=null){
-				kilpailijat.add(kilpailija);
-				treeViewViewController.lisaaHenkiloOlioPuunakymaan(kilpailija); }
-		}else if(lajiValilehti.isSelected()){			
-		/*	Laji laji=lajiTabController.tallennaLaji();
-			if(laji!=null){
-				lajit.add(laji);
-				treeViewViewController.lisaaLajiOlioPuunakymaan(laji); 
-			} 
-		} 
-	}
-	
-	*
-	*/
 	
 	public void poistaHenkilo(String nimi){
 		Kilpailija kilpailija = haeKilpailija(nimi);	
@@ -155,6 +112,7 @@ public class MainController{
 	public void avaaLajinTiedot(String lajinNimi){
 		Laji laji = haeLaji(lajinNimi);
 		lajiTabController.avaaLajinTiedot(laji);
+		listViewController.taytaListView(); //KESKEN KESKEN KESKEN KESKEN KESKEN KESKEN KESKEN
 	}
 	
 	public void avaaJoukkueenTiedot(String joukkueenNimi){
@@ -167,7 +125,8 @@ public class MainController{
 		henkiloTabController.init(this);
 		joukkueTabController.init(this);
 		lajiTabController.init(this);
-		treeViewViewController.init(this);					
+		treeViewViewController.init(this);
+		listViewController.init(this);
 	}
 	
 	public void printtaa(){

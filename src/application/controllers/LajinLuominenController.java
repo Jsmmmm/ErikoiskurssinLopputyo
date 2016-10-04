@@ -29,30 +29,33 @@ public class LajinLuominenController {
 	
 	@FXML
 	void tallennaNappiaPainettu(ActionEvent e){
-		String lajinNimi=null;
-		if(!lajinNimiKentta.getText().isEmpty()){
-			lajinNimi=lajinNimiKentta.getText();			
-		}
-		if(yleisSarja.isSelected()){
-			booleanYleisSarja=true;
-		}
-		if(miestenSarja.isSelected()){
-			booleanMiestenSarja=true;
-		}
-		if(naistenSarja.isSelected()){ 
-			booleanNaistenSarja=true;
-		}
-		if(miestenU18.isSelected()){
-			booleanMiestenU18=true;
-		}
-		if(naistenU18.isSelected()){
-			booleanNaistenU18=true;
-		}
 		
-		Laji uusiLaji=new Laji(lajinNimi, booleanYleisSarja, booleanMiestenSarja, booleanNaistenSarja, booleanMiestenU18, booleanNaistenU18);
-		main.lajit.add(uusiLaji);
-		main.lisaaLajiPuunakymaan(uusiLaji);
-		suljeIkkuna(e);
+		String lajinNimi=null;
+		if( !(lajinNimiKentta.getText().isEmpty()) ){
+			lajinNimi=lajinNimiKentta.getText();
+			
+			if(yleisSarja.isSelected()){
+				booleanYleisSarja=true;
+			}
+			if(miestenSarja.isSelected()){
+				booleanMiestenSarja=true;
+			}
+			if(naistenSarja.isSelected()){ 
+				booleanNaistenSarja=true;
+			}
+			if(miestenU18.isSelected()){
+				booleanMiestenU18=true;
+			}
+			if(naistenU18.isSelected()){
+				booleanNaistenU18=true;
+			}
+		
+			Laji uusiLaji=new Laji(lajinNimi, booleanYleisSarja, booleanMiestenSarja, booleanNaistenSarja, booleanMiestenU18, booleanNaistenU18);
+			main.lajit.add(uusiLaji);
+			main.lisaaLajiPuunakymaan(uusiLaji);
+			suljeIkkuna(e);
+		
+		}						
 	}
 	
 	

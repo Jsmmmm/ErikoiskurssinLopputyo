@@ -29,6 +29,7 @@ public class KilpailijoidenLisaaminenLajiinController {
 			
 		for(Kilpailija kilpailija : valitutKohteet){
 			laji.lajinOsallistujat.add(new Osallistuja(kilpailija));
+			//System.out.println(kilpailija.toString()); toimii:-)
 		}
 		laji.sijoitaOsallistujatSarjoihin(); 
 		
