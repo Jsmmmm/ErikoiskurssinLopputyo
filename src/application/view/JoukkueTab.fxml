@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.JoukkueTabController">
+<AnchorPane prefHeight="575.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.JoukkueTabController">
    <children>
-      <VBox layoutX="10.0" layoutY="10.0" prefHeight="219.0" prefWidth="408.0">
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="575.0" prefWidth="1030.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>

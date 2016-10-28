@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="575.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.MainTabController">
+   <children>
+      <VBox layoutY="2.0" prefHeight="575.0" prefWidth="1030.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="66.0" prefWidth="205.0" text="Tervetuloa käyttämään">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="67.0" prefWidth="192.0" text="&quot;kilpailun nimi&quot;">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="58.0" prefWidth="325.0" text="kilpailun tulostenkirjausohjelmaa!">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="1030.0">
+               <children>
+                  <Label prefHeight="46.0" prefWidth="141.0" text="Kilpailun tietoja:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="1030.0">
+               <children>
+                  <Label prefHeight="46.0" prefWidth="141.0" text="Kilpailijoita: ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label prefHeight="46.0" prefWidth="141.0" text="Lajeja:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="46.0" prefWidth="141.0" text="Toimihenkilöitä:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children></VBox>
+   </children>
+</AnchorPane>

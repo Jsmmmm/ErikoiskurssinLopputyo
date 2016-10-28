@@ -19,6 +19,7 @@ public class MainController{
 	@FXML HenkiloTabController henkiloTabController;
 	@FXML JoukkueTabController joukkueTabController;
 	@FXML LajiTabController lajiTabController;
+	@FXML MainTabController mainTabController;
 	@FXML TreeViewController treeViewViewController;
 	@FXML ListViewController listViewController;
 	
@@ -41,7 +42,8 @@ public class MainController{
 	Tab joukkueValilehti;
 	@FXML
 	Tab henkiloValilehti;
-	
+	@FXML
+	Tab mainValilehti;
 	
 	
 	
@@ -127,6 +129,7 @@ public class MainController{
 		lajiTabController.init(this);
 		treeViewViewController.init(this);
 		listViewController.init(this);
+		mainTabController.init(this);
 	}
 	
 	public void printtaa(){

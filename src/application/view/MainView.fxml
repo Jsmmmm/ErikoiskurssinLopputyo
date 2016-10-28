@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.MainController">
+<BorderPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.MainController">
    
    <top>
       <MenuBar BorderPane.alignment="CENTER">
@@ -32,10 +32,15 @@
       </MenuBar>
    </top>
    <center>
-      <VBox prefHeight="465.0" prefWidth="697.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
-            <TabPane fx:id="tabPane" prefHeight="374.0" prefWidth="697.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
               <tabs>
+                  <Tab fx:id="mainValilehti" text="Main">
+                     <content>                      
+                         <fx:include fx:id="mainTab" source="MainTab.fxml" />                                               
+                     </content>
+                  </Tab>
                 <Tab fx:id="henkiloValilehti" text="Henkilo">
                      <content>
                         <fx:include fx:id="henkiloTab" source="HenkiloTab.fxml" />
