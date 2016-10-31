@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.MainTabController">
    <children>
       <GridPane layoutY="75.0" prefHeight="500.0" prefWidth="1030.0">
@@ -56,9 +55,9 @@
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="448.0" spacing="7.0">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Uusi" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
+                              <Button fx:id="uusiJoukkue" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#uusiJoukkueButton" text="Uusi" />
+                              <Button fx:id="muokkaaJoukkue" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
+                              <Button fx:id="poistaJoukkue" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
                            </children>
                         </HBox>
                      </children>
@@ -94,9 +93,9 @@
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="448.0" spacing="7.0">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Uusi" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
+                              <Button fx:id="uusiLaji" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#uusiLajiButton" text="Uusi" />
+                              <Button fx:id="muokkaaLaji" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
+                              <Button fx:id="poistaLaji" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
                            </children>
                         </HBox>
                      </children>
@@ -170,9 +169,9 @@
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="448.0" spacing="7.0">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Uusi" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
+                              <Button fx:id="uusiKilpailija" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#uusiKilpailijaButton" text="Uusi" />
+                              <Button fx:id="muokkaaKilpailija" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
+                              <Button fx:id="poistaKilpailija" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
                            </children>
                         </HBox>
                      </children>

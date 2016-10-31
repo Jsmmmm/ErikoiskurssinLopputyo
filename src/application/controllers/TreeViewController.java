@@ -61,6 +61,8 @@ public class TreeViewController{
 
 			if (klikattuKohde.getParent() == kilpailijatLehti) {
 				main.tabPane.getSelectionModel().select(main.henkiloValilehti);
+				
+				//main.tabPane.getTabs().add(main.henkiloValilehti);
 				main.avaaKilpailijanTiedot(klikattuKohde.getValue());
 				
 			} else if (klikattuKohde.getParent() == joukkueetLehti) {

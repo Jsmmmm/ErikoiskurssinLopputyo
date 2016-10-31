@@ -1,56 +1,38 @@
 package application.controllers;
 
-
-
 import application.model.Henkilo;
-import application.model.Joukkue;
 import application.model.Kilpailija;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
-public class HenkiloTabController{
- 
+public class HenkilonLuominenController {
+
 	MainController main;
+	
 	@FXML ToggleGroup group;
-	@FXML Label etunimiKentta;
-	@FXML Label sukunimiKentta;
-	@FXML Label ikaKentta;
+	@FXML TextField etunimiKentta;
+	@FXML TextField sukunimiKentta;
+	@FXML TextField ikaKentta;
 	@FXML RadioButton mies;
 	@FXML RadioButton nainen;
-	
-	@FXML
-	Button tallenna;
-	Button tyhjenna;
-	Button poista;
-	
-	
-	
-	public void avaaHenkilonTiedot(Henkilo henkilo){
-		etunimiKentta.setText(henkilo.kerroEtunimi());
-		sukunimiKentta.setText(henkilo.kerroSukunimi());
-		ikaKentta.setText(Integer.toString(henkilo.kerroIka()));
-		if(henkilo.kerroSukupuoli().equals("Mies")){
-			mies.setSelected(true);
-		}else nainen.setSelected(true);
-	}
-	
-	@FXML
-	public void initialize() {
-				
-	}
+	@FXML Circle pallo1;
+	@FXML Circle pallo2;
+	@FXML Circle pallo3;
+	@FXML Button tallenna;
+	@FXML Button tyhjenna;
+	@FXML Button peruuta;
 	
 	public void init(MainController mainController){
 		main=mainController;
 	}
 	
-	/*
-	public Kilpailija tallennaHenkilo(){
+public Kilpailija tallennaHenkilo(){
 		
 		boolean x = false;
 		boolean y = false;
@@ -90,14 +72,11 @@ public class HenkiloTabController{
 			
 		}tyhjennaTekstikentat();
 		return kilpailija;
-		
-		
-	}*/
-	
-	
-	
-	
-	/*public void tyhjennaTekstikentat(){
+				
+	}
+
+
+	public void tyhjennaTekstikentat(){
 		etunimiKentta.clear();
 		sukunimiKentta.clear();
 		ikaKentta.clear();
@@ -107,28 +86,25 @@ public class HenkiloTabController{
 		etunimiKentta.setPromptText("Etunimi");
 		sukunimiKentta.setPromptText("Sukunimi");
 		ikaKentta.setPromptText("Ikä");
-	} */
+	}
 	
-	
-	/*
 	@FXML
 	public void tallennaNappiaPainettu(ActionEvent e){
 		Kilpailija kilpailija=tallennaHenkilo();
 		if(kilpailija!=null){
 			main.kilpailijat.add(kilpailija);
 			main.treeViewViewController.lisaaHenkiloOlioPuunakymaan(kilpailija); }		
-	} */
+	}
 	
-	/*
 	@FXML
 	public void tyhjennaNappiaPainettu(ActionEvent e){	
 		tyhjennaTekstikentat();		
-	} */
-	
-	@FXML
-	public void poistaNappiaPainettu(ActionEvent e){
-		main.treeViewViewController.poista(e);		
 	}
 	
+	@FXML
+	public void peruutaNappiaPainettu(ActionEvent e){
+		 Stage stage = (Stage) peruuta.getScene().getWindow();		   
+		 stage.close();
+	}
 	
 }

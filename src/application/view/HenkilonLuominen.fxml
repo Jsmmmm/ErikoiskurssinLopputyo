@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.HenkilonLuominenController">
    <children>
       <HBox prefHeight="50.0">
          <children>
@@ -73,7 +72,7 @@
          <children>
             <Button fx:id="tallenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#tallennaNappiaPainettu" text="Tallenna" />
             <Button fx:id="tyhjenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#tyhjennaNappiaPainettu" text="Tyhjenna" />
-            <Button mnemonicParsing="false" text="Peruuta" />
+            <Button fx:id="peruuta" mnemonicParsing="false" onAction="#peruutaNappiaPainettu" text="Peruuta" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" />

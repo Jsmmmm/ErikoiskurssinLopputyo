@@ -3,12 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 
 <AnchorPane prefHeight="575.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.HenkiloTabController">
    <children>
@@ -16,40 +14,37 @@
          <children>
             <HBox prefHeight="50.0" spacing="10.0">
                <children>
-                  <Label prefHeight="27.0" prefWidth="63.0" text="Etunimi" />
-                  <TextField fx:id="etunimiKentta" promptText="Etunimi" />
-                  <Circle fx:id="pallo1" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Label prefHeight="27.0" prefWidth="63.0" text="Etunimi:" />
+                  <Label fx:id="etunimiKentta" prefHeight="27.0" prefWidth="192.0" />
                </children>
             </HBox>
             <HBox prefHeight="50.0" spacing="10.0">
                <children>
-                  <Label prefHeight="26.0" prefWidth="65.0" text="Sukunimi" />
-                  <TextField fx:id="sukunimiKentta" promptText="Sukunimi" />
-                  <Circle fx:id="pallo2" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Label prefHeight="26.0" prefWidth="65.0" text="Sukunimi:" />
+                  <Label fx:id="sukunimiKentta" prefHeight="27.0" prefWidth="198.0" />
                </children>
             </HBox>
             <HBox prefHeight="50.0">
                <children>
-                  <Label prefHeight="26.0" prefWidth="72.0" text="Ikä" />
-                  <TextField fx:id="ikaKentta" prefHeight="27.0" prefWidth="76.0" promptText="Ika" />
-                  <Circle fx:id="pallo3" fill="#e40505" radius="12.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Label prefHeight="26.0" prefWidth="77.0" text="Ikä:" />
+                  <Label fx:id="ikaKentta" prefHeight="27.0" prefWidth="61.0" />
                </children>
             </HBox>
             <HBox prefHeight="50.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="72.0" text="Sukupuoli" />
-                  <RadioButton fx:id="mies" mnemonicParsing="false" selected="true" text="Mies">
+                  <Label prefHeight="21.0" prefWidth="72.0" text="Sukupuoli:" />
+                  <RadioButton fx:id="mies" disable="true" mnemonicParsing="false" selected="true" text="Mies">
                      <toggleGroup>
                         <ToggleGroup fx:id="group" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="nainen" mnemonicParsing="false" text="Nainen" toggleGroup="$group" />
+                  <RadioButton fx:id="nainen" disable="true" mnemonicParsing="false" text="Nainen" toggleGroup="$group" />
                </children>
             </HBox>
             <HBox prefHeight="36.0" spacing="10.0">
                <children>
-                  <Button fx:id="tallenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#tallennaNappiaPainettu" text="Tallenna" />
-                  <Button fx:id="tyhjenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#tyhjennaNappiaPainettu" text="Tyhjenna" />
+                  <Button fx:id="tallenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Tallenna" />
+                  <Button fx:id="tyhjenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Tyhjenna" />
                   <Button fx:id="poista" mnemonicParsing="false" onAction="#poistaNappiaPainettu" text="Poista" />
                </children>
             </HBox>
