@@ -9,7 +9,7 @@ public class Laji {
 	
 	public ArrayList<Osallistuja> lajinOsallistujat = new ArrayList<Osallistuja>();
 	
-	public Sarja yleisSarja;
+	public Sarja yleisSarja; 
 	Sarja miestenYleisSarja;
 	Sarja miestenU18Sarja;
 	Sarja naistenYleisSarja;

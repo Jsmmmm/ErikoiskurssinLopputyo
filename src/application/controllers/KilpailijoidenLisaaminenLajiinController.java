@@ -29,7 +29,7 @@ public class KilpailijoidenLisaaminenLajiinController {
 			
 		for(Kilpailija kilpailija : valitutKohteet){
 			laji.lajinOsallistujat.add(new Osallistuja(kilpailija));
-			//System.out.println(kilpailija.toString()); toimii:-)
+			System.out.println(kilpailija.toString()); 
 		}
 		laji.sijoitaOsallistujatSarjoihin(); 
 		
@@ -37,9 +37,10 @@ public class KilpailijoidenLisaaminenLajiinController {
 	
 	public void initData(MainController main, Laji laji/*String valittuLaji*/){
 		this.main=main;
+		this.laji=laji;
 		taytaListView();
 		//laji=main.haeLaji(valittuLaji);					
-		this.laji=laji;
+		
 	}
 	
 	

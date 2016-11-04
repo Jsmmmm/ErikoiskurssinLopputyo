@@ -58,10 +58,11 @@ public class LajiTabController {
 	
 	@FXML
 	public void kilpailijoidenLisaaminenNappiaPainettu(ActionEvent e){
-		try{ naytaLajiinLisaamisIkkuna(main);}
+		try{ naytaLajiinLisaamisIkkuna(main);} //tämä ei toimi, koska main controlleria ei olla asetettu! Tämän luokan init metodia ei olla tökätty luokan ulkopuolelta
 		catch(Exception i){i.printStackTrace();
 			
-		}		
+		}	
+		
 	}
 	
 	
@@ -69,7 +70,7 @@ public class LajiTabController {
 		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/KilpailijoidenLisaaminenLajiin.fxml" ));
 		 Stage stage = new Stage();		 
 		 stage.setScene(new Scene(loader.load()));
-		  stage.setTitle("Kilpailijoiden lisaaminen lajiin: "+lajinNimiKentta.getText());
+		  stage.setTitle("Kilpailijoiden lisaaminen lajiin: "+laji.toString());
 		  KilpailijoidenLisaaminenLajiinController controller = loader.<KilpailijoidenLisaaminenLajiinController>getController();
 		  controller.initData(main, laji/*lajinNimiKentta.getText()*/);
 		  stage.show();

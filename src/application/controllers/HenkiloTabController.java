@@ -42,7 +42,7 @@ public class HenkiloTabController{
 	
 	@FXML
 	public void initialize() {
-				
+		
 	}
 	
 	public void init(MainController mainController){

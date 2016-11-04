@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class MainTabController {
@@ -25,10 +26,22 @@ public class MainTabController {
 	@FXML Button muokkaaLaji;
 	@FXML Button poistaLaji;
 	
+	@FXML Label kilpailijoita;
+	@FXML Label miehia;
+	@FXML Label naisia;
+	@FXML Label miehiaU18;
+	@FXML Label naisiaU18;
+	@FXML Label joukkueita;
+	/*@FXML
+	public void initialize(){
+		
+	}*/
 	
 	public void init(MainController mainController){
 		main=mainController;
+		
 	}
+	
 	
 
 	@FXML

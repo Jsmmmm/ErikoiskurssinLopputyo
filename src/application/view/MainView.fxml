@@ -34,26 +34,11 @@
    <center>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPane">
               <tabs>
-                  <Tab fx:id="mainValilehti" text="Main">
+                  <Tab fx:id="mainValilehti" closable="false" text="Main">
                      <content>                      
                          <fx:include fx:id="mainTab" source="MainTab.fxml" />                                               
-                     </content>
-                  </Tab>
-                <Tab fx:id="henkiloValilehti" text="Henkilo">
-                     <content>
-                        <fx:include fx:id="henkiloTab" source="HenkiloTab.fxml" />
-                     </content>
-                </Tab>
-                <Tab fx:id="joukkueValilehti" text="Joukkue">
-                     <content>
-                        <fx:include fx:id="joukkueTab" source="JoukkueTab.fxml" />
-                     </content>
-                </Tab>
-                  <Tab fx:id="lajiValilehti" text="Laji">
-                     <content>
-                        <fx:include fx:id="lajiTab" source="LajiTab.fxml" />
                      </content>
                   </Tab>
               </tabs>

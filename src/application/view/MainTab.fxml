@@ -35,7 +35,8 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="64.0" text="Joukkueita" />
+                              <Label fx:id="joukkueita" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
@@ -73,12 +74,14 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="64.0" text="Lajeja" />
+                              <Label fx:id="lajeja" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="64.0" text="Sarjoja" />
+                              <Label fx:id="sarjoja" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
@@ -149,25 +152,35 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="64.0" text="Kipailijoita" />
+                              <Label fx:id="kilpailijoita" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="64.0" text="Miehiä" />
+                              <Label fx:id="miehia" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="64.0" text="Naisia" />
+                              <Label fx:id="naisia" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="64.0" text="Miehiä U18" />
+                              <Label fx:id="miehiaU18" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
-                        <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="448.0" spacing="7.0">
+                        <HBox prefHeight="25.0" prefWidth="448.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="64.0" text="Naisia U18" />
+                              <Label fx:id="naisiaU18" prefHeight="17.0" prefWidth="39.0" text="0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="30.0" prefWidth="448.0" spacing="7.0">
                            <children>
                               <Button fx:id="uusiKilpailija" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#uusiKilpailijaButton" text="Uusi" />
                               <Button fx:id="muokkaaKilpailija" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />

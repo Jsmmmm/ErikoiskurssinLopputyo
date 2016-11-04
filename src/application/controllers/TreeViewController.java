@@ -4,9 +4,12 @@ package application.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import application.model.*;
 
 public class TreeViewController{
@@ -60,18 +63,53 @@ public class TreeViewController{
 			TreeItem<String> klikattuKohde = treeView.getSelectionModel().getSelectedItem();
 
 			if (klikattuKohde.getParent() == kilpailijatLehti) {
-				main.tabPane.getSelectionModel().select(main.henkiloValilehti);
 				
-				//main.tabPane.getTabs().add(main.henkiloValilehti);
-				main.avaaKilpailijanTiedot(klikattuKohde.getValue());
+				try{				
+					Tab tab = new Tab();
+					
+					main.tabPane.getTabs().add(tab);
+					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/HenkiloTab.fxml" ));
+					tab.setContent(loader.load());				
+					HenkiloTabController controller = loader.<HenkiloTabController>getController();					
+					controller.avaaHenkilonTiedot(main.haeKilpailija(klikattuKohde.getValue()));
+					tab.setText(klikattuKohde.getValue());
+					tab.isClosable();
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+				
 				
 			} else if (klikattuKohde.getParent() == joukkueetLehti) {
-				main.tabPane.getSelectionModel().select(main.joukkueValilehti);
-				main.avaaJoukkueenTiedot(klikattuKohde.getValue());
+				
+				try{				
+					Tab tab = new Tab();
+					
+					main.tabPane.getTabs().add(tab);
+					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/JoukkueTab.fxml" ));
+					tab.setContent(loader.load());				
+					JoukkueTabController controller = loader.<JoukkueTabController>getController();					
+					controller.avaaJoukkueenTiedot(main.haeJoukkue(klikattuKohde.getValue()));
+					tab.setText(klikattuKohde.getValue());
+					tab.isClosable();
+				}catch(Exception e){
+					e.printStackTrace();
+				}
 				
 			} else if (klikattuKohde.getParent() == lajiLehti) {
-				main.tabPane.getSelectionModel().select(main.lajiValilehti);
-				main.avaaLajinTiedot(klikattuKohde.getValue());
+				try{				
+					Tab tab = new Tab();
+					
+					main.tabPane.getTabs().add(tab);
+					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/LajiTab.fxml" ));
+					tab.setContent(loader.load());				
+					LajiTabController controller = loader.<LajiTabController>getController();	
+					controller.init(main);
+					controller.avaaLajinTiedot(main.haeLaji(klikattuKohde.getValue()));
+					tab.setText(klikattuKohde.getValue());
+					tab.isClosable();
+				}catch(Exception e){
+					e.printStackTrace();
+				}
 			}
 		}
 	}

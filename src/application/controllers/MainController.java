@@ -17,7 +17,7 @@ public class MainController{
 	
 	KilpailijoidenLisaaminenLajiinController kilpailijoidenLisaaminenLajiinController; 
 	@FXML HenkiloTabController henkiloTabController;
-	@FXML JoukkueTabController joukkueTabController;
+	@FXML JoukkueTabController joukkueTabController; 
 	@FXML LajiTabController lajiTabController;
 	@FXML MainTabController mainTabController;
 	@FXML TreeViewController treeViewViewController;
@@ -34,7 +34,8 @@ public class MainController{
 	Button tallenna;
 	Button tyhjenna;
 	Button poista;
-		
+	
+	//int kilpailijoidenLKM;
 	
 	@FXML
 	Tab lajiValilehti;
@@ -46,12 +47,18 @@ public class MainController{
 	Tab mainValilehti;
 	
 	
+	public void avaaUusiValilehti(){
+		
+	}
 	
 	public void lisaaLajiPuunakymaan(Laji laji){
 		treeViewViewController.lisaaLajiOlioPuunakymaan(laji);
 	}
 	
-	
+	public void paivitaStatsit(){
+		mainTabController.kilpailijoita.setText( Integer.toString(kilpailijat.size()) );
+		mainTabController.joukkueita.setText( Integer.toString(joukkueet.size()) );
+	}
 	
 	public void poistaHenkilo(String nimi){
 		Kilpailija kilpailija = haeKilpailija(nimi);	
@@ -124,17 +131,17 @@ public class MainController{
 	
 	@FXML
 	public void initialize() {
-		henkiloTabController.init(this);
-		joukkueTabController.init(this);
-		lajiTabController.init(this);
+	
 		treeViewViewController.init(this);
 		listViewController.init(this);
 		mainTabController.init(this);
+		
 	}
 	
 	public void printtaa(){
 		System.out.println("Toimii");
 	}
+	
 	
 	
 }

@@ -70,6 +70,8 @@ public Kilpailija tallennaHenkilo(){
 			
 			System.out.println(kilpailija.toString());
 			
+			
+			
 		}tyhjennaTekstikentat();
 		return kilpailija;
 				
@@ -93,7 +95,9 @@ public Kilpailija tallennaHenkilo(){
 		Kilpailija kilpailija=tallennaHenkilo();
 		if(kilpailija!=null){
 			main.kilpailijat.add(kilpailija);
-			main.treeViewViewController.lisaaHenkiloOlioPuunakymaan(kilpailija); }		
+			main.treeViewViewController.lisaaHenkiloOlioPuunakymaan(kilpailija);
+			main.paivitaStatsit();
+		}		
 	}
 	
 	@FXML
