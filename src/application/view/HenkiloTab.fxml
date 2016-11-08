@@ -40,9 +40,8 @@
       </HBox>
       <HBox prefHeight="36.0" spacing="10.0">
          <children>
-            <Button fx:id="tallenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Tallenna" />
             <Button fx:id="tyhjenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Muokkaa" />
-            <Button fx:id="poista" mnemonicParsing="false" onAction="#poistaNappiaPainettu" text="Poista" />
+            <Button fx:id="poista" mnemonicParsing="false" onAction="#poistaPainettu" text="Poista" />
          </children>
       </HBox>
    </children>

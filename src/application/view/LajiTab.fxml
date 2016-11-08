@@ -43,5 +43,6 @@
       </VBox>
       <Button fx:id="kilpailijoidenLisaaminenNappi" layoutX="10.0" layoutY="290.0" mnemonicParsing="false" onAction="#kilpailijoidenLisaaminenNappiaPainettu" prefHeight="25.0" prefWidth="152.0" text="Kilpailijoiden lisääminen" />
       <Button fx:id="kilpailijoidenPoistaminen" layoutX="171.0" layoutY="290.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="Kilpailijoiden poistaminen" />
+      <Button fx:id="poistaLaji" layoutX="348.0" layoutY="290.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Poista laji" />
    </children>
 </AnchorPane>

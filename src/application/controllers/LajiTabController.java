@@ -28,6 +28,7 @@ public class LajiTabController {
 	@FXML CheckBox naistenU18;
 	@FXML Button kilpailijoidenPoistaminen;
 	@FXML Button luoUusiLaji;
+	@FXML Button poistaLaji;
 	
 	public void init(MainController mainController){
 		main=mainController;

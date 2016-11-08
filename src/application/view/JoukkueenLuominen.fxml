@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.JoukkueenLuominenController">
    <children>
       <HBox prefHeight="36.0" prefWidth="640.0">
@@ -18,7 +17,7 @@
       <HBox prefHeight="47.0" prefWidth="408.0" spacing="10.0">
          <children>
             <Button fx:id="tallenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#tallennaNappiaPainettu" text="Tallenna" />
-            <Button fx:id="tyhjenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#tyhjennaNappiaPainettu" text="Tyhjenna" />
+            <Button fx:id="peruuta" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#peruutaPainettu" text="Peruuta" />
          </children>
       </HBox>
    </children>

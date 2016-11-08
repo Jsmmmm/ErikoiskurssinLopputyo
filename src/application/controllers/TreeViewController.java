@@ -70,10 +70,12 @@ public class TreeViewController{
 					main.tabPane.getTabs().add(tab);
 					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/HenkiloTab.fxml" ));
 					tab.setContent(loader.load());				
-					HenkiloTabController controller = loader.<HenkiloTabController>getController();					
+					HenkiloTabController controller = loader.<HenkiloTabController>getController();
+					controller.init(main, tab);
 					controller.avaaHenkilonTiedot(main.haeKilpailija(klikattuKohde.getValue()));
 					tab.setText(klikattuKohde.getValue());
 					tab.isClosable();
+					//return tab;
 				}catch(Exception e){
 					e.printStackTrace();
 				}
@@ -88,6 +90,7 @@ public class TreeViewController{
 					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/JoukkueTab.fxml" ));
 					tab.setContent(loader.load());				
 					JoukkueTabController controller = loader.<JoukkueTabController>getController();					
+					controller.init(main, tab);
 					controller.avaaJoukkueenTiedot(main.haeJoukkue(klikattuKohde.getValue()));
 					tab.setText(klikattuKohde.getValue());
 					tab.isClosable();

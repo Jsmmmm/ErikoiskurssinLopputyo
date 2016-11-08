@@ -5,11 +5,12 @@ import application.model.Kilpailija;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 
 public class JoukkueTabController {
 
-	
+	Tab tab;
 	MainController main;
 	@FXML Label joukkueenNimiKentta;
 	
@@ -29,8 +30,9 @@ public class JoukkueTabController {
 		
 	}
 	
-	public void init(MainController mainController){
+	public void init(MainController mainController, Tab tab){
 		main=mainController;
+		this.tab=tab;
 	}
 	
 	/*
@@ -58,10 +60,12 @@ public class JoukkueTabController {
 	public void tyhjennaNappiaPainettu(ActionEvent e){		
 		tyhjennaTekstikentat();	
 	} */
-	/*
+	
+	
 	@FXML
-	public void poistaNappiaPainettu(ActionEvent e){
-		main.treeViewViewController.poista(e);		
-	} */
+	public void poistaPainettu(ActionEvent e){
+		main.treeViewViewController.poista(e);	
+		main.tabPane.getTabs().remove(tab);
+	} 
 	
 }

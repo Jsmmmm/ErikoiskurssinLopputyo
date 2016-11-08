@@ -3,13 +3,16 @@ package application.controllers;
 import application.model.Joukkue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class JoukkueenLuominenController {
 
 	MainController main;
 	
-@FXML TextField joukkueenNimiKentta;
+	@FXML TextField joukkueenNimiKentta;
+	@FXML Button peruuta;
 	
 	
 	public Joukkue tallennaJoukkue(){
@@ -41,8 +44,13 @@ public class JoukkueenLuominenController {
 			}
 	}
 	
+	
 	@FXML
-	public void tyhjennaNappiaPainettu(ActionEvent e){		
-		tyhjennaTekstikentat();	
+	public void peruutaPainettu(ActionEvent e){
+		 Stage stage = (Stage) peruuta.getScene().getWindow();		   
+		 stage.close();
 	}
+	
+	
+	
 }
