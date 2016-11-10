@@ -5,9 +5,12 @@ package application.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import application.model.*;
@@ -15,13 +18,21 @@ import application.model.*;
 public class TreeViewController{
 
 	MainController main;
+
+	
+	private final Image kilpailijaIcon = new Image(getClass().getResourceAsStream("/application/Icons/userIcon.png"));
+	private final Image joukkueIcon = new Image(getClass().getResourceAsStream("/application/Icons/teamIcon.png"));
+	private final Image lajiIcon = new Image(getClass().getResourceAsStream("/application/Icons/lajiIcon.png"));
 	
 	@FXML
 	TreeView<String> treeView;	
 	TreeItem<String> root = new TreeItem<>();
-	TreeItem<String> kilpailijatLehti = new TreeItem<>("Kilpailijat");
-	TreeItem<String> joukkueetLehti = new TreeItem<>("Joukkueet");
-	TreeItem<String> lajiLehti = new TreeItem<>("Lajit");
+	TreeItem<String> kilpailijatLehti = new TreeItem<>("Kilpailijat", new ImageView(kilpailijaIcon));
+	TreeItem<String> joukkueetLehti = new TreeItem<>("Joukkueet", new ImageView(joukkueIcon));
+	TreeItem<String> lajiLehti = new TreeItem<>("Lajit", new ImageView(lajiIcon));
+	
+	
+	
 	
 	public void lisaaHenkiloOlioPuunakymaan(Kilpailija kilpailija){
 		kilpailijatLehti.getChildren().add(new TreeItem<>(kilpailija.toString()));
@@ -123,6 +134,7 @@ public class TreeViewController{
 	@FXML
 	public void initialize() {
 		root.getChildren().addAll(kilpailijatLehti, joukkueetLehti, lajiLehti);
+		
 		treeView.setRoot(root);
 		root.setExpanded(true);
 		kilpailijatLehti.setExpanded(true);

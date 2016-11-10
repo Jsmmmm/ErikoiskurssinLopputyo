@@ -62,7 +62,9 @@ public class Laji {
 				lisaaOsallistujaSarjaan(osallistuja, yleisSarja);
 				//yleisSarja.sarjanOsallistujat.add(osallistuja);
 				
-			}			
+			}
+			
+
 			//miesten osallistuminen
 			if(osallistuja.kilpailija.kerroSukupuoli().equals("Mies")){								
 				
