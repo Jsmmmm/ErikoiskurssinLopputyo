@@ -23,6 +23,7 @@ public class TreeViewController{
 	private final Image kilpailijaIcon = new Image(getClass().getResourceAsStream("/application/Icons/userIcon.png"));
 	private final Image joukkueIcon = new Image(getClass().getResourceAsStream("/application/Icons/teamIcon.png"));
 	private final Image lajiIcon = new Image(getClass().getResourceAsStream("/application/Icons/lajiIcon.png"));
+	private final Image trophyIcon = new Image(getClass().getResourceAsStream("/application/Icons/trophyIcon.jpg"));
 	
 	@FXML
 	TreeView<String> treeView;	
@@ -30,7 +31,7 @@ public class TreeViewController{
 	TreeItem<String> kilpailijatLehti = new TreeItem<>("Kilpailijat", new ImageView(kilpailijaIcon));
 	TreeItem<String> joukkueetLehti = new TreeItem<>("Joukkueet", new ImageView(joukkueIcon));
 	TreeItem<String> lajiLehti = new TreeItem<>("Lajit", new ImageView(lajiIcon));
-	
+	TreeItem<String> tulosLehti = new TreeItem<>("Tulokset", new ImageView(trophyIcon));
 	
 	
 	
@@ -43,13 +44,38 @@ public class TreeViewController{
 	}
 	
 	public void lisaaLajiOlioPuunakymaan(Laji laji){
-		lajiLehti.getChildren().add(new TreeItem<>(laji.toString()));
+		TreeItem<String> lajiOlio = new TreeItem<>(laji.toString());
+		lajiLehti.getChildren().add(lajiOlio);
+		
+		
 	}
 	
 	public void init(MainController mainController){
 		main=mainController;
 	}
 	
+	public void lisaaTuloksetPuunakymaan(Laji laji){
+	TreeItem<String> lajinTulokset = new TreeItem<>(laji.toString());
+		tulosLehti.getChildren().add(lajinTulokset);
+		
+		if(laji.booleanYleisSarja){
+			lajinTulokset.getChildren().add(new TreeItem<>("Yleissarja"));
+		}
+			
+		if(laji.booleanMiestenSarja){
+			lajinTulokset.getChildren().add(new TreeItem<>("Miesten sarja"));
+		}
+		if(laji.booleanNaistenSarja){
+			lajinTulokset.getChildren().add(new TreeItem<>("Naisten sarja"));
+		}
+		if(laji.booleanNaistenU18){
+			lajinTulokset.getChildren().add(new TreeItem<>("Naisten sarja U18"));
+		}
+		if(laji.booleanMiestenU18){
+			lajinTulokset.getChildren().add(new TreeItem<>("Mieseten sarja U18"));
+		}
+		
+	}
 	
 	public void poista(ActionEvent e){
 		TreeItem<String> poistettava = treeView.getSelectionModel().getSelectedItem();		
@@ -125,6 +151,23 @@ public class TreeViewController{
 					e.printStackTrace();
 				}
 			}
+			else if(klikattuKohde.getParent().getParent() == tulosLehti){
+				try{
+					
+					Tab tab = new Tab();					
+					main.tabPane.getTabs().add(tab);
+					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SarjaTab.fxml" ));
+					tab.setContent(loader.load());				
+					SarjaTabController controller = loader.<SarjaTabController>getController();	
+					controller.init(main);
+				//	controller.avaaSarjanTiedot(main.haeLaji(klikattuKohde.getValue()));
+					tab.setText(klikattuKohde.getParent().getValue()+": "+klikattuKohde.getValue());
+					tab.isClosable();
+					
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 	
@@ -133,13 +176,14 @@ public class TreeViewController{
 	
 	@FXML
 	public void initialize() {
-		root.getChildren().addAll(kilpailijatLehti, joukkueetLehti, lajiLehti);
+		root.getChildren().addAll(kilpailijatLehti, joukkueetLehti, lajiLehti, tulosLehti);
 		
 		treeView.setRoot(root);
 		root.setExpanded(true);
 		kilpailijatLehti.setExpanded(true);
 		joukkueetLehti.setExpanded(true);
 		lajiLehti.setExpanded(true);
+		tulosLehti.setExpanded(true);
 	}
 	
 	

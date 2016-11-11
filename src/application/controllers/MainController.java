@@ -29,30 +29,20 @@ public class MainController{
 	ArrayList<Henkilo> henkilot = new ArrayList<Henkilo>();
 	ArrayList<Joukkue> joukkueet = new ArrayList<Joukkue>();
 	ArrayList<Laji> lajit = new ArrayList<Laji>(); 
-	
-	@FXML
-	Button tallenna;
-	Button tyhjenna;
-	Button poista;
+		
 	
 	//int kilpailijoidenLKM;
 	
-	@FXML
-	Tab lajiValilehti;
-	@FXML
-	Tab joukkueValilehti;
-	@FXML
-	Tab henkiloValilehti;
-	@FXML
-	Tab mainValilehti;
+	@FXML Tab lajiValilehti;
+	@FXML Tab joukkueValilehti;
+	@FXML Tab henkiloValilehti;
+	@FXML Tab mainValilehti;
 	
-	
-	public void avaaUusiValilehti(){
 		
-	}
 	
 	public void lisaaLajiPuunakymaan(Laji laji){
 		treeViewViewController.lisaaLajiOlioPuunakymaan(laji);
+		treeViewViewController.lisaaTuloksetPuunakymaan(laji);
 	}
 	
 	public void paivitaStatsit(){
