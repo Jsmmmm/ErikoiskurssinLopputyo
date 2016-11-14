@@ -103,6 +103,24 @@ public class MainController{
 		}return joukkue;
 	}
 	
+	public Sarja haeSarja(Laji laji, String sarjanNimi){
+		Sarja sarja=null;
+		switch(sarjanNimi){
+		case "Yleissarja" : sarja = laji.yleisSarja;
+			break;
+		case "Miesten sarja" : sarja = laji.miestenYleisSarja ;
+			break;
+		case "Miesten sarja U18" : sarja = laji.miestenU18Sarja;
+			break;
+		case "Naisten sarja" : sarja = laji.naistenYleisSarja;
+			break;
+		case "Naisten sarja U18" : sarja=laji.naistenU18Sarja;
+			break;
+		
+		}				
+		return sarja;
+	}
+	
 	public void avaaKilpailijanTiedot(String kilpailijanNimi){
 		Kilpailija kilpailija = haeKilpailija(kilpailijanNimi);
 		henkiloTabController.avaaHenkilonTiedot(kilpailija);
@@ -118,6 +136,8 @@ public class MainController{
 		Joukkue joukkue = haeJoukkue(joukkueenNimi);
 		joukkueTabController.avaaJoukkueenTiedot(joukkue);
 	}
+	
+	
 	
 	@FXML
 	public void initialize() {

@@ -9,7 +9,8 @@ public class Henkilo {
 		public String sukupuoli;
 		public static final int NIMI_MAX_PITUUS = 64;
 		public String joukkue;
-				
+		
+		
 		
 		public Henkilo(String etunimi, String sukunimi, int ika, String sp){
 			this.etunimi=etunimi;

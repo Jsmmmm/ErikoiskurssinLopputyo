@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
 
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="application.controllers.SarjaTabController">
-	<!-- TODO Add Nodes -->
-</VBox>
+<AnchorPane prefHeight="575.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.SarjaTabController">
+   <children>
+      <ListView fx:id="listView" layoutX="31.0" layoutY="37.0" prefHeight="501.0" prefWidth="484.0" />
+      <Label layoutX="58.0" layoutY="14.0" prefHeight="17.0" prefWidth="81.0" text="Label" />
+   </children>
+</AnchorPane>

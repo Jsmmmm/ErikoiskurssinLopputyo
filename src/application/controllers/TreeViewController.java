@@ -39,20 +39,22 @@ public class TreeViewController{
 		kilpailijatLehti.getChildren().add(new TreeItem<>(kilpailija.toString()));
 	}
 	
+	
 	public void lisaaJoukkueOlioPuunakymaan(Joukkue joukkue){
 		joukkueetLehti.getChildren().add(new TreeItem<>(joukkue.toString()));
 	}
 	
+	
 	public void lisaaLajiOlioPuunakymaan(Laji laji){
 		TreeItem<String> lajiOlio = new TreeItem<>(laji.toString());
-		lajiLehti.getChildren().add(lajiOlio);
-		
-		
+		lajiLehti.getChildren().add(lajiOlio);	
 	}
+	
 	
 	public void init(MainController mainController){
 		main=mainController;
 	}
+	
 	
 	public void lisaaTuloksetPuunakymaan(Laji laji){
 	TreeItem<String> lajinTulokset = new TreeItem<>(laji.toString());
@@ -72,7 +74,7 @@ public class TreeViewController{
 			lajinTulokset.getChildren().add(new TreeItem<>("Naisten sarja U18"));
 		}
 		if(laji.booleanMiestenU18){
-			lajinTulokset.getChildren().add(new TreeItem<>("Mieseten sarja U18"));
+			lajinTulokset.getChildren().add(new TreeItem<>("Miesten sarja U18"));
 		}
 		
 	}
@@ -159,9 +161,13 @@ public class TreeViewController{
 					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SarjaTab.fxml" ));
 					tab.setContent(loader.load());				
 					SarjaTabController controller = loader.<SarjaTabController>getController();	
-					controller.init(main);
-				//	controller.avaaSarjanTiedot(main.haeLaji(klikattuKohde.getValue()));
-					tab.setText(klikattuKohde.getParent().getValue()+": "+klikattuKohde.getValue());
+					
+				
+					Laji laji = main.haeLaji(klikattuKohde.getParent().getValue());
+					Sarja sarja = main.haeSarja(laji, klikattuKohde.getValue());
+					controller.init(main, sarja);
+					controller.taytaListView();
+					tab.setText(laji.toString()+": "+sarja.toString());
 					tab.isClosable();
 					
 				}catch(Exception e){

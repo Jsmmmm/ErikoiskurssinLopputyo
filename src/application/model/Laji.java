@@ -10,10 +10,10 @@ public class Laji {
 	public ArrayList<Osallistuja> lajinOsallistujat = new ArrayList<Osallistuja>();
 	
 	public Sarja yleisSarja; 
-	Sarja miestenYleisSarja;
-	Sarja miestenU18Sarja;
-	Sarja naistenYleisSarja;
-	Sarja naistenU18Sarja;
+	public Sarja miestenYleisSarja;
+	public Sarja miestenU18Sarja;
+	public Sarja naistenYleisSarja;
+	public Sarja naistenU18Sarja;
 	public boolean booleanYleisSarja=false;
 	public boolean booleanMiestenSarja=false;
 	public boolean booleanNaistenSarja=false;
@@ -29,19 +29,19 @@ public class Laji {
 		this.booleanNaistenU18=booleanNaistenU18Sarja;
 		
 		if(booleanYleisSarja==true){
-			yleisSarja=new Sarja();
+			yleisSarja=new Sarja("Yleissarja");
 		}
 		if(booleanMiestenSarja==true){
-			miestenYleisSarja=new Sarja();
+			miestenYleisSarja=new Sarja("Miesten sarja");
 		}
 		if(booleanMiestenU18==true){
-			miestenU18Sarja=new Sarja();
+			miestenU18Sarja=new Sarja("Miesten sarja U18");
 		}
 		if(booleanNaistenSarja==true){
-			naistenYleisSarja=new Sarja();
+			naistenYleisSarja=new Sarja("Naisten sarja");
 		}
 		if(booleanNaistenU18==true){
-			naistenU18Sarja=new Sarja();
+			naistenU18Sarja=new Sarja("Naisten sarja U18");
 		}						
 	}
 	
@@ -102,6 +102,8 @@ public class Laji {
 		
 		
 	}
+	
+	
 	
 	@Override
 	public String toString(){

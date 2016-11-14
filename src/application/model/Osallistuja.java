@@ -16,4 +16,9 @@ public class Osallistuja {
 	public int kerroPisteet(){
 		return this.tulosPisteet;
 	}
+	
+	@Override
+	public String toString(){
+		return this.kilpailija.toString();
+	}
 }
