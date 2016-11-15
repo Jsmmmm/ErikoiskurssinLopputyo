@@ -7,6 +7,7 @@ import application.model.Sarja;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 
@@ -16,8 +17,10 @@ public class SarjaTabController {
 
 	MainController main;
 	@FXML ListView<Osallistuja> listView;
-	//ObservableList<Kilpailija> sarjanKilpailijat;
+	@FXML Label lajinJaSarjanNimi;
+	
 	Sarja sarja;
+	Laji laji;
 	
 	public void taytaListView(){
 		
@@ -47,11 +50,17 @@ public class SarjaTabController {
 	
 	
 	
-	public void init(MainController main, Sarja sarja){
+	public void init(MainController main, Sarja sarja, Laji laji){
 		this.main=main;
 		this.sarja=sarja;
+		this.laji=laji;
+		
 	}
 	
+	public void asetaNimi(){
+		lajinJaSarjanNimi.setText(laji.toString()+": "+sarja.toString());
+		
+	}
 	
 	
 }

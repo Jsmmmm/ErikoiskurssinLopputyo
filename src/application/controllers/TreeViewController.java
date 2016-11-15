@@ -13,6 +13,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.InputStream;
+
 import application.model.*;
 
 public class TreeViewController{
@@ -20,10 +23,12 @@ public class TreeViewController{
 	MainController main;
 
 	
-	private final Image kilpailijaIcon = new Image(getClass().getResourceAsStream("/application/Icons/userIcon.png"));
-	private final Image joukkueIcon = new Image(getClass().getResourceAsStream("/application/Icons/teamIcon.png"));
-	private final Image lajiIcon = new Image(getClass().getResourceAsStream("/application/Icons/lajiIcon.png"));
-	private final Image trophyIcon = new Image(getClass().getResourceAsStream("/application/Icons/trophyIcon.jpg"));
+	private final Image kilpailijaIcon = new Image(getClass().getResourceAsStream("/application/icons/userIcon.png"));
+	private final Image joukkueIcon = new Image(getClass().getResourceAsStream("/application/icons/teamIcon.png"));
+	private final Image lajiIcon = new Image(getClass().getResourceAsStream("/application/icons/sportsIcon.png"));
+	private final Image trophyIcon = new Image(getClass().getResourceAsStream("/application/icons/trophyIcon.jpg"));
+	
+	
 	
 	@FXML
 	TreeView<String> treeView;	
@@ -165,8 +170,9 @@ public class TreeViewController{
 				
 					Laji laji = main.haeLaji(klikattuKohde.getParent().getValue());
 					Sarja sarja = main.haeSarja(laji, klikattuKohde.getValue());
-					controller.init(main, sarja);
+					controller.init(main, sarja, laji);
 					controller.taytaListView();
+					controller.asetaNimi();
 					tab.setText(laji.toString()+": "+sarja.toString());
 					tab.isClosable();
 					
