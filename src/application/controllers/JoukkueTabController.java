@@ -66,6 +66,7 @@ public class JoukkueTabController {
 	public void poistaPainettu(ActionEvent e){
 		main.treeViewViewController.poista(e);	
 		main.tabPane.getTabs().remove(tab);
+		main.joukkueLaskuri(false);
 	} 
 	
 }

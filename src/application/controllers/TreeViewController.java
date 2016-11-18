@@ -21,12 +21,12 @@ import application.model.*;
 public class TreeViewController{
 
 	MainController main;
-
 	
-	private final Image kilpailijaIcon = new Image(getClass().getResourceAsStream("/application/icons/userIcon.png"));
-	private final Image joukkueIcon = new Image(getClass().getResourceAsStream("/application/icons/teamIcon.png"));
-	private final Image lajiIcon = new Image(getClass().getResourceAsStream("/application/icons/sportsIcon.png"));
-	private final Image trophyIcon = new Image(getClass().getResourceAsStream("/application/icons/trophyIcon.jpg"));
+	
+	  Image kilpailijaIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/userIcon.png"));
+	  Image joukkueIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/teamIcon.png"));
+	  Image lajiIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/sportsIcon.png"));
+	  Image trophyIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/trophyIcon.jpg"));
 	
 	
 	
@@ -89,6 +89,7 @@ public class TreeViewController{
 		if(treeView.getSelectionModel().getSelectedItem().getParent() == kilpailijatLehti){
 			poistettava.getParent().getChildren().remove(poistettava);
 			main.poistaHenkilo(poistettava.getValue());	
+			
 			
 		}else if(treeView.getSelectionModel().getSelectedItem().getParent() == joukkueetLehti){
 			poistettava.getParent().getChildren().remove(poistettava);

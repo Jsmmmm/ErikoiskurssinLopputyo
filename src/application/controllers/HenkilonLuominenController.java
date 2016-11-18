@@ -96,7 +96,7 @@ public Kilpailija tallennaHenkilo(){
 		if(kilpailija!=null){
 			main.kilpailijat.add(kilpailija);
 			main.treeViewViewController.lisaaHenkiloOlioPuunakymaan(kilpailija);
-			main.paivitaStatsit();
+			main.henkiloLaskuri(kilpailija, true);
 		}		
 	}
 	

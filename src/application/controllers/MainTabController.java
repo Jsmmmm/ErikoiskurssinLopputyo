@@ -32,6 +32,8 @@ public class MainTabController {
 	@FXML Label miehiaU18;
 	@FXML Label naisiaU18;
 	@FXML Label joukkueita;
+	@FXML Label lajeja;
+	@FXML Label sarjoja;
 	/*@FXML
 	public void initialize(){
 		
@@ -41,6 +43,7 @@ public class MainTabController {
 		main=mainController;
 		
 	}
+	
 	
 	
 

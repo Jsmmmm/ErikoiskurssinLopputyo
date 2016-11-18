@@ -41,6 +41,7 @@ public class JoukkueenLuominenController {
 			if(joukkue!=null){
 				main.joukkueet.add(joukkue);
 				main.treeViewViewController.lisaaJoukkueOlioPuunakymaan(joukkue);
+				main.joukkueLaskuri(true);
 			}
 	}
 	

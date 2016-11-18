@@ -55,7 +55,7 @@ public class HenkiloTabController{
 	
 	@FXML
 	public void poistaPainettu(ActionEvent e){
-		main.treeViewViewController.poista(e);	
+		main.treeViewViewController.poista(e);		
 		main.tabPane.getTabs().remove(tab);
 	}
 	

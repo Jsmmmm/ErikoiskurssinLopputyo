@@ -29,30 +29,36 @@ public class LajinLuominenController {
 	
 	@FXML
 	void tallennaNappiaPainettu(ActionEvent e){
-		
+		int sarjojenLKM=0;
 		String lajinNimi=null;
 		if( !(lajinNimiKentta.getText().isEmpty()) ){
 			lajinNimi=lajinNimiKentta.getText();
 			
 			if(yleisSarja.isSelected()){
 				booleanYleisSarja=true;
+				sarjojenLKM++;
 			}
 			if(miestenSarja.isSelected()){
 				booleanMiestenSarja=true;
+				sarjojenLKM++;
 			}
 			if(naistenSarja.isSelected()){ 
 				booleanNaistenSarja=true;
+				sarjojenLKM++;
 			}
 			if(miestenU18.isSelected()){
 				booleanMiestenU18=true;
+				sarjojenLKM++;
 			}
 			if(naistenU18.isSelected()){
 				booleanNaistenU18=true;
+				sarjojenLKM++;
 			}
 		
 			Laji uusiLaji=new Laji(lajinNimi, booleanYleisSarja, booleanMiestenSarja, booleanNaistenSarja, booleanMiestenU18, booleanNaistenU18);
 			main.lajit.add(uusiLaji);
 			main.lisaaLajiPuunakymaan(uusiLaji);
+			main.lajiJaSarjaLaskuri(true, sarjojenLKM);
 			suljeIkkuna(e);
 		
 		}						

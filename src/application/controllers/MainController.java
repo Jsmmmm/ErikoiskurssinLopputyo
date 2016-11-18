@@ -31,29 +31,100 @@ public class MainController{
 	ArrayList<Laji> lajit = new ArrayList<Laji>(); 
 		
 	
-	//int kilpailijoidenLKM;
+	
+	int kilpailijoidenLKM;
+	int miestenLKM;
+	int naistenLKM;
+	int miestenU18LKM;
+	int naistenU18LKM;
+	int lajienLKM;
+	int sarjojenLKM;
+	int joukkueidenLKM;
 	
 	@FXML Tab lajiValilehti;
 	@FXML Tab joukkueValilehti;
 	@FXML Tab henkiloValilehti;
 	@FXML Tab mainValilehti;
 	
-		
+	
+	public void henkiloLaskuri(Henkilo henkilo, Boolean etumerkki){
+		if(etumerkki==true){
+			kilpailijoidenLKM++;
+			mainTabController.kilpailijoita.setText(Integer.toString(kilpailijoidenLKM));
+			if(henkilo.kerroSukupuoli().equals("Mies")){
+				if(henkilo.kerroIka()>=18){
+					miestenLKM++;
+					mainTabController.miehia.setText(Integer.toString(miestenLKM));				
+				}else {
+					miestenU18LKM++;
+					mainTabController.miehiaU18.setText(Integer.toString(miestenU18LKM));
+				}
+			}else{
+				if(henkilo.kerroIka()>=18){
+					naistenLKM++;
+					mainTabController.naisia.setText(Integer.toString(naistenLKM));
+				}else{
+					naistenU18LKM++;
+					mainTabController.naisiaU18.setText(Integer.toString(naistenU18LKM));
+				}
+			}
+		}else{			
+			kilpailijoidenLKM--;
+			mainTabController.kilpailijoita.setText(Integer.toString(kilpailijoidenLKM));
+			
+			if(henkilo.kerroSukupuoli().equals("Mies")){
+				if(henkilo.kerroIka()>=18){
+					miestenLKM--;
+					mainTabController.miehia.setText(Integer.toString(miestenLKM));				
+				}else {
+					miestenU18LKM--;
+					mainTabController.miehiaU18.setText(Integer.toString(miestenU18LKM));
+				}
+			}else{
+				if(henkilo.kerroIka()>=18){
+					naistenLKM--;
+					mainTabController.naisia.setText(Integer.toString(naistenLKM));
+				}else{
+					naistenU18LKM--;
+					mainTabController.naisiaU18.setText(Integer.toString(naistenU18LKM));
+				}
+			}
+		}		
+	}
+	
+	public void joukkueLaskuri(boolean etumerkki){
+		if(etumerkki==true){
+			joukkueidenLKM++;			
+		}else{
+			joukkueidenLKM--;
+		}
+		mainTabController.joukkueita.setText(Integer.toString(joukkueidenLKM));
+	}
+	
+	
+	public void lajiJaSarjaLaskuri(boolean etumerkki, int sarjat){
+		if(etumerkki==true){
+			lajienLKM++;
+			sarjojenLKM=sarjojenLKM+sarjat;
+		}else{
+			
+		}
+		mainTabController.lajeja.setText(Integer.toString(lajienLKM));
+		mainTabController.sarjoja.setText(Integer.toString(sarjojenLKM));
+	}
 	
 	public void lisaaLajiPuunakymaan(Laji laji){
 		treeViewViewController.lisaaLajiOlioPuunakymaan(laji);
 		treeViewViewController.lisaaTuloksetPuunakymaan(laji);
 	}
 	
-	public void paivitaStatsit(){
-		mainTabController.kilpailijoita.setText( Integer.toString(kilpailijat.size()) );
-		mainTabController.joukkueita.setText( Integer.toString(joukkueet.size()) );
-	}
+	
 	
 	public void poistaHenkilo(String nimi){
 		Kilpailija kilpailija = haeKilpailija(nimi);	
 		if(kilpailija!=null){
-			kilpailijat.remove(kilpailija); 
+			kilpailijat.remove(kilpailija);
+			henkiloLaskuri(kilpailija, false);
 		}else System.out.println("Virhe tuli poistettaessa kilpailijaa");					
 	}
 	
