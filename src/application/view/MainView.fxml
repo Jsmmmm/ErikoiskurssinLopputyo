@@ -28,6 +28,6 @@
       <fx:include fx:id="treeViewView" source="TreeViewView.fxml" />
    </left>
    <top>
-      <fx:include source="MenuAndToolbar.fxml" />
+      <fx:include fx:id="menuAndToolbar" source="MenuAndToolbar.fxml" />
    </top>
 </BorderPane>

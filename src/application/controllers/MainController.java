@@ -22,6 +22,7 @@ public class MainController{
 	@FXML MainTabController mainTabController;
 	@FXML TreeViewController treeViewViewController;
 	@FXML ListViewController listViewController;
+	@FXML MenuAndToolbarController menuAndToolbarController;
 	
 	@FXML TabPane tabPane;
 	
@@ -216,8 +217,11 @@ public class MainController{
 		treeViewViewController.init(this);
 		listViewController.init(this);
 		mainTabController.init(this);
+		menuAndToolbarController.init(this);
 		
 	}
+	
+	
 	
 	public void printtaa(){
 		System.out.println("Toimii");
