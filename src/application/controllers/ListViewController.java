@@ -1,6 +1,6 @@
 package application.controllers;
 
-import application.model.Laji;
+import application.model.Sport;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 

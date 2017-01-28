@@ -1,12 +1,12 @@
 package application.controllers;
 
-import application.model.Kilpailu;
+import application.model.Competition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class UusiKilpailuController {
+public class CreateCompetitonController {
 
 	@FXML TextField tekstiKentta;
 	@FXML Button tallenna;
@@ -19,7 +19,7 @@ public class UusiKilpailuController {
 	
 	@FXML
 	private void luoUusiKilpailu(){
-		Kilpailu kilpailu = new Kilpailu();
+		Competition kilpailu = new Competition();
 		kilpailu.setNimi(tekstiKentta.getText());
 		main.lataaKilpailu(kilpailu);	
 		

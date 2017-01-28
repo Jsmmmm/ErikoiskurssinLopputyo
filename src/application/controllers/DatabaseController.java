@@ -2,7 +2,7 @@ package application.controllers;
 
 import java.sql.*;
 
-public class TietokantaController {
+public class DatabaseController {
 
 	public void uusiTietokanta(){
 	

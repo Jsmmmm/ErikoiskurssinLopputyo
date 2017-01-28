@@ -1,9 +1,9 @@
 package application.controllers;
 
-import application.model.Kilpailija;
-import application.model.Laji;
+import application.model.Competitor;
+import application.model.Sport;
 import application.model.Osallistuja;
-import application.model.Sarja;
+import application.model.Serie;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,14 +13,14 @@ import javafx.scene.control.ListView;
 
 import javafx.util.Callback;
 
-public class SarjaTabController {
+public class SeriesTabController {
 
 	MainController main;
 	@FXML ListView<Osallistuja> listView;
 	@FXML Label lajinJaSarjanNimi;
 	
-	Sarja sarja;
-	Laji laji;
+	Serie sarja;
+	Sport laji;
 	
 	public void taytaListView(){
 		
@@ -50,7 +50,7 @@ public class SarjaTabController {
 	
 	
 	
-	public void init(MainController main, Sarja sarja, Laji laji){
+	public void init(MainController main, Serie sarja, Sport laji){
 		this.main=main;
 		this.sarja=sarja;
 		this.laji=laji;

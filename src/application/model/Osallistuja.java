@@ -2,10 +2,10 @@ package application.model;
 
 public class Osallistuja {
 
-	Kilpailija kilpailija;
+	Competitor kilpailija;
 	int tulosPisteet;
 	
-	public Osallistuja(Kilpailija kilpailija){
+	public Osallistuja(Competitor kilpailija){
 		this.kilpailija=kilpailija;
 	}
 	

@@ -1,13 +1,13 @@
 package application.controllers;
 
-import application.model.Joukkue;
+import application.model.Team;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class JoukkueenLuominenController {
+public class NewTeamController {
 
 	MainController main;
 	
@@ -15,10 +15,10 @@ public class JoukkueenLuominenController {
 	@FXML Button peruuta;
 	
 	
-	public Joukkue tallennaJoukkue(){
-		Joukkue uusiJoukkue=null;
+	public Team tallennaJoukkue(){
+		Team uusiJoukkue=null;
 		if(!joukkueenNimiKentta.getText().isEmpty()){
-			uusiJoukkue = new Joukkue(joukkueenNimiKentta.getText());
+			uusiJoukkue = new Team(joukkueenNimiKentta.getText());
 			
 			
 		}return uusiJoukkue;
@@ -37,7 +37,7 @@ public class JoukkueenLuominenController {
 	@FXML
 	public void tallennaNappiaPainettu(ActionEvent e){
 		
-			Joukkue joukkue=tallennaJoukkue();
+			Team joukkue=tallennaJoukkue();
 			if(joukkue!=null){
 				main.joukkueet.add(joukkue);
 				main.treeViewViewController.lisaaJoukkueOlioPuunakymaan(joukkue);

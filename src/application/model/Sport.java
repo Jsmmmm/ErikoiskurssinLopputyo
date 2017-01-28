@@ -3,24 +3,24 @@ package application.model;
 import java.util.ArrayList;
 
 
-public class Laji {
+public class Sport {
 
 	String lajinNimi;
 	
 	public ArrayList<Osallistuja> lajinOsallistujat = new ArrayList<Osallistuja>();
 	
-	public Sarja yleisSarja; 
-	public Sarja miestenYleisSarja;
-	public Sarja miestenU18Sarja;
-	public Sarja naistenYleisSarja;
-	public Sarja naistenU18Sarja;
+	public Serie yleisSarja; 
+	public Serie miestenYleisSarja;
+	public Serie miestenU18Sarja;
+	public Serie naistenYleisSarja;
+	public Serie naistenU18Sarja;
 	public boolean booleanYleisSarja=false;
 	public boolean booleanMiestenSarja=false;
 	public boolean booleanNaistenSarja=false;
 	public boolean booleanMiestenU18=false;
 	public boolean booleanNaistenU18=false;
 	 
-	public Laji(String lajinNimi, boolean booleanYleisSarja, boolean booleanMiestenYleisSarja,  boolean booleanNaistenYleisSarja, boolean booleanMiestenU18Sarja, boolean booleanNaistenU18Sarja){
+	public Sport(String lajinNimi, boolean booleanYleisSarja, boolean booleanMiestenYleisSarja,  boolean booleanNaistenYleisSarja, boolean booleanMiestenU18Sarja, boolean booleanNaistenU18Sarja){
 		this.lajinNimi=lajinNimi;
 		this.booleanYleisSarja=booleanYleisSarja;
 		this.booleanMiestenSarja=booleanMiestenYleisSarja;
@@ -29,24 +29,24 @@ public class Laji {
 		this.booleanNaistenU18=booleanNaistenU18Sarja;
 		
 		if(booleanYleisSarja==true){
-			yleisSarja=new Sarja("Yleissarja");
+			yleisSarja=new Serie("Yleissarja");
 		}
 		if(booleanMiestenSarja==true){
-			miestenYleisSarja=new Sarja("Miesten sarja");
+			miestenYleisSarja=new Serie("Miesten sarja");
 		}
 		if(booleanMiestenU18==true){
-			miestenU18Sarja=new Sarja("Miesten sarja U18");
+			miestenU18Sarja=new Serie("Miesten sarja U18");
 		}
 		if(booleanNaistenSarja==true){
-			naistenYleisSarja=new Sarja("Naisten sarja");
+			naistenYleisSarja=new Serie("Naisten sarja");
 		}
 		if(booleanNaistenU18==true){
-			naistenU18Sarja=new Sarja("Naisten sarja U18");
+			naistenU18Sarja=new Serie("Naisten sarja U18");
 		}						
 	}
 	
 	
-	private void lisaaOsallistujaSarjaan(Osallistuja osallistuja, Sarja sarja){
+	private void lisaaOsallistujaSarjaan(Osallistuja osallistuja, Serie sarja){
 		if(sarja.sarjanOsallistujat.contains(osallistuja)){
 			System.out.println(osallistuja.kilpailija.toString()+" löytyi jo valmiiksi lajista");
 		} else{

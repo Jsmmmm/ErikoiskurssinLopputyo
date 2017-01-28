@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="405.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.LajinLuominenController">
+<AnchorPane prefHeight="405.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.NewSportController">
    <children>
       <VBox layoutX="20.0" layoutY="20.0" prefHeight="246.0" prefWidth="575.0">
          <children>

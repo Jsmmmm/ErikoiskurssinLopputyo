@@ -22,7 +22,7 @@ public class Main extends Application {
 			primaryStage.show();
 			
 			//avaa p‰‰ohjelmaikkunan p‰‰lle aloitusikkunan
-			Parent root2 = FXMLLoader.load(getClass().getResource("/application/view/AloitusView.fxml"));					
+			Parent root2 = FXMLLoader.load(getClass().getResource("/application/view/OpeningWindow.fxml"));					
 			Stage stage = new Stage();
             stage.setScene(new Scene(root2));
             stage.show();

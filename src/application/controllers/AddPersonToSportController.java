@@ -1,7 +1,7 @@
 package application.controllers;
 
-import application.model.Henkilo;
-import application.model.Laji;
+import application.model.Person;
+import application.model.Sport;
 import application.model.Osallistuja;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,20 +14,20 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.util.Callback;
-import application.model.Kilpailija;
-public class KilpailijoidenLisaaminenLajiinController {
+import application.model.Competitor;
+public class AddPersonToSportController {
 			
 	MainController main;
-	@FXML ListView<Kilpailija> listView;
+	@FXML ListView<Competitor> listView;
 	@FXML Button lisaa;
 	@FXML Button peruuta;
-	Laji laji;
-	ObservableList<Kilpailija> valitutKohteet;
+	Sport laji;
+	ObservableList<Competitor> valitutKohteet;
 	
 	
 	public void lisaaNappiaPainettu(ActionEvent e){
 			
-		for(Kilpailija kilpailija : valitutKohteet){
+		for(Competitor kilpailija : valitutKohteet){
 			laji.lajinOsallistujat.add(new Osallistuja(kilpailija));
 			System.out.println(kilpailija.toString()); 
 		}
@@ -35,7 +35,7 @@ public class KilpailijoidenLisaaminenLajiinController {
 		
 	}
 	
-	public void initData(MainController main, Laji laji/*String valittuLaji*/){
+	public void initData(MainController main, Sport laji/*String valittuLaji*/){
 		this.main=main;
 		this.laji=laji;
 		taytaListView();
@@ -53,18 +53,18 @@ public class KilpailijoidenLisaaminenLajiinController {
 	
 	public void taytaListView(){
 		listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		ObservableList<Kilpailija> myObservableList = FXCollections.observableList(main.kilpailijat);
+		ObservableList<Competitor> myObservableList = FXCollections.observableList(main.kilpailijat);
 		listView.setItems(myObservableList);
 		
-		listView.setCellFactory(new Callback<ListView<Kilpailija>, ListCell<Kilpailija>>(){
+		listView.setCellFactory(new Callback<ListView<Competitor>, ListCell<Competitor>>(){
 		
 		@Override
-        public ListCell<Kilpailija> call(ListView<Kilpailija> p) {
+        public ListCell<Competitor> call(ListView<Competitor> p) {
              
-            ListCell<Kilpailija> cell = new ListCell<Kilpailija>(){
+            ListCell<Competitor> cell = new ListCell<Competitor>(){
             	
                 @Override
-                protected void updateItem(Kilpailija t, boolean bln) {
+                protected void updateItem(Competitor t, boolean bln) {
                     super.updateItem(t, bln);
                     if (t != null) {
                         setText(t.toString());

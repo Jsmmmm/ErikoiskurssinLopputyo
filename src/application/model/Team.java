@@ -2,13 +2,13 @@ package application.model;
 
 import java.util.ArrayList;
 
-public class Joukkue{
+public class Team{
 	String joukkueenNimi;
-	ArrayList<Henkilo> joukkueenPelaajat;
+	ArrayList<Person> joukkueenPelaajat;
 	
-	public Joukkue(String joukkueenNimi){
+	public Team(String joukkueenNimi){
 		this.joukkueenNimi=joukkueenNimi;
-		joukkueenPelaajat = new ArrayList<Henkilo>();		
+		joukkueenPelaajat = new ArrayList<Person>();		
 	}
 	
 	@Override

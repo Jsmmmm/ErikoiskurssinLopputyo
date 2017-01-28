@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class AloitusController {
+public class OpeningWindowController {
 
 	@FXML Button uusiKilpailu;
 	@FXML Button avaaKilpailu;
@@ -17,11 +17,11 @@ public class AloitusController {
 	@FXML
 	public void uusiKilpailu(ActionEvent e){
 		try{
-			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/UusiKilpailu.fxml" ));
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/CreateCompetition.fxml" ));
 			 Stage stage = new Stage();		 
 			 stage.setScene(new Scene(loader.load()));
 			 stage.setTitle("Uusi Kilpailu");
-			 UusiKilpailuController controller = loader.<UusiKilpailuController>getController();
+			 CreateCompetitonController controller = loader.<CreateCompetitonController>getController();
 			 controller.init(main);
 			 stage.show();
 			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta

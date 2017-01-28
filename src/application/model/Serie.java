@@ -2,9 +2,9 @@ package application.model;
 
 import java.util.ArrayList;
 
-public class Sarja {
+public class Serie {
 
-	Sarja(String sarjanNimi){
+	Serie(String sarjanNimi){
 		this.sarjanNimi=sarjanNimi;
 	}
 	

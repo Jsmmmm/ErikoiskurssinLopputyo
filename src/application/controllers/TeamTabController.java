@@ -1,14 +1,14 @@
 package application.controllers;
 
-import application.model.Joukkue;
-import application.model.Kilpailija;
+import application.model.Team;
+import application.model.Competitor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 
-public class JoukkueTabController {
+public class TeamTabController {
 
 	Tab tab;
 	MainController main;
@@ -41,7 +41,7 @@ public class JoukkueTabController {
 		joukkueenNimiKentta.setPromptText("Joukkueen nimi");
 	} */
 	
-	public void avaaJoukkueenTiedot(Joukkue joukkue){
+	public void avaaJoukkueenTiedot(Team joukkue){
 		joukkueenNimiKentta.setText(joukkue.toString());
 	}
 	

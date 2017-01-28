@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox prefHeight="123.0" prefWidth="526.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="application.controllers.UusiKilpailuController">
+<VBox prefHeight="123.0" prefWidth="526.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="application.controllers.CreateCompetitonController">
    <children>
       <HBox prefHeight="70.0" prefWidth="526.0">
          <children>

@@ -15,12 +15,12 @@ import javafx.scene.control.TabPane;
 
 public class MainController{
 	
-	Kilpailu kilpailu;
+	Competition kilpailu;
 	
-	KilpailijoidenLisaaminenLajiinController kilpailijoidenLisaaminenLajiinController; 
-	@FXML HenkiloTabController henkiloTabController;
-	@FXML JoukkueTabController joukkueTabController; 
-	@FXML LajiTabController lajiTabController;
+	AddPersonToSportController kilpailijoidenLisaaminenLajiinController; 
+	@FXML PersonTabController henkiloTabController;
+	@FXML TeamTabController joukkueTabController; 
+	@FXML SportTabController lajiTabController;
 	@FXML MainTabController mainTabController;
 	@FXML TreeViewController treeViewViewController;
 	@FXML ListViewController listViewController;
@@ -29,10 +29,10 @@ public class MainController{
 	
 	@FXML TabPane tabPane;
 	
-	ArrayList<Kilpailija> kilpailijat = new ArrayList<Kilpailija>();
-	ArrayList<Henkilo> henkilot = new ArrayList<Henkilo>();
-	ArrayList<Joukkue> joukkueet = new ArrayList<Joukkue>();
-	ArrayList<Laji> lajit = new ArrayList<Laji>(); 
+	ArrayList<Competitor> kilpailijat = new ArrayList<Competitor>();
+	ArrayList<Person> henkilot = new ArrayList<Person>();
+	ArrayList<Team> joukkueet = new ArrayList<Team>();
+	ArrayList<Sport> lajit = new ArrayList<Sport>(); 
 		
 	
 	
@@ -52,7 +52,7 @@ public class MainController{
 	
 	
 	
-	public void henkiloLaskuri(Henkilo henkilo, Boolean etumerkki){
+	public void henkiloLaskuri(Person henkilo, Boolean etumerkki){
 		if(etumerkki==true){
 			kilpailijoidenLKM++;
 			mainTabController.kilpailijoita.setText(Integer.toString(kilpailijoidenLKM));
@@ -118,7 +118,7 @@ public class MainController{
 		mainTabController.sarjoja.setText(Integer.toString(sarjojenLKM));
 	}
 	
-	public void lisaaLajiPuunakymaan(Laji laji){
+	public void lisaaLajiPuunakymaan(Sport laji){
 		treeViewViewController.lisaaLajiOlioPuunakymaan(laji);
 		treeViewViewController.lisaaTuloksetPuunakymaan(laji);
 	}
@@ -126,7 +126,7 @@ public class MainController{
 	
 	
 	public void poistaHenkilo(String nimi){
-		Kilpailija kilpailija = haeKilpailija(nimi);	
+		Competitor kilpailija = haeKilpailija(nimi);	
 		if(kilpailija!=null){
 			kilpailijat.remove(kilpailija);
 			henkiloLaskuri(kilpailija, false);
@@ -134,23 +134,23 @@ public class MainController{
 	}
 	
 	public void poistaJoukkue(String nimi){
-		Joukkue joukkue = haeJoukkue(nimi);
+		Team joukkue = haeJoukkue(nimi);
 		if(joukkue!=null){
 			joukkueet.remove(joukkue);
 		} else System.out.println("Virhe tuli poistettaessa joukkuetta");							
 	}
 	
 	public void poistaLaji(String nimi){
-		Laji laji = haeLaji(nimi);		
+		Sport laji = haeLaji(nimi);		
 		if(laji!=null){
 			lajit.remove(laji);	
 		}else System.out.println("Virhe tuli poistettaessa lajia");										
 	}
 	
 	
-	public Laji haeLaji(String lajinNimi){
-		Laji laji=null;
-		for (Laji haettavaLaji : lajit) {
+	public Sport haeLaji(String lajinNimi){
+		Sport laji=null;
+		for (Sport haettavaLaji : lajit) {
 			if (lajinNimi.equals(haettavaLaji.toString())) {
 				laji=haettavaLaji;			
 				} 
@@ -158,29 +158,29 @@ public class MainController{
 	}
 	
 	
-	public Kilpailija haeKilpailija(String kilpailijanNimi){
-		Kilpailija kilpailija=null;
+	public Competitor haeKilpailija(String kilpailijanNimi){
+		Competitor kilpailija=null;
 		String nimi[] = kilpailijanNimi.split(" ");
 		String etunimi = nimi[0];
 		String sukunimi = nimi[1];
-		for (Kilpailija kilpailija2 : kilpailijat) {
+		for (Competitor kilpailija2 : kilpailijat) {
 			if (kilpailija2.kerroEtunimi().equals(etunimi) && kilpailija2.kerroSukunimi().equals(sukunimi)) {
 				kilpailija=kilpailija2;				
 				}			
 		}return kilpailija;
 	}
 	
-	public Joukkue haeJoukkue(String joukkueenNimi){
-		Joukkue joukkue = null;
-		for(Joukkue haettavaJoukkue : joukkueet){
+	public Team haeJoukkue(String joukkueenNimi){
+		Team joukkue = null;
+		for(Team haettavaJoukkue : joukkueet){
 			if(joukkueenNimi.equals(haettavaJoukkue.toString())){
 				joukkue=haettavaJoukkue;
 			}
 		}return joukkue;
 	}
 	
-	public Sarja haeSarja(Laji laji, String sarjanNimi){
-		Sarja sarja=null;
+	public Serie haeSarja(Sport laji, String sarjanNimi){
+		Serie sarja=null;
 		switch(sarjanNimi){
 		case "Yleissarja" : sarja = laji.yleisSarja;
 			break;
@@ -198,18 +198,18 @@ public class MainController{
 	}
 	
 	public void avaaKilpailijanTiedot(String kilpailijanNimi){
-		Kilpailija kilpailija = haeKilpailija(kilpailijanNimi);
+		Competitor kilpailija = haeKilpailija(kilpailijanNimi);
 		henkiloTabController.avaaHenkilonTiedot(kilpailija);
 	}
 	
 	public void avaaLajinTiedot(String lajinNimi){
-		Laji laji = haeLaji(lajinNimi);
+		Sport laji = haeLaji(lajinNimi);
 		lajiTabController.avaaLajinTiedot(laji);
 		listViewController.taytaListView(); //KESKEN KESKEN KESKEN KESKEN KESKEN KESKEN KESKEN
 	}
 	
 	public void avaaJoukkueenTiedot(String joukkueenNimi){
-		Joukkue joukkue = haeJoukkue(joukkueenNimi);
+		Team joukkue = haeJoukkue(joukkueenNimi);
 		joukkueTabController.avaaJoukkueenTiedot(joukkue);
 	}
 	
@@ -231,7 +231,7 @@ public class MainController{
 		System.out.println("Toimii");
 	}
 	
-	public void lataaKilpailu(Kilpailu uusiKilpailu){
+	public void lataaKilpailu(Competition uusiKilpailu){
 		this.kilpailu=uusiKilpailu;
 		
 		kilpailijat = uusiKilpailu.kilpailijat;

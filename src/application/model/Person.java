@@ -1,6 +1,6 @@
 package application.model;
 
-public class Henkilo {
+public class Person {
 	
 
 		public String sukunimi;
@@ -12,7 +12,7 @@ public class Henkilo {
 		
 		
 		
-		public Henkilo(String etunimi, String sukunimi, int ika, String sp){
+		public Person(String etunimi, String sukunimi, int ika, String sp){
 			this.etunimi=etunimi;
 			this.sukunimi=sukunimi;
 			this.ika=ika;

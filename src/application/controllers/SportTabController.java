@@ -13,12 +13,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import application.model.Laji;
+import application.model.Sport;
 
-public class LajiTabController {
+public class SportTabController {
 
 	MainController main;
-	Laji laji;
+	Sport laji;
 	@FXML Label lajinNimiKentta;
 	@FXML Button kilpailijoidenLisaaminenNappi;
 	@FXML CheckBox yleisSarja;
@@ -50,7 +50,7 @@ public class LajiTabController {
 		 Stage stage = new Stage();		 
 		 stage.setScene(new Scene(loader.load()));
 		  stage.setTitle("Uuden lajin luominen ");
-		  LajinLuominenController controller = loader.<LajinLuominenController>getController();
+		  NewSportController controller = loader.<NewSportController>getController();
 		  controller.init(main);
 		  stage.show();
 		  return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
@@ -68,11 +68,11 @@ public class LajiTabController {
 	
 	
 	public Stage naytaLajiinLisaamisIkkuna  (MainController main) throws IOException {
-		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/KilpailijoidenLisaaminenLajiin.fxml" ));
+		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/AddPersonToSport.fxml" ));
 		 Stage stage = new Stage();		 
 		 stage.setScene(new Scene(loader.load()));
 		  stage.setTitle("Kilpailijoiden lisaaminen lajiin: "+laji.toString());
-		  KilpailijoidenLisaaminenLajiinController controller = loader.<KilpailijoidenLisaaminenLajiinController>getController();
+		  AddPersonToSportController controller = loader.<AddPersonToSportController>getController();
 		  controller.initData(main, laji/*lajinNimiKentta.getText()*/);
 		  stage.show();
 		  return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
@@ -108,7 +108,7 @@ public class LajiTabController {
 		
 	}
 	
-	public void avaaLajinTiedot(Laji laji){
+	public void avaaLajinTiedot(Sport laji){
 		tyhjennaTekstikentat();
 		this.laji=laji;
 		lajinNimiKentta.setText(laji.toString());

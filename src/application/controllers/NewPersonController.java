@@ -1,7 +1,7 @@
 package application.controllers;
 
-import application.model.Henkilo;
-import application.model.Kilpailija;
+import application.model.Person;
+import application.model.Competitor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,7 +11,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-public class HenkilonLuominenController {
+public class NewPersonController {
 
 	MainController main;
 	
@@ -32,7 +32,7 @@ public class HenkilonLuominenController {
 		main=mainController;
 	}
 	
-public Kilpailija tallennaHenkilo(){
+public Competitor tallennaHenkilo(){
 		
 		boolean x = false;
 		boolean y = false;
@@ -40,14 +40,14 @@ public Kilpailija tallennaHenkilo(){
 		pallo1.setVisible(false);
 		pallo2.setVisible(false);
 		pallo3.setVisible(false);
-		Henkilo henkilo=null;
-		Kilpailija kilpailija=null;
-		if(Henkilo.tarkistaNimi(etunimiKentta.getText())){
+		Person henkilo=null;
+		Competitor kilpailija=null;
+		if(Person.tarkistaNimi(etunimiKentta.getText())){
 			x = true;
 		}else {
 			pallo1.setVisible(true);
 		}
-		if(Henkilo.tarkistaNimi(sukunimiKentta.getText())){
+		if(Person.tarkistaNimi(sukunimiKentta.getText())){
 			y=true;
 		}else{
 			pallo2.setVisible(true);
@@ -66,7 +66,7 @@ public Kilpailija tallennaHenkilo(){
 		}else sukupuoli="Nainen";
 		
 		if(x==true && y==true && z==true){
-			kilpailija = new Kilpailija(etunimiKentta.getText(), sukunimiKentta.getText(), ika, sukupuoli);
+			kilpailija = new Competitor(etunimiKentta.getText(), sukunimiKentta.getText(), ika, sukupuoli);
 			
 			System.out.println(kilpailija.toString());
 			
@@ -92,7 +92,7 @@ public Kilpailija tallennaHenkilo(){
 	
 	@FXML
 	public void tallennaNappiaPainettu(ActionEvent e){
-		Kilpailija kilpailija=tallennaHenkilo();
+		Competitor kilpailija=tallennaHenkilo();
 		if(kilpailija!=null){
 			main.kilpailijat.add(kilpailija);
 			main.treeViewViewController.lisaaHenkiloOlioPuunakymaan(kilpailija);

@@ -2,9 +2,9 @@ package application.controllers;
 
 
 
-import application.model.Henkilo;
-import application.model.Joukkue;
-import application.model.Kilpailija;
+import application.model.Person;
+import application.model.Team;
+import application.model.Competitor;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.shape.Circle;
 
-public class HenkiloTabController{
+public class PersonTabController{
  
 	Tab tab;
 	MainController main;
@@ -33,7 +33,7 @@ public class HenkiloTabController{
 	
 	
 	
-	public void avaaHenkilonTiedot(Henkilo henkilo){
+	public void avaaHenkilonTiedot(Person henkilo){
 		etunimiKentta.setText(henkilo.kerroEtunimi());
 		sukunimiKentta.setText(henkilo.kerroSukunimi());
 		ikaKentta.setText(Integer.toString(henkilo.kerroIka()));

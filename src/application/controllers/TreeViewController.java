@@ -40,17 +40,17 @@ public class TreeViewController{
 	
 	
 	
-	public void lisaaHenkiloOlioPuunakymaan(Kilpailija kilpailija){
+	public void lisaaHenkiloOlioPuunakymaan(Competitor kilpailija){
 		kilpailijatLehti.getChildren().add(new TreeItem<>(kilpailija.toString()));
 	}
 	
 	
-	public void lisaaJoukkueOlioPuunakymaan(Joukkue joukkue){
+	public void lisaaJoukkueOlioPuunakymaan(Team joukkue){
 		joukkueetLehti.getChildren().add(new TreeItem<>(joukkue.toString()));
 	}
 	
 	
-	public void lisaaLajiOlioPuunakymaan(Laji laji){
+	public void lisaaLajiOlioPuunakymaan(Sport laji){
 		TreeItem<String> lajiOlio = new TreeItem<>(laji.toString());
 		lajiLehti.getChildren().add(lajiOlio);	
 	}
@@ -61,7 +61,7 @@ public class TreeViewController{
 	}
 	
 	
-	public void lisaaTuloksetPuunakymaan(Laji laji){
+	public void lisaaTuloksetPuunakymaan(Sport laji){
 	TreeItem<String> lajinTulokset = new TreeItem<>(laji.toString());
 		tulosLehti.getChildren().add(lajinTulokset);
 		
@@ -113,9 +113,9 @@ public class TreeViewController{
 						Tab tab = new Tab();
 						
 						main.tabPane.getTabs().add(tab);
-						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/HenkiloTab.fxml" ));
+						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/PersonTab.fxml" ));
 						tab.setContent(loader.load());				
-						HenkiloTabController controller = loader.<HenkiloTabController>getController();
+						PersonTabController controller = loader.<PersonTabController>getController();
 						controller.init(main, tab);
 						controller.avaaHenkilonTiedot(main.haeKilpailija(klikattuKohde.getValue()));
 						tab.setText(klikattuKohde.getValue());
@@ -132,9 +132,9 @@ public class TreeViewController{
 						Tab tab = new Tab();
 						
 						main.tabPane.getTabs().add(tab);
-						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/JoukkueTab.fxml" ));
+						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/TeamTab.fxml" ));
 						tab.setContent(loader.load());				
-						JoukkueTabController controller = loader.<JoukkueTabController>getController();					
+						TeamTabController controller = loader.<TeamTabController>getController();					
 						controller.init(main, tab);
 						controller.avaaJoukkueenTiedot(main.haeJoukkue(klikattuKohde.getValue()));
 						tab.setText(klikattuKohde.getValue());
@@ -148,9 +148,9 @@ public class TreeViewController{
 						Tab tab = new Tab();
 						
 						main.tabPane.getTabs().add(tab);
-						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/LajiTab.fxml" ));
+						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SportTab.fxml" ));
 						tab.setContent(loader.load());				
-						LajiTabController controller = loader.<LajiTabController>getController();	
+						SportTabController controller = loader.<SportTabController>getController();	
 						controller.init(main);
 						controller.avaaLajinTiedot(main.haeLaji(klikattuKohde.getValue()));
 						tab.setText(klikattuKohde.getValue());
@@ -164,13 +164,13 @@ public class TreeViewController{
 						
 						Tab tab = new Tab();					
 						main.tabPane.getTabs().add(tab);
-						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SarjaTab.fxml" ));
+						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SeriesTab.fxml" ));
 						tab.setContent(loader.load());				
-						SarjaTabController controller = loader.<SarjaTabController>getController();	
+						SeriesTabController controller = loader.<SeriesTabController>getController();	
 						
 					
-						Laji laji = main.haeLaji(klikattuKohde.getParent().getValue());
-						Sarja sarja = main.haeSarja(laji, klikattuKohde.getValue());
+						Sport laji = main.haeLaji(klikattuKohde.getParent().getValue());
+						Serie sarja = main.haeSarja(laji, klikattuKohde.getValue());
 						controller.init(main, sarja, laji);
 						controller.taytaListView();
 						controller.asetaNimi();

@@ -1,6 +1,6 @@
 package application.controllers;
 
-import application.model.Laji;
+import application.model.Sport;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,7 +8,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
  
-public class LajinLuominenController {
+public class NewSportController {
 	
 	MainController main;
 	@FXML TextField lajinNimiKentta;
@@ -55,7 +55,7 @@ public class LajinLuominenController {
 				sarjojenLKM++;
 			}
 		
-			Laji uusiLaji=new Laji(lajinNimi, booleanYleisSarja, booleanMiestenSarja, booleanNaistenSarja, booleanMiestenU18, booleanNaistenU18);
+			Sport uusiLaji=new Sport(lajinNimi, booleanYleisSarja, booleanMiestenSarja, booleanNaistenSarja, booleanMiestenU18, booleanNaistenU18);
 			main.lajit.add(uusiLaji);
 			main.lisaaLajiPuunakymaan(uusiLaji);
 			main.lajiJaSarjaLaskuri(true, sarjojenLKM);

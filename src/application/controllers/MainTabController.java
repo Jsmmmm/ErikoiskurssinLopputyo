@@ -50,11 +50,11 @@ public class MainTabController {
 	@FXML
 	public void uusiKilpailijaButton(ActionEvent e){
 		try{
-			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/HenkilonLuominen.fxml" ));
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewPerson.fxml" ));
 			 Stage stage = new Stage();		 
 			 stage.setScene(new Scene(loader.load()));
-			 stage.setTitle("Uusi Kilpailija");
-			 HenkilonLuominenController controller = loader.<HenkilonLuominenController>getController();
+			 stage.setTitle("New Person");
+			 NewPersonController controller = loader.<NewPersonController>getController();
 			 controller.init(main);
 			 stage.show();
 			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
@@ -67,11 +67,11 @@ public class MainTabController {
 	@FXML
 	public void uusiLajiButton(ActionEvent e){
 		try{
-			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/LajinLuominen.fxml" ));
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewSport.fxml" ));
 			 Stage stage = new Stage();		 
 			 stage.setScene(new Scene(loader.load()));
 			 stage.setTitle("Uusi Laji");
-			 LajinLuominenController controller = loader.<LajinLuominenController>getController();
+			 NewSportController controller = loader.<NewSportController>getController();
 			 controller.init(main);
 			 stage.show();
 			 //return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
@@ -84,11 +84,11 @@ public class MainTabController {
 	@FXML
 	public void uusiJoukkueButton(ActionEvent e){
 		try{
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/JoukkueenLuominen.fxml" ));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewTeam.fxml" ));
 			Stage stage = new Stage();		 
 			stage.setScene(new Scene(loader.load()));
 			stage.setTitle("Uusi Joukkue");
-			JoukkueenLuominenController controller = loader.<JoukkueenLuominenController>getController();
+			NewTeamController controller = loader.<NewTeamController>getController();
 			controller.init(main);
 			stage.show();
 			//return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta			
