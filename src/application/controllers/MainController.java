@@ -15,6 +15,8 @@ import javafx.scene.control.TabPane;
 
 public class MainController{
 	
+	Kilpailu kilpailu;
+	
 	KilpailijoidenLisaaminenLajiinController kilpailijoidenLisaaminenLajiinController; 
 	@FXML HenkiloTabController henkiloTabController;
 	@FXML JoukkueTabController joukkueTabController; 
@@ -23,6 +25,7 @@ public class MainController{
 	@FXML TreeViewController treeViewViewController;
 	@FXML ListViewController listViewController;
 	@FXML MenuAndToolbarController menuAndToolbarController;
+	
 	
 	@FXML TabPane tabPane;
 	
@@ -46,6 +49,7 @@ public class MainController{
 	@FXML Tab joukkueValilehti;
 	@FXML Tab henkiloValilehti;
 	@FXML Tab mainValilehti;
+	
 	
 	
 	public void henkiloLaskuri(Henkilo henkilo, Boolean etumerkki){
@@ -213,7 +217,7 @@ public class MainController{
 	
 	@FXML
 	public void initialize() {
-	
+		
 		treeViewViewController.init(this);
 		listViewController.init(this);
 		mainTabController.init(this);
@@ -227,7 +231,16 @@ public class MainController{
 		System.out.println("Toimii");
 	}
 	
-	
+	public void lataaKilpailu(Kilpailu uusiKilpailu){
+		this.kilpailu=uusiKilpailu;
+		
+		kilpailijat = uusiKilpailu.kilpailijat;
+		henkilot = uusiKilpailu.henkilot;
+		joukkueet = uusiKilpailu.joukkueet;
+		lajit = uusiKilpailu.lajit; 
+		
+		treeViewViewController.setKilpailunNimi(kilpailu.getNimi());
+	}
 	
 	
 }

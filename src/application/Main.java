@@ -13,11 +13,21 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+								
+			//avaa p‰‰ohjelman ikkunan
 			Parent root = FXMLLoader.load(getClass().getResource("/application/view/MainView.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
+			//avaa p‰‰ohjelmaikkunan p‰‰lle aloitusikkunan
+			Parent root2 = FXMLLoader.load(getClass().getResource("/application/view/AloitusView.fxml"));					
+			Stage stage = new Stage();
+            stage.setScene(new Scene(root2));
+            stage.show();
+			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

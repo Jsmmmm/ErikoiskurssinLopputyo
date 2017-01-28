@@ -32,7 +32,7 @@ public class TreeViewController{
 	
 	@FXML
 	TreeView<String> treeView;	
-	TreeItem<String> root = new TreeItem<>();
+	TreeItem<String> root = new TreeItem<String>("root");
 	TreeItem<String> kilpailijatLehti = new TreeItem<>("Kilpailijat", new ImageView(kilpailijaIcon));
 	TreeItem<String> joukkueetLehti = new TreeItem<>("Joukkueet", new ImageView(joukkueIcon));
 	TreeItem<String> lajiLehti = new TreeItem<>("Lajit", new ImageView(lajiIcon));
@@ -106,89 +106,97 @@ public class TreeViewController{
 	public void aktivoiKlikatunKohteenValilehti(MouseEvent mouseEvent){
 		if (mouseEvent.getClickCount() == 2) {
 			TreeItem<String> klikattuKohde = treeView.getSelectionModel().getSelectedItem();
-
-			if (klikattuKohde.getParent() == kilpailijatLehti) {
-				
-				try{				
-					Tab tab = new Tab();
+			if(klikattuKohde!=root){
+				if (klikattuKohde.getParent() == kilpailijatLehti) {
 					
-					main.tabPane.getTabs().add(tab);
-					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/HenkiloTab.fxml" ));
-					tab.setContent(loader.load());				
-					HenkiloTabController controller = loader.<HenkiloTabController>getController();
-					controller.init(main, tab);
-					controller.avaaHenkilonTiedot(main.haeKilpailija(klikattuKohde.getValue()));
-					tab.setText(klikattuKohde.getValue());
-					tab.isClosable();
-					//return tab;
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-				
-				
-			} else if (klikattuKohde.getParent() == joukkueetLehti) {
-				
-				try{				
-					Tab tab = new Tab();
+					try{				
+						Tab tab = new Tab();
+						
+						main.tabPane.getTabs().add(tab);
+						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/HenkiloTab.fxml" ));
+						tab.setContent(loader.load());				
+						HenkiloTabController controller = loader.<HenkiloTabController>getController();
+						controller.init(main, tab);
+						controller.avaaHenkilonTiedot(main.haeKilpailija(klikattuKohde.getValue()));
+						tab.setText(klikattuKohde.getValue());
+						tab.isClosable();
+						//return tab;
+					}catch(Exception e){
+						e.printStackTrace();
+					}
 					
-					main.tabPane.getTabs().add(tab);
-					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/JoukkueTab.fxml" ));
-					tab.setContent(loader.load());				
-					JoukkueTabController controller = loader.<JoukkueTabController>getController();					
-					controller.init(main, tab);
-					controller.avaaJoukkueenTiedot(main.haeJoukkue(klikattuKohde.getValue()));
-					tab.setText(klikattuKohde.getValue());
-					tab.isClosable();
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-				
-			} else if (klikattuKohde.getParent() == lajiLehti) {
-				try{				
-					Tab tab = new Tab();
 					
-					main.tabPane.getTabs().add(tab);
-					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/LajiTab.fxml" ));
-					tab.setContent(loader.load());				
-					LajiTabController controller = loader.<LajiTabController>getController();	
-					controller.init(main);
-					controller.avaaLajinTiedot(main.haeLaji(klikattuKohde.getValue()));
-					tab.setText(klikattuKohde.getValue());
-					tab.isClosable();
-				}catch(Exception e){
-					e.printStackTrace();
+				} else if (klikattuKohde.getParent() == joukkueetLehti) {
+					
+					try{				
+						Tab tab = new Tab();
+						
+						main.tabPane.getTabs().add(tab);
+						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/JoukkueTab.fxml" ));
+						tab.setContent(loader.load());				
+						JoukkueTabController controller = loader.<JoukkueTabController>getController();					
+						controller.init(main, tab);
+						controller.avaaJoukkueenTiedot(main.haeJoukkue(klikattuKohde.getValue()));
+						tab.setText(klikattuKohde.getValue());
+						tab.isClosable();
+					}catch(Exception e){
+						e.printStackTrace();
+					}
+					
+				} else if (klikattuKohde.getParent() == lajiLehti) {
+					try{				
+						Tab tab = new Tab();
+						
+						main.tabPane.getTabs().add(tab);
+						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/LajiTab.fxml" ));
+						tab.setContent(loader.load());				
+						LajiTabController controller = loader.<LajiTabController>getController();	
+						controller.init(main);
+						controller.avaaLajinTiedot(main.haeLaji(klikattuKohde.getValue()));
+						tab.setText(klikattuKohde.getValue());
+						tab.isClosable();
+					}catch(Exception e){
+						e.printStackTrace();
+					}
 				}
+				else if(klikattuKohde.getParent().getParent() == tulosLehti){
+					try{
+						
+						Tab tab = new Tab();					
+						main.tabPane.getTabs().add(tab);
+						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SarjaTab.fxml" ));
+						tab.setContent(loader.load());				
+						SarjaTabController controller = loader.<SarjaTabController>getController();	
+						
+					
+						Laji laji = main.haeLaji(klikattuKohde.getParent().getValue());
+						Sarja sarja = main.haeSarja(laji, klikattuKohde.getValue());
+						controller.init(main, sarja, laji);
+						controller.taytaListView();
+						controller.asetaNimi();
+						tab.setText(laji.toString()+": "+sarja.toString());
+						tab.isClosable();
+						
+					}catch(Exception e){
+						e.printStackTrace();
+					}
 			}
-			else if(klikattuKohde.getParent().getParent() == tulosLehti){
-				try{
-					
-					Tab tab = new Tab();					
-					main.tabPane.getTabs().add(tab);
-					FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SarjaTab.fxml" ));
-					tab.setContent(loader.load());				
-					SarjaTabController controller = loader.<SarjaTabController>getController();	
-					
-				
-					Laji laji = main.haeLaji(klikattuKohde.getParent().getValue());
-					Sarja sarja = main.haeSarja(laji, klikattuKohde.getValue());
-					controller.init(main, sarja, laji);
-					controller.taytaListView();
-					controller.asetaNimi();
-					tab.setText(laji.toString()+": "+sarja.toString());
-					tab.isClosable();
-					
-				}catch(Exception e){
-					e.printStackTrace();
-				}
+			
 			}
 		}
 	}
 	
+	public void setKilpailunNimi(String nimi){
+	
+		
+
+	}
 	
 	
 	
 	@FXML
 	public void initialize() {
+		
 		root.getChildren().addAll(kilpailijatLehti, joukkueetLehti, lajiLehti, tulosLehti);
 		
 		treeView.setRoot(root);
@@ -199,6 +207,7 @@ public class TreeViewController{
 		tulosLehti.setExpanded(true);
 	}
 	
+	   
 	
 	
 	
