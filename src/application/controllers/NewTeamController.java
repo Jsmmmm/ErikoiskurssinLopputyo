@@ -11,17 +11,16 @@ public class NewTeamController {
 
 	MainController main;
 	
-	@FXML TextField joukkueenNimiKentta;
-	@FXML Button peruuta;
+	@FXML TextField teamName;
+	@FXML Button cancel;
 	
 	
-	public Team tallennaJoukkue(){
-		Team uusiJoukkue=null;
-		if(!joukkueenNimiKentta.getText().isEmpty()){
-			uusiJoukkue = new Team(joukkueenNimiKentta.getText());
-			
-			
-		}return uusiJoukkue;
+	public Team saveTeam(){
+		Team newTeam=null;
+		if(!teamName.getText().isEmpty()){
+			newTeam = new Team(teamName.getText());						
+		}
+		return newTeam;
 	}
 			
 	
@@ -29,26 +28,25 @@ public class NewTeamController {
 		main=mainController;
 	}
 	
-	public void tyhjennaTekstikentat(){
-		joukkueenNimiKentta.clear();
-		joukkueenNimiKentta.setPromptText("Joukkueen nimi");
+	public void clearTextfields(){
+		teamName.clear();		
 	}
 	
 	@FXML
-	public void tallennaNappiaPainettu(ActionEvent e){
+	public void saveButtonPressed(ActionEvent e){
 		
-			Team joukkue=tallennaJoukkue();
-			if(joukkue!=null){
-				main.joukkueet.add(joukkue);
-				main.treeViewViewController.lisaaJoukkueOlioPuunakymaan(joukkue);
+			Team team=saveTeam();
+			if(team!=null){
+				main.joukkueet.add(team);
+				main.treeViewViewController.addTeamToTW(team);
 				main.joukkueLaskuri(true);
 			}
 	}
 	
 	
 	@FXML
-	public void peruutaPainettu(ActionEvent e){
-		 Stage stage = (Stage) peruuta.getScene().getWindow();		   
+	public void cancelButtonPressed(ActionEvent e){
+		 Stage stage = (Stage) cancel.getScene().getWindow();		   
 		 stage.close();
 	}
 	

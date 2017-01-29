@@ -8,17 +8,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="123.0" prefWidth="526.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="application.controllers.CreateCompetitonController">
+<VBox prefHeight="123.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.CreateCompetitonController">
    <children>
       <HBox prefHeight="70.0" prefWidth="526.0">
          <children>
-            <Label prefHeight="38.0" prefWidth="161.0" text="Kilpailun nimi: ">
+            <Label prefHeight="38.0" prefWidth="161.0" text="Tournament name:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tekstiKentta" prefHeight="34.0" prefWidth="228.0" promptText="Kilpailun nimi" />
+            <TextField fx:id="name" prefHeight="34.0" prefWidth="228.0" />
          </children>
          <VBox.margin>
             <Insets left="10.0" top="10.0" />
@@ -26,8 +25,8 @@
       </HBox>
       <HBox prefHeight="47.0" prefWidth="496.0" spacing="30.0">
          <children>
-            <Button fx:id="tallenna" mnemonicParsing="false" onAction="#luoUusiKilpailu" text="Tallenna" />
-            <Button mnemonicParsing="false" text="Peruuta" />
+            <Button fx:id="save" mnemonicParsing="false" onAction="#createNewTournament" text="Save" />
+            <Button mnemonicParsing="false" text="Cancel" />
          </children>
          <VBox.margin>
             <Insets left="10.0" />

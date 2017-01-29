@@ -16,98 +16,98 @@ public class NewPersonController {
 	MainController main;
 	
 	@FXML ToggleGroup group;
-	@FXML TextField etunimiKentta;
-	@FXML TextField sukunimiKentta;
-	@FXML TextField ikaKentta;
-	@FXML RadioButton mies;
-	@FXML RadioButton nainen;
-	@FXML Circle pallo1;
-	@FXML Circle pallo2;
-	@FXML Circle pallo3;
-	@FXML Button tallenna;
-	@FXML Button tyhjenna;
-	@FXML Button peruuta;
+	@FXML TextField firstName;
+	@FXML TextField lastName;
+	@FXML TextField age;
+	@FXML RadioButton men;
+	@FXML RadioButton women;
+	@FXML Circle ball1;
+	@FXML Circle ball2;
+	@FXML Circle ball3;
+	@FXML Button save;
+	@FXML Button clear;
+	@FXML Button cancel;
 	
 	public void init(MainController mainController){
 		main=mainController;
 	}
 	
-public Competitor tallennaHenkilo(){
+public Competitor createPerson(){
 		
 		boolean x = false;
 		boolean y = false;
 		boolean z = false;
-		pallo1.setVisible(false);
-		pallo2.setVisible(false);
-		pallo3.setVisible(false);
-		Person henkilo=null;
-		Competitor kilpailija=null;
-		if(Person.tarkistaNimi(etunimiKentta.getText())){
+		ball1.setVisible(false);
+		ball2.setVisible(false);
+		ball3.setVisible(false);
+		//Person henkilo=null;
+		Competitor competitor=null;
+		if(Person.checkName(firstName.getText())){
 			x = true;
 		}else {
-			pallo1.setVisible(true);
+			ball1.setVisible(true);
 		}
-		if(Person.tarkistaNimi(sukunimiKentta.getText())){
+		if(Person.checkName(lastName.getText())){
 			y=true;
 		}else{
-			pallo2.setVisible(true);
+			ball2.setVisible(true);
 		}
-		int ika=0;
+		int personsAge=0;
 		try{
-			ika=Integer.parseInt(ikaKentta.getText());
+			personsAge=Integer.parseInt(age.getText());
 			z=true; 
 			
 		}catch(NumberFormatException ee){			
-			pallo3.setVisible(true);			
+			ball3.setVisible(true);			
 		}
-		String sukupuoli;
-		if(mies.isSelected()){
-			sukupuoli="Mies";
-		}else sukupuoli="Nainen";
+		String gender;
+		if(men.isSelected()){
+			gender="Mies";
+		}else gender="Nainen";
 		
 		if(x==true && y==true && z==true){
-			kilpailija = new Competitor(etunimiKentta.getText(), sukunimiKentta.getText(), ika, sukupuoli);
+			competitor = new Competitor(firstName.getText(), lastName.getText(), personsAge, gender);
 			
-			System.out.println(kilpailija.toString());
+			System.out.println(competitor.toString());
 			
 			
 			
-		}tyhjennaTekstikentat();
-		return kilpailija;
+		}clearTextfields();
+		return competitor;
 				
 	}
 
 
-	public void tyhjennaTekstikentat(){
-		etunimiKentta.clear();
-		sukunimiKentta.clear();
-		ikaKentta.clear();
-		pallo1.setVisible(false);
-		pallo2.setVisible(false);
-		pallo3.setVisible(false);
-		etunimiKentta.setPromptText("Etunimi");
-		sukunimiKentta.setPromptText("Sukunimi");
-		ikaKentta.setPromptText("Ikä");
+	public void clearTextfields(){
+		firstName.clear();
+		lastName.clear();
+		age.clear();
+		ball1.setVisible(false);
+		ball2.setVisible(false);
+		ball3.setVisible(false);
+		firstName.setPromptText("Etunimi");
+		lastName.setPromptText("Sukunimi");
+		age.setPromptText("Ikä");
 	}
 	
 	@FXML
-	public void tallennaNappiaPainettu(ActionEvent e){
-		Competitor kilpailija=tallennaHenkilo();
+	public void saveButtonPressed(ActionEvent e){
+		Competitor kilpailija=createPerson();
 		if(kilpailija!=null){
 			main.kilpailijat.add(kilpailija);
-			main.treeViewViewController.lisaaHenkiloOlioPuunakymaan(kilpailija);
+			main.treeViewViewController.addCompetitorToTW(kilpailija);
 			main.henkiloLaskuri(kilpailija, true);
 		}		
 	}
 	
 	@FXML
-	public void tyhjennaNappiaPainettu(ActionEvent e){	
-		tyhjennaTekstikentat();		
+	public void clearButtonPressed(ActionEvent e){	
+		clearTextfields();		
 	}
 	
 	@FXML
-	public void peruutaNappiaPainettu(ActionEvent e){
-		 Stage stage = (Stage) peruuta.getScene().getWindow();		   
+	public void cancelButtonPressed(ActionEvent e){
+		 Stage stage = (Stage) cancel.getScene().getWindow();		   
 		 stage.close();
 	}
 	

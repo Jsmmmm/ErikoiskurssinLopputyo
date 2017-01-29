@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 
 public class CreateCompetitonController {
 
-	@FXML TextField tekstiKentta;
-	@FXML Button tallenna;
-	@FXML Button peruuta;
+	@FXML TextField name;
+	@FXML Button save;
+	@FXML Button cancel;
 	MainController main;
 	
 	public void init(MainController main){
@@ -18,12 +18,12 @@ public class CreateCompetitonController {
 	}
 	
 	@FXML
-	private void luoUusiKilpailu(){
-		Competition kilpailu = new Competition();
-		kilpailu.setNimi(tekstiKentta.getText());
-		main.lataaKilpailu(kilpailu);	
+	private void createNewTournament(){
+		Competition tournament = new Competition();
+		tournament.setName(name.getText());
+		main.lataaKilpailu(tournament);	
 		
-		Stage stage = (Stage) tallenna.getScene().getWindow();
+		Stage stage = (Stage) save.getScene().getWindow();
 	    stage.close();
 	}
 }

@@ -5,100 +5,100 @@ import java.util.ArrayList;
 
 public class Sport {
 
-	String lajinNimi;
+	String sportName;
 	
-	public ArrayList<Osallistuja> lajinOsallistujat = new ArrayList<Osallistuja>();
+	public ArrayList<Participant> sportParticipants = new ArrayList<Participant>();
 	
-	public Serie yleisSarja; 
-	public Serie miestenYleisSarja;
-	public Serie miestenU18Sarja;
-	public Serie naistenYleisSarja;
-	public Serie naistenU18Sarja;
-	public boolean booleanYleisSarja=false;
-	public boolean booleanMiestenSarja=false;
-	public boolean booleanNaistenSarja=false;
-	public boolean booleanMiestenU18=false;
-	public boolean booleanNaistenU18=false;
+	public Serie general; 
+	public Serie mens;
+	public Serie mensU18;
+	public Serie womens;
+	public Serie womensU18;
+	public boolean booleanGeneral=false;
+	public boolean booleanMens=false;
+	public boolean booleanWomens=false;
+	public boolean booleanMensU18=false;
+	public boolean booleanWomensU18=false;
 	 
-	public Sport(String lajinNimi, boolean booleanYleisSarja, boolean booleanMiestenYleisSarja,  boolean booleanNaistenYleisSarja, boolean booleanMiestenU18Sarja, boolean booleanNaistenU18Sarja){
-		this.lajinNimi=lajinNimi;
-		this.booleanYleisSarja=booleanYleisSarja;
-		this.booleanMiestenSarja=booleanMiestenYleisSarja;
-		this.booleanNaistenSarja=booleanNaistenYleisSarja;
-		this.booleanMiestenU18=booleanMiestenU18Sarja;
-		this.booleanNaistenU18=booleanNaistenU18Sarja;
+	public Sport(String name, boolean booleanGeneral, boolean booleanMen,  boolean booleanWomen, boolean booleanMenU18, boolean booleanWomenU18){
+		this.sportName=name;
+		this.booleanGeneral=booleanGeneral;
+		this.booleanMens=booleanMen;
+		this.booleanWomens=booleanWomen;
+		this.booleanMensU18=booleanMenU18;
+		this.booleanWomensU18=booleanWomenU18;
 		
-		if(booleanYleisSarja==true){
-			yleisSarja=new Serie("Yleissarja");
+		if(booleanGeneral==true){
+			general=new Serie("General");
 		}
-		if(booleanMiestenSarja==true){
-			miestenYleisSarja=new Serie("Miesten sarja");
+		if(booleanMens==true){
+			mens=new Serie("Men");
 		}
-		if(booleanMiestenU18==true){
-			miestenU18Sarja=new Serie("Miesten sarja U18");
+		if(booleanMensU18==true){
+			mensU18=new Serie("Men U18");
 		}
-		if(booleanNaistenSarja==true){
-			naistenYleisSarja=new Serie("Naisten sarja");
+		if(booleanWomens==true){
+			womens=new Serie("Women's");
 		}
-		if(booleanNaistenU18==true){
-			naistenU18Sarja=new Serie("Naisten sarja U18");
+		if(booleanWomensU18==true){
+			womensU18=new Serie("Women's U18");
 		}						
 	}
 	
 	
-	private void lisaaOsallistujaSarjaan(Osallistuja osallistuja, Serie sarja){
-		if(sarja.sarjanOsallistujat.contains(osallistuja)){
-			System.out.println(osallistuja.kilpailija.toString()+" löytyi jo valmiiksi lajista");
+	private void addParticipantToSerie(Participant participant, Serie serie){
+		if(serie.serieParticipants.contains(participant)){
+			System.out.println(participant.competitor.toString()+" löytyi jo valmiiksi lajista");
 		} else{
-			sarja.sarjanOsallistujat.add(osallistuja); }
+			serie.serieParticipants.add(participant); }
 	}
 	
 	
-	public void sijoitaOsallistujatSarjoihin(){
+	public void placeParticipantsToSeries(){
 		
-		for(Osallistuja osallistuja : lajinOsallistujat){
+		for(Participant participant : sportParticipants){
 			
-			if(booleanYleisSarja){
-				lisaaOsallistujaSarjaan(osallistuja, yleisSarja);
+			if(booleanGeneral){
+				addParticipantToSerie(participant, general);
 				//yleisSarja.sarjanOsallistujat.add(osallistuja);
 				
 			}
 			
 
 			//miesten osallistuminen
-			if(osallistuja.kilpailija.kerroSukupuoli().equals("Mies")){								
+			if(participant.competitor.getGender().equals("Mies")){								
 				
-				if(booleanMiestenU18 && osallistuja.kilpailija.kerroIka()<18){
-					lisaaOsallistujaSarjaan(osallistuja, miestenU18Sarja);
+				if(booleanMensU18 && participant.competitor.getAge()<18){
+					addParticipantToSerie(participant, mensU18);
 				//	miestenU18Sarja.sarjanOsallistujat.add(osallistuja);
 					
-				}else if(!booleanMiestenU18 && booleanMiestenSarja){
-					lisaaOsallistujaSarjaan(osallistuja, miestenYleisSarja);
+				}else if(!booleanMensU18 && booleanMens){
+					addParticipantToSerie(participant, mens);
 					//miestenYleisSarja.sarjanOsallistujat.add(osallistuja);
 					
-				}else if(booleanMiestenU18 && booleanMiestenSarja && osallistuja.kilpailija.kerroIka()>=18){
-					lisaaOsallistujaSarjaan(osallistuja, miestenYleisSarja);
+				}else if(booleanMensU18 && booleanMens && participant.competitor.getAge()>=18){
+					addParticipantToSerie(participant, mens);
 					//miestenYleisSarja.sarjanOsallistujat.add(osallistuja);
 					
 				}
 				
 			//naisten osallistuminen
 			}else{
-				if(booleanNaistenU18 && osallistuja.kilpailija.kerroIka()<18){
-					lisaaOsallistujaSarjaan(osallistuja, naistenU18Sarja);
+				if(booleanWomensU18 && participant.competitor.getAge()<18){
+					addParticipantToSerie(participant, womensU18);
 					//naistenU18Sarja.sarjanOsallistujat.add(osallistuja);
 					
-				}else if(booleanNaistenU18==false && booleanNaistenSarja){
-					lisaaOsallistujaSarjaan(osallistuja, naistenYleisSarja);
+				}else if(booleanWomensU18==false && booleanWomens){
+					addParticipantToSerie(participant, womens);
 					//naistenYleisSarja.sarjanOsallistujat.add(osallistuja);
 					
-				}else if(booleanNaistenU18 && booleanNaistenSarja && osallistuja.kilpailija.kerroIka()>=18){
-					lisaaOsallistujaSarjaan(osallistuja, naistenYleisSarja);
+				}else if(booleanWomensU18 && booleanWomens && participant.competitor.getAge()>=18){
+					addParticipantToSerie(participant, womens);
 					//naistenYleisSarja.sarjanOsallistujat.add(osallistuja);
 					 }								
 			}						
 		}
-		lajinOsallistujat.clear();
+		sportParticipants.clear();
 		
 		
 	}
@@ -107,7 +107,7 @@ public class Sport {
 	
 	@Override
 	public String toString(){
-		return this.lajinNimi;
+		return this.sportName;
 	}
 
 }

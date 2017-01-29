@@ -14,9 +14,9 @@
    <children>
       <HBox prefHeight="50.0">
          <children>
-            <Label prefHeight="27.0" prefWidth="63.0" text="Etunimi" />
-            <TextField fx:id="etunimiKentta" promptText="Etunimi" />
-            <Circle fx:id="pallo1" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Label prefHeight="27.0" prefWidth="63.0" text="First Name" />
+            <TextField fx:id="firstName" promptText="First Name" />
+            <Circle fx:id="ball1" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -27,9 +27,9 @@
       </HBox>
       <HBox prefHeight="50.0">
          <children>
-            <Label prefHeight="26.0" prefWidth="65.0" text="Sukunimi" />
-            <TextField fx:id="sukunimiKentta" promptText="Sukunimi" />
-            <Circle fx:id="pallo2" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Label prefHeight="26.0" prefWidth="65.0" text="Last Name" />
+            <TextField fx:id="lastName" promptText="Last Name" />
+            <Circle fx:id="ball2" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -40,9 +40,9 @@
       </HBox>
       <HBox prefHeight="50.0">
          <children>
-            <Label prefHeight="26.0" prefWidth="72.0" text="Ikä" />
-            <TextField fx:id="ikaKentta" prefHeight="27.0" prefWidth="76.0" promptText="Ika" />
-            <Circle fx:id="pallo3" fill="#e40505" radius="12.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Label prefHeight="26.0" prefWidth="72.0" text="Age" />
+            <TextField fx:id="age" prefHeight="27.0" prefWidth="76.0" promptText="Age" />
+            <Circle fx:id="ball3" fill="#e40505" radius="12.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -53,13 +53,13 @@
       </HBox>
       <HBox prefHeight="50.0">
          <children>
-            <Label prefHeight="21.0" prefWidth="72.0" text="Sukupuoli" />
-            <RadioButton fx:id="mies" mnemonicParsing="false" selected="true" text="Mies">
+            <Label prefHeight="21.0" prefWidth="72.0" text="Gender" />
+            <RadioButton fx:id="men" mnemonicParsing="false" selected="true" text="Men">
                <toggleGroup>
                   <ToggleGroup fx:id="group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="nainen" mnemonicParsing="false" text="Nainen" toggleGroup="$group" />
+            <RadioButton fx:id="women" mnemonicParsing="false" text="Women" toggleGroup="$group" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -70,9 +70,9 @@
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="247.0" prefWidth="640.0" spacing="10.0">
          <children>
-            <Button fx:id="tallenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#tallennaNappiaPainettu" text="Tallenna" />
-            <Button fx:id="tyhjenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#tyhjennaNappiaPainettu" text="Tyhjenna" />
-            <Button fx:id="peruuta" mnemonicParsing="false" onAction="#peruutaNappiaPainettu" text="Peruuta" />
+            <Button fx:id="save" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#saveButtonPressed" text="Save" />
+            <Button fx:id="clear" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#clearButtonPressed" text="Empty" />
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" />

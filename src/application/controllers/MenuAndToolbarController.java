@@ -14,35 +14,35 @@ public class MenuAndToolbarController {
 
 	MainController main;
 	
-	Image uusi = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/new-file-icon.png"));
-	Image avaa = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/folder-open-icon.png"));
-	Image tallenna = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/save-icon.png"));
-	Image henkilo = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/User-icon.png"));
-	Image joukkue = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/team-icon.png"));
-	Image laji = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/sports-icon.png"));
+	Image newFile = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/new-file-icon.png"));
+	Image open = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/folder-open-icon.png"));
+	Image save = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/save-icon.png"));
+	Image person = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/User-icon.png"));
+	Image team = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/team-icon.png"));
+	Image sport = new Image(getClass().getResourceAsStream("/application/Icons/Toolbar_icons/sports-icon.png"));
 	
-	@FXML Button uusiKilpailu;
-	@FXML Button avaaKilpailu;
-	@FXML Button tallennaKilpailu;
-	@FXML Button uusiKilpailija;
-	@FXML Button uusiJoukkue;
-	@FXML Button uusiLaji;
-	@FXML Button testiNappi;
+	@FXML Button newCompetition;
+	@FXML Button openSavedCompetition;
+	@FXML Button saveCompetition;
+	@FXML Button newPerson;
+	@FXML Button newTeam;
+	@FXML Button newSport;
+	@FXML Button testButton;
 	
 	@FXML
 	public void initialize(){
-		uusiKilpailu.setGraphic(new ImageView(uusi));
-		uusiKilpailu.setPadding(Insets.EMPTY);
-		avaaKilpailu.setGraphic(new ImageView(avaa));
-		avaaKilpailu.setPadding(Insets.EMPTY);
-		tallennaKilpailu.setGraphic(new ImageView(tallenna));
-		tallennaKilpailu.setPadding(Insets.EMPTY);
-		uusiKilpailija.setGraphic(new ImageView(henkilo));
-		uusiKilpailija.setPadding(Insets.EMPTY);
-		uusiJoukkue.setGraphic(new ImageView(joukkue));
-		uusiJoukkue.setPadding(Insets.EMPTY);
-		uusiLaji.setGraphic(new ImageView(laji));
-		uusiLaji.setPadding(Insets.EMPTY);
+		newCompetition.setGraphic(new ImageView(newFile));
+		newCompetition.setPadding(Insets.EMPTY);
+		openSavedCompetition.setGraphic(new ImageView(open));
+		openSavedCompetition.setPadding(Insets.EMPTY);
+		saveCompetition.setGraphic(new ImageView(save));
+		saveCompetition.setPadding(Insets.EMPTY);
+		newPerson.setGraphic(new ImageView(person));
+		newPerson.setPadding(Insets.EMPTY);
+		newTeam.setGraphic(new ImageView(team));
+		newTeam.setPadding(Insets.EMPTY);
+		newSport.setGraphic(new ImageView(sport));
+		newSport.setPadding(Insets.EMPTY);
 	}
 	
 	public void init(MainController mainController){
@@ -55,7 +55,7 @@ public class MenuAndToolbarController {
 	}
 	
 	@FXML
-	public void uusiKilpailijaButton(ActionEvent e){
+	public void newPersonPressed(ActionEvent e){
 		try{
 			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewPerson.fxml" ));
 			 Stage stage = new Stage();		 
@@ -72,7 +72,7 @@ public class MenuAndToolbarController {
 	}
 	
 	@FXML
-	public void uusiLajiButton(ActionEvent e){
+	public void newSportPressed(ActionEvent e){
 		try{
 			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewSport.fxml" ));
 			 Stage stage = new Stage();		 
@@ -89,7 +89,7 @@ public class MenuAndToolbarController {
 	}
 	
 	@FXML
-	public void uusiJoukkueButton(ActionEvent e){
+	public void newTeamPressed(ActionEvent e){
 		try{
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewTeam.fxml" ));
 			Stage stage = new Stage();		 

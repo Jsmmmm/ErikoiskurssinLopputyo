@@ -11,62 +11,62 @@ import javafx.stage.Stage;
 public class NewSportController {
 	
 	MainController main;
-	@FXML TextField lajinNimiKentta;
-	@FXML CheckBox yleisSarja;	
-	@FXML CheckBox miestenSarja;
-	@FXML CheckBox naistenSarja;
-	@FXML CheckBox miestenU18;
-	@FXML CheckBox naistenU18;
-	@FXML Button tallenna;
-	@FXML Button peruuta;
+	@FXML TextField sportName;
+	@FXML CheckBox general;	
+	@FXML CheckBox men;
+	@FXML CheckBox women;
+	@FXML CheckBox menU18;
+	@FXML CheckBox womenU18;
+	@FXML Button save;
+	@FXML Button cancel;
 	
-	boolean booleanYleisSarja=false;
-	boolean booleanMiestenSarja=false;
-	boolean booleanNaistenSarja=false;
-	boolean booleanMiestenU18=false;
-	boolean booleanNaistenU18=false;
+	boolean booleanGeneral=false;
+	boolean booleanMen=false;
+	boolean booleanWomen=false;
+	boolean booleanMenU18=false;
+	boolean booleanWomenU18=false;
 	
 	
 	@FXML
-	void tallennaNappiaPainettu(ActionEvent e){
-		int sarjojenLKM=0;
+	void saveButton(ActionEvent e){
+		int amountOfSeries=0;
 		String lajinNimi=null;
-		if( !(lajinNimiKentta.getText().isEmpty()) ){
-			lajinNimi=lajinNimiKentta.getText();
+		if( !(sportName.getText().isEmpty()) ){
+			lajinNimi=sportName.getText();
 			
-			if(yleisSarja.isSelected()){
-				booleanYleisSarja=true;
-				sarjojenLKM++;
+			if(general.isSelected()){
+				booleanGeneral=true;
+				amountOfSeries++;
 			}
-			if(miestenSarja.isSelected()){
-				booleanMiestenSarja=true;
-				sarjojenLKM++;
+			if(men.isSelected()){
+				booleanMen=true;
+				amountOfSeries++;
 			}
-			if(naistenSarja.isSelected()){ 
-				booleanNaistenSarja=true;
-				sarjojenLKM++;
+			if(women.isSelected()){ 
+				booleanWomen=true;
+				amountOfSeries++;
 			}
-			if(miestenU18.isSelected()){
-				booleanMiestenU18=true;
-				sarjojenLKM++;
+			if(menU18.isSelected()){
+				booleanMenU18=true;
+				amountOfSeries++;
 			}
-			if(naistenU18.isSelected()){
-				booleanNaistenU18=true;
-				sarjojenLKM++;
+			if(womenU18.isSelected()){
+				booleanWomenU18=true;
+				amountOfSeries++;
 			}
 		
-			Sport uusiLaji=new Sport(lajinNimi, booleanYleisSarja, booleanMiestenSarja, booleanNaistenSarja, booleanMiestenU18, booleanNaistenU18);
-			main.lajit.add(uusiLaji);
-			main.lisaaLajiPuunakymaan(uusiLaji);
-			main.lajiJaSarjaLaskuri(true, sarjojenLKM);
-			suljeIkkuna(e);
+			Sport newSport=new Sport(lajinNimi, booleanGeneral, booleanMen, booleanWomen, booleanMenU18, booleanWomenU18);
+			main.lajit.add(newSport);
+			main.lisaaLajiPuunakymaan(newSport);
+			main.lajiJaSarjaLaskuri(true, amountOfSeries);
+			closeWindow(e);
 		
 		}						
 	}
 	
 	
-	public void suljeIkkuna(ActionEvent e){
-		 Stage stage = (Stage) tallenna.getScene().getWindow();
+	public void closeWindow(ActionEvent e){
+		 Stage stage = (Stage) save.getScene().getWindow();
 		    stage.close();
 	}
 	

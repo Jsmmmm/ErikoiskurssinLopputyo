@@ -4,6 +4,7 @@ import application.model.Team;
 import application.model.Competitor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
@@ -12,8 +13,9 @@ public class TeamTabController {
 
 	Tab tab;
 	MainController main;
-	@FXML Label joukkueenNimiKentta;
-	
+	@FXML Label teamName;
+	@FXML Button edit;
+	@FXML Button delete;
 	/*
 	public Joukkue tallennaJoukkue(){
 		Joukkue uusiJoukkue=null;
@@ -41,8 +43,8 @@ public class TeamTabController {
 		joukkueenNimiKentta.setPromptText("Joukkueen nimi");
 	} */
 	
-	public void avaaJoukkueenTiedot(Team joukkue){
-		joukkueenNimiKentta.setText(joukkue.toString());
+	public void openTeamInformation(Team joukkue){
+		teamName.setText(joukkue.toString());
 	}
 	
 	/*
@@ -63,8 +65,8 @@ public class TeamTabController {
 	
 	
 	@FXML
-	public void poistaPainettu(ActionEvent e){
-		main.treeViewViewController.poista(e);	
+	public void delete(ActionEvent e){
+		main.treeViewViewController.delete(e);	
 		main.tabPane.getTabs().remove(tab);
 		main.joukkueLaskuri(false);
 	} 

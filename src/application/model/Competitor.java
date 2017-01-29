@@ -4,17 +4,17 @@ package application.model;
 public class Competitor extends Person{
 
 	
-	int kilpailijaNro;
-	private static int seuraavaNro=1;
+	int competitorNumber;
+	private static int nextNumber=1;
 	
-	public Competitor(String etuNimi, String sukuNimi, int ika, String sp){
-		super(etuNimi, sukuNimi, ika, sp);		
-		kilpailijaNro=seuraavaNro;
-		kasvataSeuraavaNro();
+	public Competitor(String firstName, String lastName, int age, String gender){
+		super(firstName, lastName, age, gender);		
+		competitorNumber=nextNumber;
+		sumNextNumberByOne();
 	}
 		
-	private void kasvataSeuraavaNro(){
-		seuraavaNro++;
+	private void sumNextNumberByOne(){
+		nextNumber++;
 	}
 	
 	

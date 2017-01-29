@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class Serie {
 
-	Serie(String sarjanNimi){
-		this.sarjanNimi=sarjanNimi;
+	Serie(String name){
+		this.serieName=name;
 	}
 	
-	String sarjanNimi;
-	public ArrayList<Osallistuja> sarjanOsallistujat=new ArrayList<Osallistuja>();
+	String serieName;
+	public ArrayList<Participant> serieParticipants=new ArrayList<Participant>();
 	
 	@Override
 	public String toString(){
-		return sarjanNimi;
+		return serieName;
 	}
 	
 }

@@ -2,7 +2,7 @@ package application.controllers;
 
 import application.model.Person;
 import application.model.Sport;
-import application.model.Osallistuja;
+import application.model.Participant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,39 +19,38 @@ public class AddPersonToSportController {
 			
 	MainController main;
 	@FXML ListView<Competitor> listView;
-	@FXML Button lisaa;
-	@FXML Button peruuta;
-	Sport laji;
-	ObservableList<Competitor> valitutKohteet;
+	@FXML Button add;
+	@FXML Button cancel;
+	Sport sport;
+	ObservableList<Competitor> targetedCompetitors;
 	
 	
-	public void lisaaNappiaPainettu(ActionEvent e){
+	public void addPressed(ActionEvent e){
 			
-		for(Competitor kilpailija : valitutKohteet){
-			laji.lajinOsallistujat.add(new Osallistuja(kilpailija));
+		for(Competitor kilpailija : targetedCompetitors){
+			sport.sportParticipants.add(new Participant(kilpailija));
 			System.out.println(kilpailija.toString()); 
 		}
-		laji.sijoitaOsallistujatSarjoihin(); 
-		
+		sport.placeParticipantsToSeries(); 		
 	}
 	
-	public void initData(MainController main, Sport laji/*String valittuLaji*/){
+	public void initData(MainController main, Sport sport/*String valittuLaji*/){
 		this.main=main;
-		this.laji=laji;
-		taytaListView();
+		this.sport=sport;
+		fillListView();
 		//laji=main.haeLaji(valittuLaji);					
 		
 	}
 	
 	
-	public void kohdettaKlikattu(Event e){
-		valitutKohteet =  listView.getSelectionModel().getSelectedItems();
+	public void getTargetedCompetitors(Event e){
+		targetedCompetitors =  listView.getSelectionModel().getSelectedItems();
 		
 	}
 	
 	
 	
-	public void taytaListView(){
+	public void fillListView(){
 		listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		ObservableList<Competitor> myObservableList = FXCollections.observableList(main.kilpailijat);
 		listView.setItems(myObservableList);

@@ -3,26 +3,26 @@ package application.model;
 public class Person {
 	
 
-		public String sukunimi;
-		public String etunimi;
-		public int ika;
-		public String sukupuoli;
-		public static final int NIMI_MAX_PITUUS = 64;
-		public String joukkue;
+		public String lastName;
+		public String firstName;
+		public int age;
+		public String gender;
+		public static final int NAME_MAX_LENGTH = 64;
+		public String team;
 		
 		
 		
-		public Person(String etunimi, String sukunimi, int ika, String sp){
-			this.etunimi=etunimi;
-			this.sukunimi=sukunimi;
-			this.ika=ika;
-			this.sukupuoli=sp;
+		public Person(String firstname, String lastname, int age, String gender){
+			this.firstName=firstname;
+			this.lastName=lastname;
+			this.age=age;
+			this.gender=gender;
 			
 		}
 		
-		public static boolean tarkistaNimi(String nimi) {
+		public static boolean checkName(String nimi) {
 
-			if (nimi.length() < 1 || nimi.length() > NIMI_MAX_PITUUS)
+			if (nimi.length() < 1 || nimi.length() > NAME_MAX_LENGTH)
 				return false;
 
 			for (int i = 0; i < nimi.length(); ++i) {
@@ -35,52 +35,52 @@ public class Person {
 		}
 		
 		
-		 boolean asetaEtunimi(String etunimi) {		
-			if(tarkistaNimi(etunimi)){
-			this.etunimi = etunimi;
+		 boolean setFirstName(String firstName) {		
+			if(checkName(firstName)){
+			this.firstName = firstName;
 			return true; 
 			}
 			return false;
 			
 		}
 
-		 boolean asetaSukunimi(String sukunimi) {		
-			if(tarkistaNimi(sukunimi)){
-			this.sukunimi = sukunimi;
+		 boolean setLastName(String lastname) {		
+			if(checkName(lastname)){
+			this.lastName = lastname;
 			return true;
 			}
 			return false;
 		}
 
-		 boolean asetaIka(int ika) {
-			if(ika>0 && ika <150){
-			this.ika = ika;
+		 boolean setAge(int age) {
+			if(age>0 && age <150){
+			this.age = age;
 			return true; }
 			return false;
 		}
 
-		 void asetaSukupuoli(String sukupuoli) {
-			this.sukupuoli = sukupuoli;
+		 void setGender(String gender) {
+			this.gender = gender;
 		}
 		
-		public String kerroEtunimi(){
-			return this.etunimi;
+		public String getFirstName(){
+			return this.firstName;
 		}
 		
-		public String kerroSukunimi(){
-			return this.sukunimi;
+		public String getLastName(){
+			return this.lastName;
 		}
 		
-		public int kerroIka(){
-			return this.ika;
+		public int getAge(){
+			return this.age;
 		}
 		
-		public String kerroSukupuoli(){
-			return this.sukupuoli;
+		public String getGender(){
+			return this.gender;
 		}
 		
 		@Override
 		public String toString(){
-			return this.etunimi+" "+this.sukunimi;
+			return this.firstName+" "+this.lastName;
 		}
 }

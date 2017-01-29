@@ -5,6 +5,6 @@
 
 <AnchorPane prefHeight="575.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.TreeViewController">
    <children>
-      <TreeView fx:id="treeView" onMouseClicked="#aktivoiKlikatunKohteenValilehti" prefHeight="575.0" prefWidth="250.0" />
+      <TreeView fx:id="treeView" onMouseClicked="#openTabByClickingTW" prefHeight="575.0" prefWidth="250.0" />
    </children>
 </AnchorPane>

@@ -32,27 +32,27 @@ public class TreeViewController{
 	
 	@FXML
 	TreeView<String> treeView;	
-	TreeItem<String> root = new TreeItem<String>("root");
-	TreeItem<String> kilpailijatLehti = new TreeItem<>("Kilpailijat", new ImageView(kilpailijaIcon));
-	TreeItem<String> joukkueetLehti = new TreeItem<>("Joukkueet", new ImageView(joukkueIcon));
-	TreeItem<String> lajiLehti = new TreeItem<>("Lajit", new ImageView(lajiIcon));
-	TreeItem<String> tulosLehti = new TreeItem<>("Tulokset", new ImageView(trophyIcon));
+	TreeItem<String> root = new TreeItem<>();
+	TreeItem<String> competitorsLeaf = new TreeItem<>("Competitors", new ImageView(kilpailijaIcon));
+	TreeItem<String> teamsLeaf = new TreeItem<>("Teams", new ImageView(joukkueIcon));
+	TreeItem<String> sportsLeaf = new TreeItem<>("Sports", new ImageView(lajiIcon));
+	TreeItem<String> resultsLeaf = new TreeItem<>("Scoreboards", new ImageView(trophyIcon));
 	
 	
 	
-	public void lisaaHenkiloOlioPuunakymaan(Competitor kilpailija){
-		kilpailijatLehti.getChildren().add(new TreeItem<>(kilpailija.toString()));
+	public void addCompetitorToTW(Competitor competitor){
+		competitorsLeaf.getChildren().add(new TreeItem<>(competitor.toString()));
 	}
 	
 	
-	public void lisaaJoukkueOlioPuunakymaan(Team joukkue){
-		joukkueetLehti.getChildren().add(new TreeItem<>(joukkue.toString()));
+	public void addTeamToTW(Team team){
+		teamsLeaf.getChildren().add(new TreeItem<>(team.toString()));
 	}
 	
 	
-	public void lisaaLajiOlioPuunakymaan(Sport laji){
-		TreeItem<String> lajiOlio = new TreeItem<>(laji.toString());
-		lajiLehti.getChildren().add(lajiOlio);	
+	public void addSportToTW(Sport sport){
+		TreeItem<String> lajiOlio = new TreeItem<>(sport.toString());
+		sportsLeaf.getChildren().add(lajiOlio);	
 	}
 	
 	
@@ -61,53 +61,53 @@ public class TreeViewController{
 	}
 	
 	
-	public void lisaaTuloksetPuunakymaan(Sport laji){
-	TreeItem<String> lajinTulokset = new TreeItem<>(laji.toString());
-		tulosLehti.getChildren().add(lajinTulokset);
+	public void addResultsToTW(Sport sport){
+	TreeItem<String> results = new TreeItem<>(sport.toString());
+		resultsLeaf.getChildren().add(results);
 		
-		if(laji.booleanYleisSarja){
-			lajinTulokset.getChildren().add(new TreeItem<>("Yleissarja"));
+		if(sport.booleanGeneral){
+			results.getChildren().add(new TreeItem<>("General series"));
 		}
 			
-		if(laji.booleanMiestenSarja){
-			lajinTulokset.getChildren().add(new TreeItem<>("Miesten sarja"));
+		if(sport.booleanMens){
+			results.getChildren().add(new TreeItem<>("Men's series"));
 		}
-		if(laji.booleanNaistenSarja){
-			lajinTulokset.getChildren().add(new TreeItem<>("Naisten sarja"));
+		if(sport.booleanWomens){
+			results.getChildren().add(new TreeItem<>("Women's series"));
 		}
-		if(laji.booleanNaistenU18){
-			lajinTulokset.getChildren().add(new TreeItem<>("Naisten sarja U18"));
+		if(sport.booleanWomensU18){
+			results.getChildren().add(new TreeItem<>("Women's U-18"));
 		}
-		if(laji.booleanMiestenU18){
-			lajinTulokset.getChildren().add(new TreeItem<>("Miesten sarja U18"));
+		if(sport.booleanMensU18){
+			results.getChildren().add(new TreeItem<>("Men's U-18"));
 		}
 		
 	}
 	
-	public void poista(ActionEvent e){
-		TreeItem<String> poistettava = treeView.getSelectionModel().getSelectedItem();		
-		if(treeView.getSelectionModel().getSelectedItem().getParent() == kilpailijatLehti){
-			poistettava.getParent().getChildren().remove(poistettava);
-			main.poistaHenkilo(poistettava.getValue());	
+	public void delete(ActionEvent e){
+		TreeItem<String> toBeRemoved = treeView.getSelectionModel().getSelectedItem();		
+		if(treeView.getSelectionModel().getSelectedItem().getParent() == competitorsLeaf){
+			toBeRemoved.getParent().getChildren().remove(toBeRemoved);
+			main.poistaHenkilo(toBeRemoved.getValue());	
 			
 			
-		}else if(treeView.getSelectionModel().getSelectedItem().getParent() == joukkueetLehti){
-			poistettava.getParent().getChildren().remove(poistettava);
-			main.poistaJoukkue(poistettava.getValue());
+		}else if(treeView.getSelectionModel().getSelectedItem().getParent() == teamsLeaf){
+			toBeRemoved.getParent().getChildren().remove(toBeRemoved);
+			main.poistaJoukkue(toBeRemoved.getValue());
 			
-		}else if(treeView.getSelectionModel().getSelectedItem().getParent() == lajiLehti){
-			poistettava.getParent().getChildren().remove(poistettava);
-			main.poistaLaji(poistettava.getValue());
+		}else if(treeView.getSelectionModel().getSelectedItem().getParent() == sportsLeaf){
+			toBeRemoved.getParent().getChildren().remove(toBeRemoved);
+			main.poistaLaji(toBeRemoved.getValue());
 			
 		}
 	}
 	
 	
-	public void aktivoiKlikatunKohteenValilehti(MouseEvent mouseEvent){
+	public void openTabByClickingTW(MouseEvent mouseEvent){
 		if (mouseEvent.getClickCount() == 2) {
-			TreeItem<String> klikattuKohde = treeView.getSelectionModel().getSelectedItem();
-			if(klikattuKohde!=root){
-				if (klikattuKohde.getParent() == kilpailijatLehti) {
+			TreeItem<String> target = treeView.getSelectionModel().getSelectedItem();
+			if(target!=root){
+				if (target.getParent() == competitorsLeaf) {
 					
 					try{				
 						Tab tab = new Tab();
@@ -117,8 +117,8 @@ public class TreeViewController{
 						tab.setContent(loader.load());				
 						PersonTabController controller = loader.<PersonTabController>getController();
 						controller.init(main, tab);
-						controller.avaaHenkilonTiedot(main.haeKilpailija(klikattuKohde.getValue()));
-						tab.setText(klikattuKohde.getValue());
+						controller.openPersonInformation(main.haeKilpailija(target.getValue()));
+						tab.setText(target.getValue());
 						tab.isClosable();
 						//return tab;
 					}catch(Exception e){
@@ -126,7 +126,7 @@ public class TreeViewController{
 					}
 					
 					
-				} else if (klikattuKohde.getParent() == joukkueetLehti) {
+				} else if (target.getParent() == teamsLeaf) {
 					
 					try{				
 						Tab tab = new Tab();
@@ -136,14 +136,14 @@ public class TreeViewController{
 						tab.setContent(loader.load());				
 						TeamTabController controller = loader.<TeamTabController>getController();					
 						controller.init(main, tab);
-						controller.avaaJoukkueenTiedot(main.haeJoukkue(klikattuKohde.getValue()));
-						tab.setText(klikattuKohde.getValue());
+						controller.openTeamInformation(main.haeJoukkue(target.getValue()));
+						tab.setText(target.getValue());
 						tab.isClosable();
 					}catch(Exception e){
 						e.printStackTrace();
 					}
 					
-				} else if (klikattuKohde.getParent() == lajiLehti) {
+				} else if (target.getParent() == sportsLeaf) {
 					try{				
 						Tab tab = new Tab();
 						
@@ -152,29 +152,31 @@ public class TreeViewController{
 						tab.setContent(loader.load());				
 						SportTabController controller = loader.<SportTabController>getController();	
 						controller.init(main);
-						controller.avaaLajinTiedot(main.haeLaji(klikattuKohde.getValue()));
-						tab.setText(klikattuKohde.getValue());
+						controller.openInformationOfSport(main.haeLaji(target.getValue()));
+						tab.setText(target.getValue());
 						tab.isClosable();
 					}catch(Exception e){
 						e.printStackTrace();
 					}
 				}
-				else if(klikattuKohde.getParent().getParent() == tulosLehti){
+				else if(target.getParent().getParent() == resultsLeaf){
 					try{
 						
 						Tab tab = new Tab();					
 						main.tabPane.getTabs().add(tab);
 						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SeriesTab.fxml" ));
 						tab.setContent(loader.load());				
-						SeriesTabController controller = loader.<SeriesTabController>getController();	
+						SeriesTabController controllerX = loader.<SeriesTabController>getController();	
 						
 					
-						Sport laji = main.haeLaji(klikattuKohde.getParent().getValue());
-						Serie sarja = main.haeSarja(laji, klikattuKohde.getValue());
-						controller.init(main, sarja, laji);
-						controller.taytaListView();
-						controller.asetaNimi();
-						tab.setText(laji.toString()+": "+sarja.toString());
+						Sport sport = main.haeLaji(target.getParent().getValue());
+						
+						Serie serie = main.haeSarja(sport, target.getValue());
+						
+						controllerX.init(main, serie, sport);
+						controllerX.taytaListView();
+						controllerX.setName();
+						tab.setText(sport.toString()+": "+serie.toString());
 						tab.isClosable();
 						
 					}catch(Exception e){
@@ -197,14 +199,14 @@ public class TreeViewController{
 	@FXML
 	public void initialize() {
 		
-		root.getChildren().addAll(kilpailijatLehti, joukkueetLehti, lajiLehti, tulosLehti);
+		root.getChildren().addAll(competitorsLeaf, teamsLeaf, sportsLeaf, resultsLeaf);
 		
 		treeView.setRoot(root);
 		root.setExpanded(true);
-		kilpailijatLehti.setExpanded(true);
-		joukkueetLehti.setExpanded(true);
-		lajiLehti.setExpanded(true);
-		tulosLehti.setExpanded(true);
+		competitorsLeaf.setExpanded(true);
+		teamsLeaf.setExpanded(true);
+		sportsLeaf.setExpanded(true);
+		resultsLeaf.setExpanded(true);
 	}
 	
 	   

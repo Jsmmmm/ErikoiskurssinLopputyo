@@ -6,8 +6,8 @@
 
 <AnchorPane prefHeight="491.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.AddPersonToSportController">
    <children>
-      <ListView fx:id="listView" onMouseClicked="#kohdettaKlikattu" prefHeight="450.0" prefWidth="700.0" />
-      <Button fx:id="lisaa" layoutX="31.0" layoutY="450.0" mnemonicParsing="false" onAction="#lisaaNappiaPainettu" prefHeight="25.0" prefWidth="91.0" text="Lisää" />
-      <Button fx:id="peruuta" layoutX="155.0" layoutY="450.0" mnemonicParsing="false" onAction="#lisaaNappiaPainettu" prefHeight="25.0" prefWidth="98.0" text="Peruuta" />
+      <ListView fx:id="listView" onMouseClicked="#getTargetedCompetitors" prefHeight="450.0" prefWidth="700.0" />
+      <Button fx:id="add" layoutX="31.0" layoutY="450.0" mnemonicParsing="false" onAction="#addPressed" prefHeight="25.0" prefWidth="91.0" text="Add" />
+      <Button fx:id="cancel" layoutX="155.0" layoutY="450.0" mnemonicParsing="false" onAction="#addPressed" prefHeight="25.0" prefWidth="98.0" text="Cancel" />
    </children>
 </AnchorPane>

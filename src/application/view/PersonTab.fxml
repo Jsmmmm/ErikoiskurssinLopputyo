@@ -11,37 +11,37 @@
    <children>
       <HBox prefHeight="50.0" spacing="10.0">
          <children>
-            <Label prefHeight="27.0" prefWidth="63.0" text="Etunimi:" />
-            <Label fx:id="etunimiKentta" prefHeight="27.0" prefWidth="192.0" />
+            <Label prefHeight="27.0" prefWidth="63.0" text="First Name:" />
+            <Label fx:id="firstName" prefHeight="27.0" prefWidth="192.0" />
          </children>
       </HBox>
       <HBox prefHeight="50.0" spacing="10.0">
          <children>
-            <Label prefHeight="26.0" prefWidth="65.0" text="Sukunimi:" />
-            <Label fx:id="sukunimiKentta" prefHeight="27.0" prefWidth="198.0" />
+            <Label prefHeight="26.0" prefWidth="65.0" text="Last Name:" />
+            <Label fx:id="lastName" prefHeight="27.0" prefWidth="198.0" />
          </children>
       </HBox>
       <HBox prefHeight="50.0">
          <children>
-            <Label prefHeight="26.0" prefWidth="77.0" text="Ikä:" />
-            <Label fx:id="ikaKentta" prefHeight="27.0" prefWidth="61.0" />
+            <Label prefHeight="26.0" prefWidth="77.0" text="Age:" />
+            <Label fx:id="age" prefHeight="27.0" prefWidth="61.0" />
          </children>
       </HBox>
       <HBox prefHeight="50.0">
          <children>
-            <Label prefHeight="21.0" prefWidth="72.0" text="Sukupuoli:" />
-            <RadioButton fx:id="mies" disable="true" mnemonicParsing="false" selected="true" text="Mies">
+            <Label prefHeight="21.0" prefWidth="72.0" text="Gender:" />
+            <RadioButton fx:id="men" disable="true" mnemonicParsing="false" prefHeight="17.0" prefWidth="56.0" selected="true" text="Men">
                <toggleGroup>
                   <ToggleGroup fx:id="group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="nainen" disable="true" mnemonicParsing="false" text="Nainen" toggleGroup="$group" />
+            <RadioButton fx:id="women" disable="true" mnemonicParsing="false" text="Women" toggleGroup="$group" />
          </children>
       </HBox>
       <HBox prefHeight="36.0" spacing="10.0">
          <children>
-            <Button fx:id="tyhjenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Muokkaa" />
-            <Button fx:id="poista" mnemonicParsing="false" onAction="#poistaPainettu" text="Poista" />
+            <Button fx:id="clear" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Edit" />
+            <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" text="Delete" />
          </children>
       </HBox>
    </children>

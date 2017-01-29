@@ -14,14 +14,14 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 								
-			//avaa p‰‰ohjelman ikkunan
+			//open main window
 			Parent root = FXMLLoader.load(getClass().getResource("/application/view/MainView.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/application/view/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
-			//avaa p‰‰ohjelmaikkunan p‰‰lle aloitusikkunan
+			//open opening screen on top of the main window
 			Parent root2 = FXMLLoader.load(getClass().getResource("/application/view/OpeningWindow.fxml"));					
 			Stage stage = new Stage();
             stage.setScene(new Scene(root2));

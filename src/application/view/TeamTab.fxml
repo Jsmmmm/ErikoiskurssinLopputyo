@@ -12,14 +12,14 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="25.0" prefWidth="117.0" text="Joukkueen nimi:" />
-                  <Label fx:id="joukkueenNimiKentta" prefHeight="25.0" prefWidth="117.0" />
+                  <Label prefHeight="25.0" prefWidth="117.0" text="Team Name:" />
+                  <Label fx:id="teamName" prefHeight="25.0" prefWidth="117.0" />
                </children>
             </HBox>
             <HBox prefHeight="47.0" prefWidth="408.0" spacing="10.0">
                <children>
-                  <Button fx:id="tallenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Muokkaa" />
-                  <Button fx:id="poista" mnemonicParsing="false" onAction="#poistaPainettu" text="Poista" />
+                  <Button fx:id="edit" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Edit" />
+                  <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" text="Delete" />
                </children>
             </HBox>
          </children>

@@ -26,7 +26,7 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
          <children>
-            <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Joukkue" GridPane.columnIndex="1">
+            <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Teams" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets bottom="30.0" left="10.0" right="15.0" top="5.0" />
                </GridPane.margin>
@@ -35,37 +35,37 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Joukkueita" />
-                              <Label fx:id="joukkueita" prefHeight="17.0" prefWidth="39.0" text="0" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Teams" />
+                              <Label fx:id="teams" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Label" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Label" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="448.0" spacing="7.0">
                            <children>
-                              <Button fx:id="uusiJoukkue" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#uusiJoukkueButton" text="Uusi" />
-                              <Button fx:id="muokkaaJoukkue" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
-                              <Button fx:id="poistaJoukkue" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
+                              <Button fx:id="newTeam" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#newTeam" text="New" />
+                              <Button fx:id="editTeam" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Edit" />
+                              <Button fx:id="deleteTeam" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Delete" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                </content>
             </TitledPane>
-            <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Laji" GridPane.rowIndex="1">
+            <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Sports" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="30.0" left="10.0" right="15.0" top="5.0" />
                </GridPane.margin>
@@ -74,38 +74,38 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Lajeja" />
-                              <Label fx:id="lajeja" prefHeight="17.0" prefWidth="39.0" text="0" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Sports" />
+                              <Label fx:id="sports" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Sarjoja" />
-                              <Label fx:id="sarjoja" prefHeight="17.0" prefWidth="39.0" text="0" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Series" />
+                              <Label fx:id="series" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Label" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="448.0" spacing="7.0">
                            <children>
-                              <Button fx:id="uusiLaji" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#uusiLajiButton" text="Uusi" />
-                              <Button fx:id="muokkaaLaji" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
-                              <Button fx:id="poistaLaji" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
+                              <Button fx:id="newSport" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#newSport" text="New" />
+                              <Button fx:id="editSport" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Edit" />
+                              <Button fx:id="deleteSport" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Delete" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                </content>
             </TitledPane>
-            <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Tulos" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Results" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="30.0" left="10.0" right="15.0" top="5.0" />
                </GridPane.margin>
@@ -114,36 +114,36 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Label" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Label" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Label" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Label" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Label" />
                            </children>
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="448.0" spacing="7.0">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Uusi" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="New" />
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Edit" />
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Delete" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                </content>
             </TitledPane>
-            <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Kilpailija">
+            <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Competitors">
                <GridPane.margin>
                   <Insets bottom="30.0" left="10.0" right="15.0" top="5.0" />
                </GridPane.margin>
@@ -152,39 +152,39 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Kipailijoita" />
-                              <Label fx:id="kilpailijoita" prefHeight="17.0" prefWidth="39.0" text="0" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Competitors" />
+                              <Label fx:id="competitors" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Miehiä" />
-                              <Label fx:id="miehia" prefHeight="17.0" prefWidth="39.0" text="0" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Men" />
+                              <Label fx:id="men" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Naisia" />
-                              <Label fx:id="naisia" prefHeight="17.0" prefWidth="39.0" text="0" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Women" />
+                              <Label fx:id="women" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Miehiä U18" />
-                              <Label fx:id="miehiaU18" prefHeight="17.0" prefWidth="39.0" text="0" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Men U18" />
+                              <Label fx:id="menU18" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="448.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="64.0" text="Naisia U18" />
-                              <Label fx:id="naisiaU18" prefHeight="17.0" prefWidth="39.0" text="0" />
+                              <Label prefHeight="17.0" prefWidth="100.0" text="Women U18" />
+                              <Label fx:id="womenU18" prefHeight="17.0" prefWidth="39.0" text="0" />
                            </children>
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="30.0" prefWidth="448.0" spacing="7.0">
                            <children>
-                              <Button fx:id="uusiKilpailija" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#uusiKilpailijaButton" text="Uusi" />
-                              <Button fx:id="muokkaaKilpailija" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Muokkaa" />
-                              <Button fx:id="poistaKilpailija" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Poista" />
+                              <Button fx:id="newPerson" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#newPerson" text="New" />
+                              <Button fx:id="editPerson" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Edit" />
+                              <Button fx:id="deletePerson" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Delete" />
                            </children>
                         </HBox>
                      </children>

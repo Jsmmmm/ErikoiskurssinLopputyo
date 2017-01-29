@@ -10,24 +10,24 @@ import javafx.stage.Stage;
 
 public class OpeningWindowController {
 
-	@FXML Button uusiKilpailu;
-	@FXML Button avaaKilpailu;
+	@FXML Button newTournament;
+	@FXML Button openTournament;
 	MainController main;
 	
 	@FXML
-	public void uusiKilpailu(ActionEvent e){
+	public void newTournamentPressed(ActionEvent e){
 		try{
 			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/CreateCompetition.fxml" ));
 			 Stage stage = new Stage();		 
 			 stage.setScene(new Scene(loader.load()));
-			 stage.setTitle("Uusi Kilpailu");
+			 stage.setTitle("New Tournament");
 			 CreateCompetitonController controller = loader.<CreateCompetitonController>getController();
 			 controller.init(main);
 			 stage.show();
 			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
 			 
 			 //suljetaan tämä ikkuna
-			 Stage thisStage = (Stage) uusiKilpailu.getScene().getWindow();
+			 Stage thisStage = (Stage) newTournament.getScene().getWindow();
 			 thisStage.close();
 		}
 		catch(Exception i){
@@ -52,7 +52,7 @@ public class OpeningWindowController {
 	}
 	
 	@FXML
-	public void avaaKilpailu(){
+	public void openTournamentPressed(){
 		System.out.println("Nappi toimii");
 	}
 	

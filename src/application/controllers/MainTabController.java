@@ -14,26 +14,26 @@ public class MainTabController {
 
 	MainController main;
 	
-	@FXML Button uusiKilpailija;
-	@FXML Button muokkaaKilpailija;
-	@FXML Button poistaKilpailija;
+	@FXML Button newPerson;
+	@FXML Button editPerson;
+	@FXML Button deletePerson;
 	
-	@FXML Button uusiJoukkue;
-	@FXML Button muokkaaJoukkue;
-	@FXML Button poistaJoukkue;
+	@FXML Button newTeam;
+	@FXML Button editTeam;
+	@FXML Button deleteTeam;
 	
-	@FXML Button uusiLaji;
-	@FXML Button muokkaaLaji;
-	@FXML Button poistaLaji;
+	@FXML Button newSport;
+	@FXML Button editSport;
+	@FXML Button deleteSport;
 	
-	@FXML Label kilpailijoita;
-	@FXML Label miehia;
-	@FXML Label naisia;
-	@FXML Label miehiaU18;
-	@FXML Label naisiaU18;
-	@FXML Label joukkueita;
-	@FXML Label lajeja;
-	@FXML Label sarjoja;
+	@FXML Label competitors;
+	@FXML Label men;
+	@FXML Label women;	
+	@FXML Label menU18;
+	@FXML Label womenU18;
+	@FXML Label teams;
+	@FXML Label sports;
+	@FXML Label series;
 	/*@FXML
 	public void initialize(){
 		
@@ -48,7 +48,7 @@ public class MainTabController {
 	
 
 	@FXML
-	public void uusiKilpailijaButton(ActionEvent e){
+	public void newPerson(ActionEvent e){
 		try{
 			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewPerson.fxml" ));
 			 Stage stage = new Stage();		 
@@ -65,12 +65,12 @@ public class MainTabController {
 	}
 	
 	@FXML
-	public void uusiLajiButton(ActionEvent e){
+	public void newSport(ActionEvent e){
 		try{
 			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewSport.fxml" ));
 			 Stage stage = new Stage();		 
 			 stage.setScene(new Scene(loader.load()));
-			 stage.setTitle("Uusi Laji");
+			 stage.setTitle("New Sport");
 			 NewSportController controller = loader.<NewSportController>getController();
 			 controller.init(main);
 			 stage.show();
@@ -82,12 +82,12 @@ public class MainTabController {
 	}
 	
 	@FXML
-	public void uusiJoukkueButton(ActionEvent e){
+	public void newTeam(ActionEvent e){
 		try{
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewTeam.fxml" ));
 			Stage stage = new Stage();		 
 			stage.setScene(new Scene(loader.load()));
-			stage.setTitle("Uusi Joukkue");
+			stage.setTitle("New Team");
 			NewTeamController controller = loader.<NewTeamController>getController();
 			controller.init(main);
 			stage.show();

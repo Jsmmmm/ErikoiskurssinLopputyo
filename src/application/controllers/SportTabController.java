@@ -18,26 +18,26 @@ import application.model.Sport;
 public class SportTabController {
 
 	MainController main;
-	Sport laji;
-	@FXML Label lajinNimiKentta;
-	@FXML Button kilpailijoidenLisaaminenNappi;
-	@FXML CheckBox yleisSarja;
-	@FXML CheckBox miestenSarja;
-	@FXML CheckBox naistenSarja;
-	@FXML CheckBox miestenU18;
-	@FXML CheckBox naistenU18;
-	@FXML Button kilpailijoidenPoistaminen;
-	@FXML Button luoUusiLaji;
-	@FXML Button poistaLaji;
+	Sport sport;
+	@FXML Label name;
+	@FXML Button addCompetitors;
+	@FXML CheckBox generalSeries;
+	@FXML CheckBox mensSeries;
+	@FXML CheckBox womensSeries;
+	@FXML CheckBox menU18Series;
+	@FXML CheckBox womenU18Series;
+	@FXML Button removeCompetitors;
+	@FXML Button newSport;
+	@FXML Button deleteSport;
 	
 	public void init(MainController mainController){
 		main=mainController;
 	}
 	
 	@FXML
-	public void luoUusiLajiNappiaPainettu(ActionEvent e){
+	public void newSportPressed(ActionEvent e){
 		try{
-			avaaUudenLajinLuontiIkkuna(main);
+			openCreateNewSportWindow(main);
 		}
 		catch(Exception i){
 			i.printStackTrace();
@@ -45,11 +45,11 @@ public class SportTabController {
 	}
 	
 	
-	public Stage avaaUudenLajinLuontiIkkuna(MainController main) throws IOException{
+	public Stage openCreateNewSportWindow(MainController main) throws IOException{
 		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/LajinLuominen.fxml" ));
 		 Stage stage = new Stage();		 
 		 stage.setScene(new Scene(loader.load()));
-		  stage.setTitle("Uuden lajin luominen ");
+		  stage.setTitle("Create New Sport");
 		  NewSportController controller = loader.<NewSportController>getController();
 		  controller.init(main);
 		  stage.show();
@@ -58,8 +58,8 @@ public class SportTabController {
 	
 	
 	@FXML
-	public void kilpailijoidenLisaaminenNappiaPainettu(ActionEvent e){
-		try{ naytaLajiinLisaamisIkkuna(main);} //tämä ei toimi, koska main controlleria ei olla asetettu! Tämän luokan init metodia ei olla tökätty luokan ulkopuolelta
+	public void addCompetitorsPressed(ActionEvent e){
+		try{ showAddCompetitorsToSportWindow(main);} //tämä ei toimi, koska main controlleria ei olla asetettu! Tämän luokan init metodia ei olla tökätty luokan ulkopuolelta
 		catch(Exception i){i.printStackTrace();
 			
 		}	
@@ -67,13 +67,13 @@ public class SportTabController {
 	}
 	
 	
-	public Stage naytaLajiinLisaamisIkkuna  (MainController main) throws IOException {
+	public Stage showAddCompetitorsToSportWindow  (MainController main) throws IOException {
 		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/AddPersonToSport.fxml" ));
 		 Stage stage = new Stage();		 
 		 stage.setScene(new Scene(loader.load()));
-		  stage.setTitle("Kilpailijoiden lisaaminen lajiin: "+laji.toString());
+		  stage.setTitle("Add Competitors to Sport: "+sport.toString());
 		  AddPersonToSportController controller = loader.<AddPersonToSportController>getController();
-		  controller.initData(main, laji/*lajinNimiKentta.getText()*/);
+		  controller.initData(main, sport/*lajinNimiKentta.getText()*/);
 		  stage.show();
 		  return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
 	}
@@ -89,45 +89,45 @@ public class SportTabController {
 	
 	@FXML
 	public void initialize(){
-		yleisSarja.setDisable(true);
-		miestenSarja.setDisable(true);
-		naistenSarja.setDisable(true);
-		miestenU18.setDisable(true);
-		naistenU18.setDisable(true);
+		generalSeries.setDisable(true);
+		mensSeries.setDisable(true);
+		womensSeries.setDisable(true);
+		menU18Series.setDisable(true);
+		womenU18Series.setDisable(true);
 		
 		
 	}
 	
-	public void tyhjennaTekstikentat(){
-		lajinNimiKentta.setText("");
-		yleisSarja.setSelected(false);
-		miestenSarja.setSelected(false);
-		naistenSarja.setSelected(false);
-		miestenU18.setSelected(false);
-		naistenU18.setSelected(false);
+	public void clearFields(){
+		name.setText("");
+		generalSeries.setSelected(false);
+		mensSeries.setSelected(false);
+		womensSeries.setSelected(false);
+		menU18Series.setSelected(false);
+		womenU18Series.setSelected(false);
 		
 	}
 	
-	public void avaaLajinTiedot(Sport laji){
-		tyhjennaTekstikentat();
-		this.laji=laji;
-		lajinNimiKentta.setText(laji.toString());
+	public void openInformationOfSport(Sport laji){
+		clearFields();
+		this.sport=laji;
+		name.setText(laji.toString());
 		
 		
-		if(laji.booleanYleisSarja==true){		
-			yleisSarja.setSelected(true);			
+		if(laji.booleanGeneral==true){		
+			generalSeries.setSelected(true);			
 		}
-		if(laji.booleanMiestenSarja==true){		
-			miestenSarja.setSelected(true);			
+		if(laji.booleanMens==true){		
+			mensSeries.setSelected(true);			
 		}
-		if(laji.booleanNaistenSarja==true){		
-			naistenSarja.setSelected(true);			
+		if(laji.booleanWomens==true){		
+			womensSeries.setSelected(true);			
 		}
-		if(laji.booleanMiestenU18==true){		
-			miestenU18.setSelected(true);			
+		if(laji.booleanMensU18==true){		
+			menU18Series.setSelected(true);			
 		}
-		if(laji.booleanNaistenU18==true){		
-			naistenU18.setSelected(true);			
+		if(laji.booleanWomensU18==true){		
+			womenU18Series.setSelected(true);			
 		}
 	}
 	

@@ -2,7 +2,7 @@ package application.controllers;
 
 import application.model.Competitor;
 import application.model.Sport;
-import application.model.Osallistuja;
+import application.model.Participant;
 import application.model.Serie;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,26 +16,26 @@ import javafx.util.Callback;
 public class SeriesTabController {
 
 	MainController main;
-	@FXML ListView<Osallistuja> listView;
-	@FXML Label lajinJaSarjanNimi;
+	@FXML ListView<Participant> listView;
+	@FXML Label nameOfSportAndSerie;
 	
-	Serie sarja;
-	Sport laji;
+	Serie serie;
+	Sport sport;
 	
 	public void taytaListView(){
 		
-		ObservableList<Osallistuja> myObservableList = FXCollections.observableList(sarja.sarjanOsallistujat);
+		ObservableList<Participant> myObservableList = FXCollections.observableList(serie.serieParticipants);
 		listView.setItems(myObservableList);
 		
-		listView.setCellFactory(new Callback<ListView<Osallistuja>, ListCell<Osallistuja>>(){
+		listView.setCellFactory(new Callback<ListView<Participant>, ListCell<Participant>>(){
 		
 		@Override
-        public ListCell<Osallistuja> call(ListView<Osallistuja> p) {
+        public ListCell<Participant> call(ListView<Participant> p) {
              
-            ListCell<Osallistuja> cell = new ListCell<Osallistuja>(){
+            ListCell<Participant> cell = new ListCell<Participant>(){
             	
                 @Override
-                protected void updateItem(Osallistuja t, boolean bln) {
+                protected void updateItem(Participant t, boolean bln) {
                     super.updateItem(t, bln);
                     if (t != null) {
                         setText(t.toString());
@@ -50,15 +50,15 @@ public class SeriesTabController {
 	
 	
 	
-	public void init(MainController main, Serie sarja, Sport laji){
+	public void init(MainController main, Serie serie, Sport sport){
 		this.main=main;
-		this.sarja=sarja;
-		this.laji=laji;
+		this.serie=serie;
+		this.sport=sport;
 		
 	}
 	
-	public void asetaNimi(){
-		lajinJaSarjanNimi.setText(laji.toString()+": "+sarja.toString());
+	public void setName(){
+		nameOfSportAndSerie.setText(sport.toString()+": "+serie.toString());
 		
 	}
 	

@@ -10,14 +10,14 @@
    <children>
       <HBox prefHeight="36.0" prefWidth="640.0">
          <children>
-            <Label prefHeight="25.0" prefWidth="117.0" text="Joukkueen nimi" />
-            <TextField fx:id="joukkueenNimiKentta" prefHeight="27.0" prefWidth="198.0" promptText="Joukkueen nimi" />
+            <Label prefHeight="25.0" prefWidth="117.0" text="Team Name" />
+            <TextField fx:id="teamName" prefHeight="27.0" prefWidth="198.0" promptText="Joukkueen nimi" />
          </children>
       </HBox>
       <HBox prefHeight="47.0" prefWidth="408.0" spacing="10.0">
          <children>
-            <Button fx:id="tallenna" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#tallennaNappiaPainettu" text="Tallenna" />
-            <Button fx:id="peruuta" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#peruutaPainettu" text="Peruuta" />
+            <Button fx:id="save" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#saveButtonPressed" text="Save" />
+            <Button fx:id="cancel" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
          </children>
       </HBox>
    </children>

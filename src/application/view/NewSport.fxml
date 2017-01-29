@@ -14,35 +14,35 @@
          <children>
             <HBox prefHeight="37.0" prefWidth="446.0">
                <children>
-                  <Label prefHeight="31.0" prefWidth="81.0" text="Lajin nimi" />
-                  <TextField fx:id="lajinNimiKentta" prefHeight="25.0" prefWidth="157.0" promptText="Lajin nimi" />
+                  <Label prefHeight="31.0" prefWidth="81.0" text="Name" />
+                  <TextField fx:id="sportName" prefHeight="25.0" prefWidth="157.0" promptText="Name Of the Sport" />
                </children>
             </HBox>
             <HBox prefHeight="31.0" prefWidth="446.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="173.0" text="Lajissa kilpailtavat sarjat:" />
+                  <Label prefHeight="32.0" prefWidth="173.0" text="Series Included:" />
                </children>
             </HBox>
             <HBox prefHeight="31.0" prefWidth="446.0">
                <children>
-                  <CheckBox fx:id="yleisSarja" mnemonicParsing="false" prefHeight="29.0" prefWidth="108.0" text="Yleissarja" />
+                  <CheckBox fx:id="general" mnemonicParsing="false" prefHeight="29.0" prefWidth="108.0" text="General" />
                </children>
             </HBox>
             <HBox prefHeight="30.0" prefWidth="446.0">
                <children>
-                  <CheckBox fx:id="miestenSarja" mnemonicParsing="false" prefHeight="17.0" prefWidth="151.0" text="Miesten yleissarja" />
-                  <CheckBox fx:id="naistenSarja" mnemonicParsing="false" text="Naisten yleissarja" />
+                  <CheckBox fx:id="men" mnemonicParsing="false" prefHeight="17.0" prefWidth="151.0" text="Men" />
+                  <CheckBox fx:id="women" mnemonicParsing="false" text="Women's" />
                </children>
             </HBox>
             <HBox prefHeight="31.0" prefWidth="446.0">
                <children>
-                  <CheckBox fx:id="miestenU18" mnemonicParsing="false" prefHeight="17.0" prefWidth="151.0" text="Miesten U-18 sarja" />
-                  <CheckBox fx:id="naistenU18" mnemonicParsing="false" prefHeight="17.0" prefWidth="129.0" text="Naisten U-18 sarja" />
+                  <CheckBox fx:id="menU18" mnemonicParsing="false" prefHeight="17.0" prefWidth="151.0" text="Men U18 " />
+                  <CheckBox fx:id="womenU18" mnemonicParsing="false" prefHeight="17.0" prefWidth="129.0" text="Women's U18" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="tallenna" layoutX="40.0" layoutY="300.0" mnemonicParsing="false" onAction="#tallennaNappiaPainettu" prefHeight="44.0" prefWidth="122.0" text="Tallenna" />
-      <Button fx:id="peruuta" layoutX="198.0" layoutY="300.0" mnemonicParsing="false" onAction="#suljeIkkuna" prefHeight="44.0" prefWidth="122.0" text="Peruuta" />
+      <Button fx:id="save" layoutX="40.0" layoutY="300.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="44.0" prefWidth="122.0" text="Save" />
+      <Button fx:id="cancel" layoutX="198.0" layoutY="300.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="44.0" prefWidth="122.0" text="Cancel" />
    </children>
 </AnchorPane>

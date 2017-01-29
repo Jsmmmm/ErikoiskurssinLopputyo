@@ -3,17 +3,17 @@ package application.model;
 import java.util.ArrayList;
 
 public class Team{
-	String joukkueenNimi;
-	ArrayList<Person> joukkueenPelaajat;
+	String teamName;
+	ArrayList<Person> teamMembers;
 	
 	public Team(String joukkueenNimi){
-		this.joukkueenNimi=joukkueenNimi;
-		joukkueenPelaajat = new ArrayList<Person>();		
+		this.teamName=joukkueenNimi;
+		teamMembers = new ArrayList<Person>();		
 	}
 	
 	@Override
 	public String toString(){
-		return this.joukkueenNimi;
+		return this.teamName;
 	}
 	
 	

@@ -21,25 +21,25 @@ public class PersonTabController{
 	Tab tab;
 	MainController main;
 	@FXML ToggleGroup group;
-	@FXML Label etunimiKentta;
-	@FXML Label sukunimiKentta;
-	@FXML Label ikaKentta;
-	@FXML RadioButton mies;
-	@FXML RadioButton nainen;
+	@FXML Label firstName;
+	@FXML Label lastName;
+	@FXML Label age;
+	@FXML RadioButton men;
+	@FXML RadioButton women;
 	
-	@FXML Button tallenna;
-	@FXML Button tyhjenna;
-	@FXML Button poista;
+	@FXML Button save;
+	@FXML Button clear;
+	@FXML Button delete;
 	
 	
 	
-	public void avaaHenkilonTiedot(Person henkilo){
-		etunimiKentta.setText(henkilo.kerroEtunimi());
-		sukunimiKentta.setText(henkilo.kerroSukunimi());
-		ikaKentta.setText(Integer.toString(henkilo.kerroIka()));
-		if(henkilo.kerroSukupuoli().equals("Mies")){
-			mies.setSelected(true);
-		}else nainen.setSelected(true);
+	public void openPersonInformation(Person henkilo){
+		firstName.setText(henkilo.getFirstName());
+		lastName.setText(henkilo.getLastName());
+		age.setText(Integer.toString(henkilo.getAge()));
+		if(henkilo.getGender().equals("Mies")){
+			men.setSelected(true);
+		}else women.setSelected(true);
 	}
 	
 	/*@FXML
@@ -54,8 +54,8 @@ public class PersonTabController{
 	
 	
 	@FXML
-	public void poistaPainettu(ActionEvent e){
-		main.treeViewViewController.poista(e);		
+	public void delete(ActionEvent e){
+		main.treeViewViewController.delete(e);		
 		main.tabPane.getTabs().remove(tab);
 	}
 	

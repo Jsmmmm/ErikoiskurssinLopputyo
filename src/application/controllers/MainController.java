@@ -55,43 +55,43 @@ public class MainController{
 	public void henkiloLaskuri(Person henkilo, Boolean etumerkki){
 		if(etumerkki==true){
 			kilpailijoidenLKM++;
-			mainTabController.kilpailijoita.setText(Integer.toString(kilpailijoidenLKM));
-			if(henkilo.kerroSukupuoli().equals("Mies")){
-				if(henkilo.kerroIka()>=18){
+			mainTabController.competitors.setText(Integer.toString(kilpailijoidenLKM));
+			if(henkilo.getGender().equals("Mies")){
+				if(henkilo.getAge()>=18){
 					miestenLKM++;
-					mainTabController.miehia.setText(Integer.toString(miestenLKM));				
+					mainTabController.men.setText(Integer.toString(miestenLKM));				
 				}else {
 					miestenU18LKM++;
-					mainTabController.miehiaU18.setText(Integer.toString(miestenU18LKM));
+					mainTabController.menU18.setText(Integer.toString(miestenU18LKM));
 				}
 			}else{
-				if(henkilo.kerroIka()>=18){
+				if(henkilo.getAge()>=18){
 					naistenLKM++;
-					mainTabController.naisia.setText(Integer.toString(naistenLKM));
+					mainTabController.women.setText(Integer.toString(naistenLKM));
 				}else{
 					naistenU18LKM++;
-					mainTabController.naisiaU18.setText(Integer.toString(naistenU18LKM));
+					mainTabController.womenU18.setText(Integer.toString(naistenU18LKM));
 				}
 			}
 		}else{			
 			kilpailijoidenLKM--;
-			mainTabController.kilpailijoita.setText(Integer.toString(kilpailijoidenLKM));
+			mainTabController.competitors.setText(Integer.toString(kilpailijoidenLKM));
 			
-			if(henkilo.kerroSukupuoli().equals("Mies")){
-				if(henkilo.kerroIka()>=18){
+			if(henkilo.getGender().equals("Mies")){
+				if(henkilo.getAge()>=18){
 					miestenLKM--;
-					mainTabController.miehia.setText(Integer.toString(miestenLKM));				
+					mainTabController.men.setText(Integer.toString(miestenLKM));				
 				}else {
 					miestenU18LKM--;
-					mainTabController.miehiaU18.setText(Integer.toString(miestenU18LKM));
+					mainTabController.menU18.setText(Integer.toString(miestenU18LKM));
 				}
 			}else{
-				if(henkilo.kerroIka()>=18){
+				if(henkilo.getAge()>=18){
 					naistenLKM--;
-					mainTabController.naisia.setText(Integer.toString(naistenLKM));
+					mainTabController.women.setText(Integer.toString(naistenLKM));
 				}else{
 					naistenU18LKM--;
-					mainTabController.naisiaU18.setText(Integer.toString(naistenU18LKM));
+					mainTabController.womenU18.setText(Integer.toString(naistenU18LKM));
 				}
 			}
 		}		
@@ -103,7 +103,7 @@ public class MainController{
 		}else{
 			joukkueidenLKM--;
 		}
-		mainTabController.joukkueita.setText(Integer.toString(joukkueidenLKM));
+		mainTabController.teams.setText(Integer.toString(joukkueidenLKM));
 	}
 	
 	
@@ -114,13 +114,13 @@ public class MainController{
 		}else{
 			
 		}
-		mainTabController.lajeja.setText(Integer.toString(lajienLKM));
-		mainTabController.sarjoja.setText(Integer.toString(sarjojenLKM));
+		mainTabController.sports.setText(Integer.toString(lajienLKM));
+		mainTabController.series.setText(Integer.toString(sarjojenLKM));
 	}
 	
 	public void lisaaLajiPuunakymaan(Sport laji){
-		treeViewViewController.lisaaLajiOlioPuunakymaan(laji);
-		treeViewViewController.lisaaTuloksetPuunakymaan(laji);
+		treeViewViewController.addSportToTW(laji);
+		treeViewViewController.addResultsToTW(laji);
 	}
 	
 	
@@ -164,7 +164,7 @@ public class MainController{
 		String etunimi = nimi[0];
 		String sukunimi = nimi[1];
 		for (Competitor kilpailija2 : kilpailijat) {
-			if (kilpailija2.kerroEtunimi().equals(etunimi) && kilpailija2.kerroSukunimi().equals(sukunimi)) {
+			if (kilpailija2.getFirstName().equals(etunimi) && kilpailija2.getLastName().equals(sukunimi)) {
 				kilpailija=kilpailija2;				
 				}			
 		}return kilpailija;
@@ -182,15 +182,15 @@ public class MainController{
 	public Serie haeSarja(Sport laji, String sarjanNimi){
 		Serie sarja=null;
 		switch(sarjanNimi){
-		case "Yleissarja" : sarja = laji.yleisSarja;
+		case "General series" : sarja = laji.general;
 			break;
-		case "Miesten sarja" : sarja = laji.miestenYleisSarja ;
+		case "Men's series" : sarja = laji.mens ;
 			break;
-		case "Miesten sarja U18" : sarja = laji.miestenU18Sarja;
+		case "Men's U-18" : sarja = laji.mensU18;
 			break;
-		case "Naisten sarja" : sarja = laji.naistenYleisSarja;
+		case "Women's series" : sarja = laji.womens;
 			break;
-		case "Naisten sarja U18" : sarja=laji.naistenU18Sarja;
+		case "Women's U-18" : sarja=laji.womensU18;
 			break;
 		
 		}				
@@ -199,18 +199,18 @@ public class MainController{
 	
 	public void avaaKilpailijanTiedot(String kilpailijanNimi){
 		Competitor kilpailija = haeKilpailija(kilpailijanNimi);
-		henkiloTabController.avaaHenkilonTiedot(kilpailija);
+		henkiloTabController.openPersonInformation(kilpailija);
 	}
 	
 	public void avaaLajinTiedot(String lajinNimi){
 		Sport laji = haeLaji(lajinNimi);
-		lajiTabController.avaaLajinTiedot(laji);
+		lajiTabController.openInformationOfSport(laji);
 		listViewController.taytaListView(); //KESKEN KESKEN KESKEN KESKEN KESKEN KESKEN KESKEN
 	}
 	
 	public void avaaJoukkueenTiedot(String joukkueenNimi){
 		Team joukkue = haeJoukkue(joukkueenNimi);
-		joukkueTabController.avaaJoukkueenTiedot(joukkue);
+		joukkueTabController.openTeamInformation(joukkue);
 	}
 	
 	
@@ -234,12 +234,12 @@ public class MainController{
 	public void lataaKilpailu(Competition uusiKilpailu){
 		this.kilpailu=uusiKilpailu;
 		
-		kilpailijat = uusiKilpailu.kilpailijat;
-		henkilot = uusiKilpailu.henkilot;
-		joukkueet = uusiKilpailu.joukkueet;
-		lajit = uusiKilpailu.lajit; 
+		kilpailijat = uusiKilpailu.competitors;
+		henkilot = uusiKilpailu.persons;
+		joukkueet = uusiKilpailu.teams;
+		lajit = uusiKilpailu.sports; 
 		
-		treeViewViewController.setKilpailunNimi(kilpailu.getNimi());
+		treeViewViewController.setKilpailunNimi(kilpailu.getName());
 	}
 	
 	
