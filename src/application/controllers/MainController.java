@@ -56,7 +56,7 @@ public class MainController{
 		if(etumerkki==true){
 			kilpailijoidenLKM++;
 			mainTabController.competitors.setText(Integer.toString(kilpailijoidenLKM));
-			if(henkilo.getGender().equals("Mies")){
+			if(henkilo.isMale()){
 				if(henkilo.getAge()>=18){
 					miestenLKM++;
 					mainTabController.men.setText(Integer.toString(miestenLKM));				
@@ -77,7 +77,7 @@ public class MainController{
 			kilpailijoidenLKM--;
 			mainTabController.competitors.setText(Integer.toString(kilpailijoidenLKM));
 			
-			if(henkilo.getGender().equals("Mies")){
+			if(henkilo.isMale()){
 				if(henkilo.getAge()>=18){
 					miestenLKM--;
 					mainTabController.men.setText(Integer.toString(miestenLKM));				

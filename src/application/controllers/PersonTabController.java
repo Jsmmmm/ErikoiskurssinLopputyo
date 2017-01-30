@@ -24,8 +24,8 @@ public class PersonTabController{
 	@FXML Label firstName;
 	@FXML Label lastName;
 	@FXML Label age;
-	@FXML RadioButton men;
-	@FXML RadioButton women;
+	@FXML RadioButton male;
+	@FXML RadioButton female;
 	
 	@FXML Button save;
 	@FXML Button clear;
@@ -37,9 +37,9 @@ public class PersonTabController{
 		firstName.setText(henkilo.getFirstName());
 		lastName.setText(henkilo.getLastName());
 		age.setText(Integer.toString(henkilo.getAge()));
-		if(henkilo.getGender().equals("Mies")){
-			men.setSelected(true);
-		}else women.setSelected(true);
+		if(henkilo.isMale){
+			male.setSelected(true);
+		}else female.setSelected(true);
 	}
 	
 	/*@FXML

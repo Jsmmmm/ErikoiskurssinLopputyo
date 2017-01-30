@@ -30,12 +30,12 @@
       <HBox prefHeight="50.0">
          <children>
             <Label prefHeight="21.0" prefWidth="72.0" text="Gender:" />
-            <RadioButton fx:id="men" disable="true" mnemonicParsing="false" prefHeight="17.0" prefWidth="56.0" selected="true" text="Men">
+            <RadioButton fx:id="male" disable="true" mnemonicParsing="false" prefHeight="17.0" prefWidth="56.0" selected="true" text="Men">
                <toggleGroup>
                   <ToggleGroup fx:id="group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="women" disable="true" mnemonicParsing="false" text="Women" toggleGroup="$group" />
+            <RadioButton fx:id="female" disable="true" mnemonicParsing="false" text="Women" toggleGroup="$group" />
          </children>
       </HBox>
       <HBox prefHeight="36.0" spacing="10.0">

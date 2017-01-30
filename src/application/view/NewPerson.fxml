@@ -16,7 +16,7 @@
          <children>
             <Label prefHeight="27.0" prefWidth="63.0" text="First Name" />
             <TextField fx:id="firstName" promptText="First Name" />
-            <Circle fx:id="ball1" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Circle fx:id="ball1" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -29,7 +29,7 @@
          <children>
             <Label prefHeight="26.0" prefWidth="65.0" text="Last Name" />
             <TextField fx:id="lastName" promptText="Last Name" />
-            <Circle fx:id="ball2" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Circle fx:id="ball2" fill="#e40505" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -42,7 +42,7 @@
          <children>
             <Label prefHeight="26.0" prefWidth="72.0" text="Age" />
             <TextField fx:id="age" prefHeight="27.0" prefWidth="76.0" promptText="Age" />
-            <Circle fx:id="ball3" fill="#e40505" radius="12.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Circle fx:id="ball3" fill="#e40505" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -54,12 +54,12 @@
       <HBox prefHeight="50.0">
          <children>
             <Label prefHeight="21.0" prefWidth="72.0" text="Gender" />
-            <RadioButton fx:id="men" mnemonicParsing="false" selected="true" text="Men">
+            <RadioButton fx:id="Man" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" selected="true" text="Man">
                <toggleGroup>
                   <ToggleGroup fx:id="group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="women" mnemonicParsing="false" text="Women" toggleGroup="$group" />
+            <RadioButton fx:id="Female" mnemonicParsing="false" text="Female" toggleGroup="$group" />
          </children>
          <opaqueInsets>
             <Insets />

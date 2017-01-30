@@ -9,15 +9,18 @@ public class Person {
 		public String gender;
 		public static final int NAME_MAX_LENGTH = 64;
 		public String team;
+		public boolean isMale;
 		
 		
-		
-		public Person(String firstname, String lastname, int age, String gender){
-			this.firstName=firstname;
-			this.lastName=lastname;
-			this.age=age;
-			this.gender=gender;
+		public Person(String firstname, String lastname, int age, Boolean isMale){
 			
+			firstname = setFirstLetterBig(firstname);
+			lastname = setFirstLetterBig(lastname);
+			
+			this.firstName=firstname;
+			this.lastName=lastname;			
+			this.age=age;			
+			this.isMale=isMale;
 		}
 		
 		public static boolean checkName(String nimi) {
@@ -75,12 +78,19 @@ public class Person {
 			return this.age;
 		}
 		
-		public String getGender(){
-			return this.gender;
+		public Boolean isMale(){
+			return this.isMale;
 		}
 		
 		@Override
 		public String toString(){
 			return this.firstName+" "+this.lastName;
 		}
+		
+		private String setFirstLetterBig(String name){
+			String newName = name.substring(0, 1).toUpperCase() + name.substring(1);
+			return newName;
+		}
+		
+		
 }

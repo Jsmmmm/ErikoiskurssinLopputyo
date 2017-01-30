@@ -3,6 +3,7 @@ package application.model;
 import java.util.ArrayList;
 
 public class Team{
+	
 	String teamName;
 	ArrayList<Person> teamMembers;
 	
@@ -15,6 +16,5 @@ public class Team{
 	public String toString(){
 		return this.teamName;
 	}
-	
-	
+		
 }

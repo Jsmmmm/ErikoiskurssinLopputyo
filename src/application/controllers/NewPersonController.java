@@ -19,8 +19,8 @@ public class NewPersonController {
 	@FXML TextField firstName;
 	@FXML TextField lastName;
 	@FXML TextField age;
-	@FXML RadioButton men;
-	@FXML RadioButton women;
+	@FXML RadioButton Man;
+	@FXML RadioButton Female;
 	@FXML Circle ball1;
 	@FXML Circle ball2;
 	@FXML Circle ball3;
@@ -32,19 +32,21 @@ public class NewPersonController {
 		main=mainController;
 	}
 	
-public Competitor createPerson(){
+	public Competitor createPerson(){
 		
-		boolean x = false;
-		boolean y = false;
-		boolean z = false;
+		boolean x=false;
+		boolean y=false;
+		boolean z=false;
+		
 		ball1.setVisible(false);
 		ball2.setVisible(false);
 		ball3.setVisible(false);
+		
 		//Person henkilo=null;
 		Competitor competitor=null;
 		if(Person.checkName(firstName.getText())){
-			x = true;
-		}else {
+			x=true;
+		}else{
 			ball1.setVisible(true);
 		}
 		if(Person.checkName(lastName.getText())){
@@ -52,27 +54,35 @@ public Competitor createPerson(){
 		}else{
 			ball2.setVisible(true);
 		}
+		
 		int personsAge=0;
+		
 		try{
 			personsAge=Integer.parseInt(age.getText());
-			z=true; 
-			
+			z=true; 			
 		}catch(NumberFormatException ee){			
 			ball3.setVisible(true);			
 		}
-		String gender;
-		if(men.isSelected()){
-			gender="Mies";
-		}else gender="Nainen";
+		
+		
+		boolean isMale;
+		
+		if(Man.isSelected()){
+			
+			isMale=true;
+			
+		}else 
+		isMale=false;
 		
 		if(x==true && y==true && z==true){
-			competitor = new Competitor(firstName.getText(), lastName.getText(), personsAge, gender);
 			
-			System.out.println(competitor.toString());
+			competitor = new Competitor(firstName.getText(), lastName.getText(), personsAge, isMale);
+			
+			System.out.println(competitor.toString()); //testi
 			
 			
 			
-		}clearTextfields();
+		}//clearTextfields();
 		return competitor;
 				
 	}
@@ -85,9 +95,9 @@ public Competitor createPerson(){
 		ball1.setVisible(false);
 		ball2.setVisible(false);
 		ball3.setVisible(false);
-		firstName.setPromptText("Etunimi");
-		lastName.setPromptText("Sukunimi");
-		age.setPromptText("Ikä");
+		firstName.setPromptText("First Name");
+		lastName.setPromptText("Last Name");
+		age.setPromptText("Age");
 	}
 	
 	@FXML
@@ -109,6 +119,14 @@ public Competitor createPerson(){
 	public void cancelButtonPressed(ActionEvent e){
 		 Stage stage = (Stage) cancel.getScene().getWindow();		   
 		 stage.close();
+	}
+	
+	@FXML
+	private void initialize(){
+		
+		ball1.setVisible(false);
+		ball2.setVisible(false);
+		ball3.setVisible(false);
 	}
 	
 }
