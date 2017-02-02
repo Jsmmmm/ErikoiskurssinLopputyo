@@ -54,7 +54,7 @@
       <HBox prefHeight="50.0">
          <children>
             <Label prefHeight="21.0" prefWidth="72.0" text="Gender" />
-            <RadioButton fx:id="Man" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" selected="true" text="Man">
+            <RadioButton fx:id="Man" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" selected="true" text="Male">
                <toggleGroup>
                   <ToggleGroup fx:id="group" />
                </toggleGroup>

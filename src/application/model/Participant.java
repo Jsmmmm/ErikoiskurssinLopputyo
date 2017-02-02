@@ -4,6 +4,8 @@ public class Participant {
 
 	Competitor competitor;
 	int resultPoints;
+	//double resultPoints[];
+	
 	
 	public Participant(Competitor competitor){
 		this.competitor=competitor;

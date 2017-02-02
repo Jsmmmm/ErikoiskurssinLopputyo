@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
  
@@ -19,6 +20,8 @@ public class NewSportController {
 	@FXML CheckBox womenU18;
 	@FXML Button save;
 	@FXML Button cancel;
+	@FXML ComboBox<Integer> numberOfResults;
+	@FXML ComboBox<String> resultFormat;
 	
 	boolean booleanGeneral=false;
 	boolean booleanMen=false;
@@ -29,10 +32,17 @@ public class NewSportController {
 	
 	@FXML
 	void saveButton(ActionEvent e){
+		
 		int amountOfSeries=0;
 		String lajinNimi=null;
-		if( !(sportName.getText().isEmpty()) ){
+		String format;
+		int results;
+				
+		
+		if( !(sportName.getText().isEmpty()) && !(numberOfResults.getSelectionModel().isEmpty()) && !(resultFormat.getSelectionModel().isEmpty()) ){
 			lajinNimi=sportName.getText();
+			format=resultFormat.getValue();
+			results=numberOfResults.getValue();
 			
 			if(general.isSelected()){
 				booleanGeneral=true;
@@ -55,7 +65,7 @@ public class NewSportController {
 				amountOfSeries++;
 			}
 		
-			Sport newSport=new Sport(lajinNimi, booleanGeneral, booleanMen, booleanWomen, booleanMenU18, booleanWomenU18);
+			Sport newSport=new Sport(lajinNimi, booleanGeneral, booleanMen, booleanWomen, booleanMenU18, booleanWomenU18, format, results);
 			main.lajit.add(newSport);
 			main.lisaaLajiPuunakymaan(newSport);
 			main.lajiJaSarjaLaskuri(true, amountOfSeries);
@@ -74,4 +84,11 @@ public class NewSportController {
 	public void init(MainController main){
 		this.main=main;
 	}
+	
+	@FXML
+	private void initialize(){
+		numberOfResults.getItems().addAll( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		resultFormat.getItems().addAll("Points", "Time", "Distance");
+	}
+	
 }

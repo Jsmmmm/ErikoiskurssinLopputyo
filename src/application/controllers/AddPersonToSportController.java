@@ -28,7 +28,7 @@ public class AddPersonToSportController {
 	public void addPressed(ActionEvent e){
 			
 		for(Competitor kilpailija : targetedCompetitors){
-			sport.sportParticipants.add(new Participant(kilpailija));
+			sport.sportParticipants.add(new Participant(kilpailija));		// tässä syntyy participator objekti
 			System.out.println(kilpailija.toString()); 
 		}
 		sport.placeParticipantsToSeries(); 		
