@@ -19,14 +19,14 @@ public class OpeningWindowController {
 		try{
 			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/CreateCompetition.fxml" ));
 			 Stage stage = new Stage();		 
-			 stage.setScene(new Scene(loader.load()));
+			 stage.setScene(new Scene((Parent) loader.load()));
 			 stage.setTitle("New Tournament");
 			 CreateCompetitonController controller = loader.<CreateCompetitonController>getController();
 			 controller.init(main);
 			 stage.show();
-			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
+			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan myï¿½hemmin pï¿½ï¿½stï¿½ siihen kï¿½siksi tï¿½stï¿½ luokasta
 			 
-			 //suljetaan tämä ikkuna
+			 //suljetaan tï¿½mï¿½ ikkuna
 			 Stage thisStage = (Stage) newTournament.getScene().getWindow();
 			 thisStage.close();
 		}
@@ -36,7 +36,7 @@ public class OpeningWindowController {
 	}
 	
 	/*
-	 * Tää on aika omituinen ja ehkä dirty tapa hakee maincontroller. Ja miks haen sen jo täs vaihees ku tartten sitä vast uusi kilpailu ikkunassa?
+	 * Tï¿½ï¿½ on aika omituinen ja ehkï¿½ dirty tapa hakee maincontroller. Ja miks haen sen jo tï¿½s vaihees ku tartten sitï¿½ vast uusi kilpailu ikkunassa?
 	 * 
 	 */
 	@FXML

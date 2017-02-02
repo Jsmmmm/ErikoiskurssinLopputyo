@@ -48,18 +48,18 @@ public class SportTabController {
 	public Stage openCreateNewSportWindow(MainController main) throws IOException{
 		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/LajinLuominen.fxml" ));
 		 Stage stage = new Stage();		 
-		 stage.setScene(new Scene(loader.load()));
+		 stage.setScene(new Scene((Parent) loader.load()));
 		  stage.setTitle("Create New Sport");
 		  NewSportController controller = loader.<NewSportController>getController();
 		  controller.init(main);
 		  stage.show();
-		  return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
+		  return stage; //viittaus avautuneeseen ikkunaan jos halutaan myï¿½hemmin pï¿½ï¿½stï¿½ siihen kï¿½siksi tï¿½stï¿½ luokasta
 	}
 	
 	
 	@FXML
 	public void addCompetitorsPressed(ActionEvent e){
-		try{ showAddCompetitorsToSportWindow(main);} //tämä ei toimi, koska main controlleria ei olla asetettu! Tämän luokan init metodia ei olla tökätty luokan ulkopuolelta
+		try{ showAddCompetitorsToSportWindow(main);} //tï¿½mï¿½ ei toimi, koska main controlleria ei olla asetettu! Tï¿½mï¿½n luokan init metodia ei olla tï¿½kï¿½tty luokan ulkopuolelta
 		catch(Exception i){i.printStackTrace();
 			
 		}	
@@ -70,12 +70,12 @@ public class SportTabController {
 	public Stage showAddCompetitorsToSportWindow  (MainController main) throws IOException {
 		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/AddPersonToSport.fxml" ));
 		 Stage stage = new Stage();		 
-		 stage.setScene(new Scene(loader.load()));
+		 stage.setScene(new Scene((Parent) loader.load()));
 		  stage.setTitle("Add Competitors to Sport: "+sport.toString());
 		  AddPersonToSportController controller = loader.<AddPersonToSportController>getController();
 		  controller.initData(main, sport/*lajinNimiKentta.getText()*/);
 		  stage.show();
-		  return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
+		  return stage; //viittaus avautuneeseen ikkunaan jos halutaan myï¿½hemmin pï¿½ï¿½stï¿½ siihen kï¿½siksi tï¿½stï¿½ luokasta
 	}
 	
 	

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -59,12 +60,12 @@ public class MenuAndToolbarController {
 		try{
 			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewPerson.fxml" ));
 			 Stage stage = new Stage();		 
-			 stage.setScene(new Scene(loader.load()));
+			 stage.setScene(new Scene((Parent) loader.load()));
 			 stage.setTitle("New Person");
 			 NewPersonController controller = loader.<NewPersonController>getController();
 			 controller.init(main);
 			 stage.show();
-			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
+			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan myï¿½hemmin pï¿½ï¿½stï¿½ siihen kï¿½siksi tï¿½stï¿½ luokasta
 		}
 		catch(Exception i){
 			i.printStackTrace();
@@ -76,12 +77,12 @@ public class MenuAndToolbarController {
 		try{
 			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewSport.fxml" ));
 			 Stage stage = new Stage();		 
-			 stage.setScene(new Scene(loader.load()));
+			 stage.setScene(new Scene((Parent) loader.load()));
 			 stage.setTitle("Uusi Laji");
 			 NewSportController controller = loader.<NewSportController>getController();
 			 controller.init(main);
 			 stage.show();
-			 //return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta
+			 //return stage; //viittaus avautuneeseen ikkunaan jos halutaan myï¿½hemmin pï¿½ï¿½stï¿½ siihen kï¿½siksi tï¿½stï¿½ luokasta
 		}
 		catch(Exception i){
 			i.printStackTrace();
@@ -93,12 +94,12 @@ public class MenuAndToolbarController {
 		try{
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewTeam.fxml" ));
 			Stage stage = new Stage();		 
-			stage.setScene(new Scene(loader.load()));
+			stage.setScene(new Scene((Parent) loader.load()));
 			stage.setTitle("Uusi Joukkue");
 			NewTeamController controller = loader.<NewTeamController>getController();
 			controller.init(main);
 			stage.show();
-			//return stage; //viittaus avautuneeseen ikkunaan jos halutaan myöhemmin päästä siihen käsiksi tästä luokasta			
+			//return stage; //viittaus avautuneeseen ikkunaan jos halutaan myï¿½hemmin pï¿½ï¿½stï¿½ siihen kï¿½siksi tï¿½stï¿½ luokasta			
 		}
 		catch(Exception i){
 			i.printStackTrace();

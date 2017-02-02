@@ -114,7 +114,7 @@ public class TreeViewController{
 						
 						main.tabPane.getTabs().add(tab);
 						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/PersonTab.fxml" ));
-						tab.setContent(loader.load());				
+						tab.setContent((Node) loader.load());				
 						PersonTabController controller = loader.<PersonTabController>getController();
 						controller.init(main, tab);
 						controller.openPersonInformation(main.haeKilpailija(target.getValue()));
@@ -133,7 +133,7 @@ public class TreeViewController{
 						
 						main.tabPane.getTabs().add(tab);
 						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/TeamTab.fxml" ));
-						tab.setContent(loader.load());				
+						tab.setContent((Node) loader.load());				
 						TeamTabController controller = loader.<TeamTabController>getController();					
 						controller.init(main, tab);
 						controller.openTeamInformation(main.haeJoukkue(target.getValue()));
@@ -149,7 +149,7 @@ public class TreeViewController{
 						
 						main.tabPane.getTabs().add(tab);
 						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SportTab.fxml" ));
-						tab.setContent(loader.load());				
+						tab.setContent((Node) loader.load());				
 						SportTabController controller = loader.<SportTabController>getController();	
 						controller.init(main);
 						controller.openInformationOfSport(main.haeLaji(target.getValue()));
@@ -165,7 +165,7 @@ public class TreeViewController{
 						Tab tab = new Tab();					
 						main.tabPane.getTabs().add(tab);
 						FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SeriesTab.fxml" ));
-						tab.setContent(loader.load());				
+						tab.setContent((Node) loader.load());				
 						SeriesTabController controllerX = loader.<SeriesTabController>getController();	
 						
 					
