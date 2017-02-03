@@ -1,12 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="575.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.SeriesTabController">
+
+<VBox prefHeight="542.0" prefWidth="727.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.SeriesTabController">
    <children>
-      <ListView fx:id="listView" layoutX="31.0" layoutY="37.0" prefHeight="501.0" prefWidth="484.0" />
-      <Label fx:id="nameOfSportAndSerie" layoutX="58.0" layoutY="14.0" prefHeight="17.0" prefWidth="423.0" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="nameOfSportAndSerie" prefHeight="45.0" prefWidth="328.0" text="Lajin nimi: Sarjan nimi">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="35.0" prefWidth="188.0" text="Statistics">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="513.0" prefWidth="395.0">
+         <children>
+            <ListView fx:id="listView" onMouseClicked="#listViewClicked" prefHeight="448.0" prefWidth="321.0" />
+            <VBox prefHeight="448.0" prefWidth="357.0">
+               <children>
+                  <HBox prefHeight="53.0" prefWidth="352.0">
+                     <children>
+                        <ImageView fx:id="firstPlace" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label prefHeight="36.0" prefWidth="27.0" text="1st:" />
+                        <Label prefHeight="34.0" prefWidth="227.0" text="First Name &amp; Last Name" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="53.0" prefWidth="352.0">
+                     <children>
+                        <ImageView fx:id="secondPlace" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label prefHeight="36.0" prefWidth="26.0" text="2nd:" />
+                        <Label prefHeight="34.0" prefWidth="227.0" text="First Name &amp; Last Name" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="53.0" prefWidth="352.0">
+                     <children>
+                        <ImageView fx:id="thirdPlace" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label prefHeight="36.0" prefWidth="27.0" text="3rd:" />
+                        <Label prefHeight="34.0" prefWidth="227.0" text="First Name &amp; Last Name" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
    </children>
-</AnchorPane>
+   <padding>
+      <Insets bottom="20.0" />
+   </padding>
+</VBox>

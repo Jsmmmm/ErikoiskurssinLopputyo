@@ -17,6 +17,13 @@ public class Competitor extends Person{
 		nextNumber++;
 	}
 	
+	@Override
+	public String toString(){
+		return this.firstName+" "+this.lastName+" #"+this.competitorNumber;
+	}
 	
+	public int getCompetitorNumber(){
+		return this.competitorNumber;
+	}
 	
 }

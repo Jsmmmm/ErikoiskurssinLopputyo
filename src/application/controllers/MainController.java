@@ -159,16 +159,21 @@ public class MainController{
 	
 	
 	public Competitor haeKilpailija(String kilpailijanNimi){
+		
 		Competitor kilpailija=null;
 		String nimi[] = kilpailijanNimi.split(" ");
 		String etunimi = nimi[0];
 		String sukunimi = nimi[1];
+		int number =Integer.parseInt(nimi[2].substring(1));
 		for (Competitor kilpailija2 : kilpailijat) {
-			if (kilpailija2.getFirstName().equals(etunimi) && kilpailija2.getLastName().equals(sukunimi)) {
+			if (kilpailija2.getFirstName().equals(etunimi) && kilpailija2.getLastName().equals(sukunimi) && kilpailija2.getCompetitorNumber()==(number)) {
 				kilpailija=kilpailija2;				
 				}			
 		}return kilpailija;
 	}
+	
+	
+	
 	
 	public Team haeJoukkue(String joukkueenNimi){
 		Team joukkue = null;

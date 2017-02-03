@@ -105,6 +105,20 @@ public class Sport {
 		sportParticipants.clear();
 
 	}
+	
+	
+	//tän paskan voi salee poistaa
+	/*public Participant findParticipant(Competitor competitor){
+		Participant searched = null;
+		for(Participant participant : sportParticipants){
+			if(competitor.equals(participant.competitor)){
+				searched=participant;
+			}
+		}return searched;
+	}*/
+	
+	
+	
 
 	@Override
 	public String toString() {

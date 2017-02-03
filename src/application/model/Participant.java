@@ -3,7 +3,7 @@ package application.model;
 public class Participant {
 
 	Competitor competitor;
-	int resultPoints;
+	Result result;
 	//double resultPoints[];
 	
 	
@@ -11,16 +11,14 @@ public class Participant {
 		this.competitor=competitor;
 	}
 	
-	public void asetaPisteet(int points){
-		this.resultPoints=points;
-	}
 	
-	public int getPoints(){
-		return this.resultPoints;
-	}
 	
 	@Override
 	public String toString(){
-		return this.competitor.toString();
+		
+		if(this.result==null){
+			return this.competitor.toString();
+		}else
+			return this.competitor.toString()+" "+result.getResult();	//abstraktin luokan result ansiosta getResult voidaan muokata sopivan näköseks formaatist riippuen
 	}
 }
