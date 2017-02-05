@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <VBox prefHeight="542.0" prefWidth="727.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.SeriesTabController">
    <children>
@@ -33,7 +33,12 @@
       </HBox>
       <HBox prefHeight="513.0" prefWidth="395.0">
          <children>
-            <ListView fx:id="listView" onMouseClicked="#listViewClicked" prefHeight="448.0" prefWidth="321.0" />
+            <VBox alignment="BOTTOM_RIGHT" prefHeight="448.0" prefWidth="309.0" spacing="5.0">
+               <children>
+                  <ListView fx:id="listView" onMouseClicked="#listViewClicked" prefHeight="428.0" prefWidth="309.0" />
+                  <Button fx:id="refresh" mnemonicParsing="false" onAction="#refreshListView" text="Refresh" />
+               </children>
+            </VBox>
             <VBox prefHeight="448.0" prefWidth="357.0">
                <children>
                   <HBox prefHeight="53.0" prefWidth="352.0">

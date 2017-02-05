@@ -10,7 +10,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -18,6 +22,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class SeriesTabController {
@@ -28,6 +33,7 @@ public class SeriesTabController {
 	@FXML ImageView firstPlace;
 	@FXML ImageView secondPlace;
 	@FXML ImageView thirdPlace;
+	@FXML Button refresh;
 	
 	Image first = new Image(getClass().getResourceAsStream("/application/Icons/Other_icons/iconFirst.png"));
 	Image second = new Image(getClass().getResourceAsStream("/application/Icons/Other_icons/iconSecond.png"));
@@ -77,9 +83,23 @@ public class SeriesTabController {
 	@FXML
 	public void listViewClicked(MouseEvent e){
 		
-		Participant participant = listView.getSelectionModel().getSelectedItem();
-
-		System.out.println(participant.toString());
+		Participant participant = listView.getSelectionModel().getSelectedItem(); //toimii
+		
+		try{
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/SetResults.fxml" ));
+			 Stage stage = new Stage();		 
+			 stage.setScene(new Scene((Parent)loader.load()));
+			 stage.setTitle("Set Results for: "+participant.toString());
+			 SetResultsController controller = loader.<SetResultsController>getController();
+			 controller.init(participant, sport.numberOfResultsPerParticipant);
+			 stage.show();
+			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
+		}
+		catch(Exception i){
+			i.printStackTrace();
+		}
+		
+		
 	}
 	
 	@FXML
@@ -88,6 +108,12 @@ public class SeriesTabController {
 		secondPlace.setImage(second);
 		thirdPlace.setImage(third);
 	}
+	
+	@FXML
+	private void refreshListView(ActionEvent e){
+		taytaListView();
+	}
+	
 	
 	
 }
