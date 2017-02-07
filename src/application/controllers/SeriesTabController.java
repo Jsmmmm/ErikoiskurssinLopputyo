@@ -83,24 +83,25 @@ public class SeriesTabController {
 	@FXML
 	public void listViewClicked(MouseEvent e){
 		
-		Participant participant = listView.getSelectionModel().getSelectedItem(); //toimii
+		if (e.getClickCount() == 2) {
+			Participant participant = listView.getSelectionModel().getSelectedItem(); //toimii
 		
-		try{
-			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/SetResults.fxml" ));
-			 Stage stage = new Stage();		 
-			 stage.setScene(new Scene((Parent)loader.load()));
-			 stage.setTitle("Set Results for: "+participant.toString());
-			 SetResultsController controller = loader.<SetResultsController>getController();
-			 controller.init(participant, sport.numberOfResultsPerParticipant);
-			 stage.show();
-			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
-		}
-		catch(Exception i){
-			i.printStackTrace();
-		}
-		
-		
+			try{
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/SetResults.fxml" ));
+				Stage stage = new Stage();		 
+				stage.setScene(new Scene((Parent)loader.load()));
+				stage.setTitle("Set Results for: "+participant.toString());
+				SetResultsController controller = loader.<SetResultsController>getController();
+				controller.init(participant, sport.numberOfResultsPerParticipant);
+				stage.show();
+				// return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
+			}
+			catch(Exception i){
+				i.printStackTrace();
+			}
+		}		
 	}
+	
 	
 	@FXML
 	public void initialize(){

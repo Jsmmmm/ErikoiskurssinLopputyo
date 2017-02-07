@@ -104,7 +104,7 @@ public class NewPersonController {
 	public void saveButtonPressed(ActionEvent e){
 		Competitor kilpailija=createPerson();
 		if(kilpailija!=null){
-			main.kilpailijat.add(kilpailija);
+			main.competitors.add(kilpailija);
 			main.treeViewViewController.addCompetitorToTW(kilpailija);
 			main.henkiloLaskuri(kilpailija, true);
 		}		

@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import application.model.Competitor;
 public class AddPersonToSportController {
@@ -27,9 +28,8 @@ public class AddPersonToSportController {
 	
 	public void addPressed(ActionEvent e){
 			
-		for(Competitor kilpailija : targetedCompetitors){
-			sport.sportParticipants.add(new Participant(kilpailija));		// tässä syntyy participator objekti
-			System.out.println(kilpailija.toString()); 
+		for(Competitor competitor : targetedCompetitors){
+			sport.sportParticipants.add(new Participant(competitor, sport.numberOfResultsPerParticipant));		
 		}
 		sport.placeParticipantsToSeries(); 		
 	}
@@ -52,7 +52,7 @@ public class AddPersonToSportController {
 	
 	public void fillListView(){
 		listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		ObservableList<Competitor> myObservableList = FXCollections.observableList(main.kilpailijat);
+		ObservableList<Competitor> myObservableList = FXCollections.observableList(main.competitors);
 		listView.setItems(myObservableList);
 		
 		listView.setCellFactory(new Callback<ListView<Competitor>, ListCell<Competitor>>(){
@@ -79,6 +79,12 @@ public class AddPersonToSportController {
 		
 		
 		
+	}
+	
+	@FXML
+	public void cancel(ActionEvent e){
+		 Stage stage = (Stage) cancel.getScene().getWindow(); 
+		 stage.close();
 	}
 	
 	

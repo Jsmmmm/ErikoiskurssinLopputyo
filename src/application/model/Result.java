@@ -1,8 +1,17 @@
 package application.model;
 
-public abstract class Result {
+public class Result {
 
-	abstract void setResult();
-	abstract String getResult();
+	
+	private Double result;
+	
+	public void setResult(double result){
+		this.result=result;
+	}
+	
+	public double getResult(){
+		return result;
+	}
+	
 		
 }

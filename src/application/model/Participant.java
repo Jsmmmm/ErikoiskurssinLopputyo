@@ -1,24 +1,40 @@
 package application.model;
 
-public class Participant {
+
+public class Participant{
 
 	Competitor competitor;
-	Result result;
-	//double resultPoints[];
+	private Double[] results;	//toistaiseksi Double - vaihda Result[] taulukoksi
 	
 	
-	public Participant(Competitor competitor){
+	public Participant(Competitor competitor, int numberOfResults){
 		this.competitor=competitor;
+		results=new Double[numberOfResults];
 	}
+		
 	
 	
 	
 	@Override
 	public String toString(){
-		
-		if(this.result==null){
-			return this.competitor.toString();
-		}else
-			return this.competitor.toString()+" "+result.getResult();	//abstraktin luokan result ansiosta getResult voidaan muokata sopivan näköseks formaatist riippuen
+
+		return this.competitor.toString();
 	}
+	
+	public void setResult(Double result, int numberOfResult){
+		results[numberOfResult-1]=result;
+	}
+	
+	public Double getResult(int numberOfResult){
+		return results[numberOfResult-1];
+	}
+	
+	public boolean resultIsSet(int numberOfResult){
+		
+		if(results.length>=numberOfResult && results[numberOfResult-1]!=null){
+			return true;
+		}
+		return false;
+	}
+	
 }

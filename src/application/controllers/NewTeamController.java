@@ -37,7 +37,7 @@ public class NewTeamController {
 		
 			Team team=saveTeam();
 			if(team!=null){
-				main.joukkueet.add(team);
+				main.teams.add(team);
 				main.treeViewViewController.addTeamToTW(team);
 				main.joukkueLaskuri(true);
 			}

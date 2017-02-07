@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.OpeningWindowController">
+<VBox prefHeight="427.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.OpeningWindowController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="86.0" prefWidth="767.0">
          <children>
             <Label text="Welcome">
                <font>
@@ -18,7 +18,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="66.0" prefWidth="900.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="767.0">
          <children>
             <Label prefHeight="36.0" prefWidth="98.0" text="Select:">
                <font>
@@ -27,19 +27,19 @@
             </Label>
          </children>
          <padding>
-            <Insets left="100.0" />
+            <Insets left="70.0" />
          </padding>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="80.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="767.0" spacing="15.0">
          <children>
-            <Button fx:id="newTournament" mnemonicParsing="false" onAction="#newTournamentPressed" prefHeight="36.0" prefWidth="132.0" text="New Tournament" />
-            <Button fx:id="openTournament" mnemonicParsing="false" onAction="#openTournamentPressed" prefHeight="38.0" prefWidth="152.0" text="Open Tournament" />
+            <Button fx:id="newTournament" mnemonicParsing="false" onAction="#newTournamentPressed" prefHeight="30.0" prefWidth="120.0" text="New Tournament" />
+            <Button fx:id="openTournament" mnemonicParsing="false" onAction="#openTournamentPressed" prefHeight="30.0" prefWidth="120.0" text="Open Tournament" />
          </children>
          <padding>
-            <Insets left="100.0" />
+            <Insets left="70.0" />
          </padding>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" />
-      <HBox prefHeight="100.0" prefWidth="200.0" />
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" />
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" />
    </children>
 </VBox>
