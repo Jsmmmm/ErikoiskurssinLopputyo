@@ -107,6 +107,7 @@ public class NewPersonController {
 			main.competitors.add(kilpailija);
 			main.treeViewViewController.addCompetitorToTW(kilpailija);
 			main.henkiloLaskuri(kilpailija, true);
+			cancelButtonPressed(e);
 		}		
 	}
 	

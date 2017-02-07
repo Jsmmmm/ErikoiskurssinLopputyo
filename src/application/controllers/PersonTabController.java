@@ -34,6 +34,7 @@ public class PersonTabController{
 	
 	
 	public void openPersonInformation(Person henkilo){
+		
 		firstName.setText(henkilo.getFirstName());
 		lastName.setText(henkilo.getLastName());
 		age.setText(Integer.toString(henkilo.getAge()));
@@ -48,6 +49,7 @@ public class PersonTabController{
 	}*/
 	
 	public void init(MainController mainController, Tab tab){
+		
 		main=mainController;
 		this.tab = tab;
 	}
@@ -55,6 +57,7 @@ public class PersonTabController{
 	
 	@FXML
 	public void delete(ActionEvent e){
+		
 		main.treeViewViewController.delete(e);		
 		main.tabPane.getTabs().remove(tab);
 	}

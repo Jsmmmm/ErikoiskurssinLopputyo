@@ -3,9 +3,12 @@ package application.controllers;
 import application.model.Sport;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
  
@@ -31,7 +34,7 @@ public class NewSportController {
 	
 	
 	@FXML
-	void saveButton(ActionEvent e){
+	public void saveButton(ActionEvent e){
 		
 		int amountOfSeries=0;
 		String lajinNimi=null;
@@ -69,6 +72,27 @@ public class NewSportController {
 			main.sports.add(newSport);
 			main.lisaaLajiPuunakymaan(newSport);
 			main.lajiJaSarjaLaskuri(true, amountOfSeries);
+			
+			//vie uuteen metodiin
+			try{				
+				Tab tab = new Tab();
+				
+				main.tabPane.getTabs().add(tab);
+				FXMLLoader loader= new FXMLLoader(getClass().getResource("/application/view/SportTab.fxml" ));
+				tab.setContent( (Node) loader.load());				
+				SportTabController controller = loader.<SportTabController>getController();
+				controller.init(main, tab);
+				controller.openInformationOfSport(newSport);
+				tab.setText(newSport.toString());
+				tab.isClosable();
+				main.tabPane.getSelectionModel().select(tab);;
+				//return tab;
+				
+			}catch(Exception i){
+				i.printStackTrace();
+			}
+			
+			
 			closeWindow(e);
 		
 		}						

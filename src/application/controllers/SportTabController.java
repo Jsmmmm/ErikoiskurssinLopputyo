@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,6 +18,7 @@ import application.model.Sport;
 
 public class SportTabController {
 
+	Tab tab;
 	MainController main;
 	Sport sport;
 	@FXML Label name;
@@ -34,6 +36,12 @@ public class SportTabController {
 		main=mainController;
 	}
 	
+	//wut
+	public void init(MainController mainController, Tab tab){
+		main=mainController;
+		this.tab=tab;
+	}
+	
 	@FXML
 	public void newSportPressed(ActionEvent e){
 		try{
@@ -46,14 +54,15 @@ public class SportTabController {
 	
 	
 	public Stage openCreateNewSportWindow(MainController main) throws IOException{
+		
 		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/LajinLuominen.fxml" ));
 		 Stage stage = new Stage();		 
 		 stage.setScene(new Scene((Parent) loader.load()));
-		  stage.setTitle("Create New Sport");
-		  NewSportController controller = loader.<NewSportController>getController();
-		  controller.init(main);
-		  stage.show();
-		  return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
+		 stage.setTitle("Create New Sport");
+		 NewSportController controller = loader.<NewSportController>getController();
+		 controller.init(main);
+		 stage.show();
+		 return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
 	}
 	
 	

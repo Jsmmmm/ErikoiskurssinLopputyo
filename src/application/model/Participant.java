@@ -4,7 +4,7 @@ package application.model;
 public class Participant{
 
 	Competitor competitor;
-	private Double[] results;	//toistaiseksi Double - vaihda Result[] taulukoksi
+	private Double[] results;	//toistaiseksi Double - vaihda Result[]
 	
 	
 	public Participant(Competitor competitor, int numberOfResults){
