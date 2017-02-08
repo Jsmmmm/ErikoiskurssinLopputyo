@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox prefHeight="575.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.SportTabController">
    <children>
       <HBox prefHeight="110.0" prefWidth="1015.0">
@@ -61,17 +60,26 @@
       </Separator>
       <HBox prefHeight="110.0" prefWidth="1015.0">
          <children>
-            <Label prefHeight="29.0" prefWidth="127.0" text="Results / Competitor:" />
+            <Label prefHeight="29.0" prefWidth="127.0" text="Results / Participant:" />
+            <Label fx:id="amountOfResults" prefHeight="29.0" prefWidth="127.0" text="-" />
          </children>
       </HBox>
       <HBox prefHeight="110.0" prefWidth="1015.0">
          <children>
-            <Label prefHeight="29.0" prefWidth="127.0" text="Result Format:" />
+            <Label prefHeight="29.0" prefWidth="127.0" text="Result Type:" />
+            <Label fx:id="resultType" prefHeight="29.0" prefWidth="127.0" text="-" />
          </children>
       </HBox>
       <HBox prefHeight="110.0" prefWidth="1015.0">
          <children>
-            <Label prefHeight="29.0" prefWidth="127.0" text="teksti" />
+            <Label prefHeight="29.0" prefWidth="127.0" text="Result Formation:" />
+            <Label fx:id="resultFormation" prefHeight="29.0" prefWidth="127.0" text="-" />
+         </children>
+      </HBox>
+      <HBox prefHeight="110.0" prefWidth="1015.0">
+         <children>
+            <Label prefHeight="29.0" prefWidth="127.0" text="Winner has:" />
+            <Label fx:id="winnerHas" prefHeight="29.0" prefWidth="127.0" text="-" />
          </children>
       </HBox>
       <Separator prefWidth="200.0">
@@ -79,7 +87,7 @@
             <Insets left="15.0" right="15.0" />
          </VBox.margin>
       </Separator>
-      <HBox prefHeight="329.0" prefWidth="1015.0" />
+      <HBox prefHeight="245.0" prefWidth="1015.0" />
       <Separator prefWidth="200.0">
          <VBox.margin>
             <Insets left="15.0" right="15.0" />

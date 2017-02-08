@@ -31,7 +31,8 @@ public class AddPersonToSportController {
 		for(Competitor competitor : targetedCompetitors){
 			sport.sportParticipants.add(new Participant(competitor, sport.numberOfResultsPerParticipant));		
 		}
-		sport.placeParticipantsToSeries(); 		
+		sport.placeParticipantsToSeries();
+		cancel(e);
 	}
 	
 	public void initData(MainController main, Sport sport/*String valittuLaji*/){

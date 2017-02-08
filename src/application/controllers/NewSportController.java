@@ -1,6 +1,8 @@
 package application.controllers;
 
 import application.model.Sport;
+import application.model.Sport.ResultFormation;
+import application.model.Sport.ResultType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +26,9 @@ public class NewSportController {
 	@FXML Button save;
 	@FXML Button cancel;
 	@FXML ComboBox<Integer> numberOfResults;
-	@FXML ComboBox<String> resultFormat;
+	@FXML ComboBox<String> resultType;
+	@FXML ComboBox<String> resultFormation;
+	@FXML ComboBox<String> highOrLow;
 	
 	boolean booleanGeneral=false;
 	boolean booleanMen=false;
@@ -33,19 +37,48 @@ public class NewSportController {
 	boolean booleanWomenU18=false;
 	
 	
+	
 	@FXML
 	public void saveButton(ActionEvent e){
 		
 		int amountOfSeries=0;
-		String lajinNimi=null;
-		String format;
+		String lajinNimi=null;		
+		ResultType type=null;
+		ResultFormation formation=null;
 		int results;
-				
+		boolean highestWins=true;	
 		
-		if( !(sportName.getText().isEmpty()) && !(numberOfResults.getSelectionModel().isEmpty()) && !(resultFormat.getSelectionModel().isEmpty()) ){
+		if( !(sportName.getText().isEmpty()) && !(numberOfResults.getSelectionModel().isEmpty()) && !(resultType.getSelectionModel().isEmpty() && !(resultFormation.getSelectionModel().isEmpty())) && !(highOrLow.getSelectionModel().isEmpty()) ){
 			lajinNimi=sportName.getText();
-			format=resultFormat.getValue();
+		
+			if(resultType.getSelectionModel().getSelectedIndex()==0){
+				type=ResultType.POINTS;
+				
+			}else if(resultType.getSelectionModel().getSelectedIndex()==1){
+				type=ResultType.TIME;
+				
+			}else if(resultType.getSelectionModel().getSelectedIndex()==2){
+				type=ResultType.DISTANCE;				
+			}
+			
 			results=numberOfResults.getValue();
+			
+			if(resultFormation.getSelectionModel().getSelectedIndex()==0){
+				formation=ResultFormation.BEST;
+				
+			}else if(resultFormation.getSelectionModel().getSelectedIndex()==1){
+				formation=ResultFormation.SUM;
+				
+			}else if(resultFormation.getSelectionModel().getSelectedIndex()==2){
+				formation=ResultFormation.AVERAGE;				
+			}
+			
+			
+			if(highOrLow.getSelectionModel().getSelectedIndex()==0){
+				highestWins=true;			
+			}else if(highOrLow.getSelectionModel().getSelectedIndex()==1){
+				highestWins=false;
+			}
 			
 			if(general.isSelected()){
 				booleanGeneral=true;
@@ -68,7 +101,7 @@ public class NewSportController {
 				amountOfSeries++;
 			}
 		
-			Sport newSport=new Sport(lajinNimi, booleanGeneral, booleanMen, booleanWomen, booleanMenU18, booleanWomenU18, format, results);
+			Sport newSport=new Sport(lajinNimi, booleanGeneral, booleanMen, booleanWomen, booleanMenU18, booleanWomenU18, type, results, formation, highestWins);
 			main.sports.add(newSport);
 			main.lisaaLajiPuunakymaan(newSport);
 			main.lajiJaSarjaLaskuri(true, amountOfSeries);
@@ -112,7 +145,9 @@ public class NewSportController {
 	@FXML
 	private void initialize(){
 		numberOfResults.getItems().addAll( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-		resultFormat.getItems().addAll("Points", "Time", "Distance");
+		resultType.getItems().addAll("Points", "Time", "Distance");
+		resultFormation.getItems().addAll("Best Individual Result", "Sum Of Results", "Average of Results");
+		highOrLow.getItems().addAll("Highest Value", "Lowest Value");
 	}
 	
 }

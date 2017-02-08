@@ -32,6 +32,11 @@ public class SportTabController {
 	@FXML Button newSport;
 	@FXML Button deleteSport;
 	
+	@FXML Label amountOfResults;//unused so far
+	@FXML Label resultType;
+	@FXML Label resultFormation;
+	@FXML Label winnerHas;
+	
 	public void init(MainController mainController){
 		main=mainController;
 	}
@@ -68,9 +73,10 @@ public class SportTabController {
 	
 	@FXML
 	public void addCompetitorsPressed(ActionEvent e){
-		try{ showAddCompetitorsToSportWindow(main);} //t�m� ei toimi, koska main controlleria ei olla asetettu! T�m�n luokan init metodia ei olla t�k�tty luokan ulkopuolelta
-		catch(Exception i){i.printStackTrace();
-			
+		try{ showAddCompetitorsToSportWindow(main);
+		}//t�m� ei toimi, koska main controlleria ei olla asetettu! T�m�n luokan init metodia ei olla t�k�tty luokan ulkopuolelta
+		catch(Exception i){
+			i.printStackTrace();			
 		}	
 		
 	}
@@ -138,6 +144,16 @@ public class SportTabController {
 		if(laji.booleanWomensU18==true){		
 			womenU18Series.setSelected(true);			
 		}
+		amountOfResults.setText(Integer.toString(laji.numberOfResultsPerParticipant));
+		resultType.setText(sport.resultType.toString());
+		resultFormation.setText(sport.resultFormation.toString());
+		
+		if(sport.highestWins){
+			winnerHas.setText("Highest Value");
+		}else{
+			winnerHas.setText("Lowest Value");
+		}
+		
 	}
 	
 	

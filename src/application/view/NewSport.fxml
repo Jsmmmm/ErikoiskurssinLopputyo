@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox prefHeight="453.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.NewSportController">
    <children>
       <HBox prefHeight="44.0" prefWidth="575.0">
@@ -56,20 +55,38 @@
       </Separator>
       <HBox prefHeight="50.0" prefWidth="560.0" spacing="15.0">
          <children>
-            <Label prefHeight="25.0" prefWidth="218.0" text="Number of saved results per participant:" />
+            <Label prefHeight="25.0" prefWidth="218.0" text="Results / Participant:" />
             <ComboBox fx:id="numberOfResults" prefHeight="25.0" prefWidth="86.0" />
          </children>
          <padding>
             <Insets top="10.0" />
          </padding>
       </HBox>
-      <HBox prefHeight="50.0" prefWidth="560.0">
+      <HBox prefHeight="32.0" prefWidth="560.0">
          <children>
-            <Label prefHeight="25.0" prefWidth="234.0" text="Result format:" />
-            <ComboBox fx:id="resultFormat" prefHeight="25.0" prefWidth="86.0" />
+            <Label prefHeight="25.0" prefWidth="234.0" text="Result type:" />
+            <ComboBox fx:id="resultType" prefHeight="25.0" prefWidth="86.0" />
          </children>
       </HBox>
-      <HBox prefHeight="95.0" prefWidth="560.0" />
+      <HBox prefHeight="50.0" prefWidth="560.0" spacing="15.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="218.0" text="How is the result formed:" />
+            <ComboBox fx:id="resultFormation" prefHeight="25.0" prefWidth="86.0" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="560.0" spacing="15.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="218.0" text="Winner has:" />
+            <ComboBox fx:id="highOrLow" prefHeight="25.0" prefWidth="86.0" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="48.0" prefWidth="560.0" />
       <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="560.0" spacing="20.0">
          <children>
             <Button fx:id="cancel" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="80.0" text="Cancel" />

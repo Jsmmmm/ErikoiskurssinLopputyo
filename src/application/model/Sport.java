@@ -2,6 +2,8 @@ package application.model;
 
 import java.util.ArrayList;
 
+
+
 public class Sport {
 
 	String sportName;
@@ -19,20 +21,33 @@ public class Sport {
 	public boolean booleanMensU18 = false;
 	public boolean booleanWomensU18 = false;
 	
-	public String resultFormat;
+	public ResultFormation resultFormation;
+	public ResultType resultType;
 	public int numberOfResultsPerParticipant;
+	public boolean highestWins;
+	
+	public enum ResultType{
+		TIME, POINTS, DISTANCE
+	}
+	public enum ResultFormation{
+		BEST, SUM, AVERAGE 
+	}
 	
 
+	
+	
 	public Sport(String name, boolean booleanGeneral, boolean booleanMen, boolean booleanWomen, boolean booleanMenU18,
-			boolean booleanWomenU18, String resultFormat, int numberOfResultsPerParticipant) {
+		boolean booleanWomenU18, ResultType resultType, int numberOfResultsPerParticipant, ResultFormation formation, boolean highestWins) {
 		this.sportName = name;
 		this.booleanGeneral = booleanGeneral;
 		this.booleanMens = booleanMen;
 		this.booleanWomens = booleanWomen;
 		this.booleanMensU18 = booleanMenU18;
 		this.booleanWomensU18 = booleanWomenU18;
-		this.resultFormat=resultFormat;
+		this.resultType=resultType;
+		this.resultFormation=formation;
 		this.numberOfResultsPerParticipant=numberOfResultsPerParticipant;
+		this.highestWins=highestWins;
 		
 		if (booleanGeneral == true) {
 			general = new Serie("General");
