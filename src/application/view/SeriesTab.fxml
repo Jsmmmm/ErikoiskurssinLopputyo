@@ -36,7 +36,7 @@
             <VBox alignment="BOTTOM_RIGHT" prefHeight="448.0" prefWidth="309.0" spacing="5.0">
                <children>
                   <ListView fx:id="listView" onMouseClicked="#listViewClicked" prefHeight="428.0" prefWidth="309.0" />
-                  <Button fx:id="refresh" mnemonicParsing="false" onAction="#refreshListView" text="Refresh" />
+                  <Button fx:id="refresh" mnemonicParsing="false" onAction="#refreshParticipants" text="Refresh" />
                </children>
             </VBox>
             <VBox prefHeight="448.0" prefWidth="357.0">
@@ -45,21 +45,26 @@
                      <children>
                         <ImageView fx:id="firstPlace" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                         <Label prefHeight="36.0" prefWidth="27.0" text="1st:" />
-                        <Label prefHeight="34.0" prefWidth="227.0" text="First Name &amp; Last Name" />
+                        <Label fx:id="firstLabel" prefHeight="34.0" prefWidth="227.0" text="-" />
                      </children>
                   </HBox>
                   <HBox prefHeight="53.0" prefWidth="352.0">
                      <children>
                         <ImageView fx:id="secondPlace" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                         <Label prefHeight="36.0" prefWidth="26.0" text="2nd:" />
-                        <Label prefHeight="34.0" prefWidth="227.0" text="First Name &amp; Last Name" />
+                        <Label fx:id="secondLabel" prefHeight="34.0" prefWidth="227.0" text="-" />
                      </children>
                   </HBox>
                   <HBox prefHeight="53.0" prefWidth="352.0">
                      <children>
                         <ImageView fx:id="thirdPlace" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                         <Label prefHeight="36.0" prefWidth="27.0" text="3rd:" />
-                        <Label prefHeight="34.0" prefWidth="227.0" text="First Name &amp; Last Name" />
+                        <Label fx:id="thirdLabel" prefHeight="34.0" prefWidth="227.0" text="-" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="278.0" prefWidth="342.0">
+                     <children>
+                        <Button fx:id="refresh1" mnemonicParsing="false" onAction="#refreshListView" text="Refresh Results" />
                      </children>
                   </HBox>
                </children>

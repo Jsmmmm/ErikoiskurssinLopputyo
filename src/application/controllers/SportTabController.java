@@ -32,7 +32,7 @@ public class SportTabController {
 	@FXML Button newSport;
 	@FXML Button deleteSport;
 	
-	@FXML Label amountOfResults;//unused so far
+	@FXML Label amountOfResults;
 	@FXML Label resultType;
 	@FXML Label resultFormation;
 	@FXML Label winnerHas;
@@ -41,7 +41,7 @@ public class SportTabController {
 		main=mainController;
 	}
 	
-	//wut
+	//käy uusiks läpi miks oon tehny kaks init metodia
 	public void init(MainController mainController, Tab tab){
 		main=mainController;
 		this.tab=tab;

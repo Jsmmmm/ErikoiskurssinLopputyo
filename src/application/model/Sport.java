@@ -26,11 +26,13 @@ public class Sport {
 	public int numberOfResultsPerParticipant;
 	public boolean highestWins;
 	
+	//vie enumit erilliseen luokkaan
 	public enum ResultType{
 		TIME, POINTS, DISTANCE
 	}
+	
 	public enum ResultFormation{
-		BEST, SUM, AVERAGE 
+		BEST, SUM, AVERAGE //vaihda BEST nimeks HIGHEST
 	}
 	
 
@@ -48,7 +50,7 @@ public class Sport {
 		this.resultFormation=formation;
 		this.numberOfResultsPerParticipant=numberOfResultsPerParticipant;
 		this.highestWins=highestWins;
-		
+ 		
 		if (booleanGeneral == true) {
 			general = new Serie("General");
 		}

@@ -13,6 +13,7 @@ public class SetResultsController {
 	Participant participant;
 	int amountOfResults;
 	
+	
     @FXML
     private TextField result1;
 
@@ -218,12 +219,14 @@ public class SetResultsController {
     		participant.setResult(tenthResult,10);
     	}
     	 Stage stage = (Stage) save.getScene().getWindow(); 
+    	 
 		 stage.close();
     }
     
     
     
     public void init(Participant participant, int amountOfResults){
+    	
     	this.participant=participant;
     	this.amountOfResults=amountOfResults;
     	hideOtherTextfields();

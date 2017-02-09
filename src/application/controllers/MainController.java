@@ -210,7 +210,7 @@ public class MainController{
 	public void avaaLajinTiedot(String lajinNimi){
 		Sport laji = haeLaji(lajinNimi);
 		sportTabController.openInformationOfSport(laji);
-		listViewController.taytaListView(); //KESKEN
+	//	listViewController.taytaListView(); //KESKEN
 	}
 	
 	public void avaaJoukkueenTiedot(String joukkueenNimi){

@@ -1,6 +1,13 @@
 package application.model;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+
+
 public class Participant{
 
 	Competitor competitor;
@@ -37,4 +44,39 @@ public class Participant{
 		return false;
 	}
 	
+	public Double getHighestOfResults(){
+		
+		// Double max = Arrays.stream(results).max(Double::compareTo).get();
+		// return max;
+		  List<Double> list = new ArrayList<Double>();
+		  for (int i = 0; i < results.length; i++) {
+		    list.add(results[i]);
+		  }
+		 return Collections.max(list);
+	}
+	
+	public Double getLowestOfResults(){
+		
+		 Double min = Arrays.stream(results).min(Double::compareTo).get();
+		 return min;
+	}
+	
+	public Double getAverageOfResults(){
+		
+		double sum=0; 
+		
+		for(int i=0; i<results.length; i++){
+			sum=+results[i];
+		}
+		return sum/results.length;
+	}
+	
+	public Double getSumOfResults(){
+		
+		double sum=0;
+		for(int i=0; i<results.length; i++){
+			sum=+results[i];
+		}
+		return sum;		
+	}
 }

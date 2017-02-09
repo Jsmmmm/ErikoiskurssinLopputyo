@@ -34,7 +34,7 @@ public class SeriesTabController {
 	@FXML ImageView secondPlace;
 	@FXML ImageView thirdPlace;
 	@FXML Button refresh;
-	
+	@FXML Button refresh1;//testausnappi
 	Image first = new Image(getClass().getResourceAsStream("/application/Icons/Other_icons/iconFirst.png"));
 	Image second = new Image(getClass().getResourceAsStream("/application/Icons/Other_icons/iconSecond.png"));
 	Image third = new Image(getClass().getResourceAsStream("/application/Icons/Other_icons/iconThird.png"));
@@ -42,6 +42,7 @@ public class SeriesTabController {
 	Serie serie;
 	Sport sport;
 	
+	@FXML Label firstLabel, secondLabel, thirdLabel;
 	
 	
 	public void taytaListView(){
@@ -84,7 +85,8 @@ public class SeriesTabController {
 	public void listViewClicked(MouseEvent e){
 		
 		if (e.getClickCount() == 2) {
-			Participant participant = listView.getSelectionModel().getSelectedItem(); //toimii
+			Participant participant=null;
+			 participant = listView.getSelectionModel().getSelectedItem();
 		
 			try{
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/SetResults.fxml" ));
@@ -99,6 +101,7 @@ public class SeriesTabController {
 			catch(Exception i){
 				i.printStackTrace();
 			}
+			
 		}		
 	}
 	
@@ -110,11 +113,24 @@ public class SeriesTabController {
 		thirdPlace.setImage(third);
 	}
 	
+	
 	@FXML
-	private void refreshListView(ActionEvent e){
+	private void refreshParticipants(ActionEvent e){		
 		taytaListView();
 	}
 	
 	
+	@FXML	//mieti t‰‰ metodi uusiks
+	public void refreshListView(ActionEvent e){
+		serie.sortParticipantsByResult(sport.resultFormation);
+		main.listViewController.showSerieParticipantsInResultOrder(serie);
+		setWinnersNames();		// Siirr‰ muualle t‰st‰ metodista
+		
+	}
 	
+	private void setWinnersNames(){
+		firstLabel.setText(serie.serieParticipants.get(0).toString());
+		secondLabel.setText(serie.serieParticipants.get(1).toString());
+		thirdLabel.setText(serie.serieParticipants.get(2).toString());
+	}
 }
