@@ -35,7 +35,7 @@
          <children>
             <VBox alignment="BOTTOM_RIGHT" prefHeight="448.0" prefWidth="309.0" spacing="5.0">
                <children>
-                  <ListView fx:id="listView" onMouseClicked="#listViewClicked" prefHeight="428.0" prefWidth="309.0" />
+                  <ListView fx:id="participantsListview" onMouseClicked="#listViewClicked" prefHeight="428.0" prefWidth="309.0" />
                   <Button fx:id="refresh" mnemonicParsing="false" onAction="#refreshParticipants" text="Refresh" />
                </children>
             </VBox>

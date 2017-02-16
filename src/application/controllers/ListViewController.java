@@ -3,6 +3,7 @@ package application.controllers;
 import application.model.Participant;
 import application.model.Serie;
 import application.model.Sport;
+import application.model.Sport.ResultFormation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -28,9 +29,9 @@ public class ListViewController {
 	}
 	
 	//metodin nimi h‰m‰‰. osallistujien j‰rjestys sortattu jo aikaisemmin, t‰m‰ vain lukee osallistujat listViewhin
-	public void showSerieParticipantsInResultOrder(Serie serie){
+	public void showSerieParticipantsInResultOrder(Serie serie, Sport sport){
 
-		ObservableList<Participant> myObservableList = FXCollections.observableList(serie.serieParticipants);
+		ObservableList<Participant> myObservableList = FXCollections.observableList(serie.sortedParticipants);
 		listView.setItems(myObservableList);
 		
 		listView.setCellFactory(new Callback<ListView<Participant>, ListCell<Participant>>(){
@@ -43,8 +44,15 @@ public class ListViewController {
                 @Override
                 protected void updateItem(Participant t, boolean bln) {
                     super.updateItem(t, bln);
-                    if (t != null) {
-                        setText(t.toString());
+                    if (t != null && sport.resultFormation==ResultFormation.BEST) {
+                        setText(String.format("%-35s %s", t.toString()," Decisive result: ")+t.getHighestOfResults());
+                        //setText(t.toString()+" Decisive result: "+t.getHighestOfResults()); vanha tulostus
+                    }
+                    else if (t != null && sport.resultFormation==ResultFormation.AVERAGE) {
+                    	setText(String.format("%-35s %s", t.toString()," Decisive result: ")+t.getAverageOfResults());
+                    }
+                    else if (t != null && sport.resultFormation==ResultFormation.SUM) {
+                    	setText(String.format("%-35s %s", t.toString()," Decisive result: ")+t.getSumOfResults());
                     }
                 }
             };            

@@ -66,8 +66,9 @@ public class Participant{
 		double sum=0; 
 		
 		for(int i=0; i<results.length; i++){
-			sum=+results[i];
+			sum+=results[i];
 		}
+		
 		return sum/results.length;
 	}
 	
@@ -75,8 +76,10 @@ public class Participant{
 		
 		double sum=0;
 		for(int i=0; i<results.length; i++){
-			sum=+results[i];
+			sum+=results[i];
 		}
 		return sum;		
 	}
+	
+	
 }

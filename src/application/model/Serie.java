@@ -14,6 +14,7 @@ public class Serie {
 	
 	String serieName;
 	public ArrayList<Participant> serieParticipants=new ArrayList<Participant>();
+	public ArrayList<Participant> sortedParticipants = new ArrayList<Participant>();	//participants sorted in result order
 	
 	@Override
 	public String toString(){
@@ -23,19 +24,16 @@ public class Serie {
 	
 	public void sortParticipantsByResult(ResultFormation resultFormation){
 		
-		if(resultFormation==ResultFormation.BEST){
+		sortedParticipants=(ArrayList<Participant>)serieParticipants.clone();
+		
+		if(resultFormation==ResultFormation.BEST){						
+			sortedParticipants.sort((o1, o2) -> o2.getHighestOfResults().compareTo(o1.getHighestOfResults()));	
 			
-			serieParticipants.sort((o1, o2) -> o2.getHighestOfResults().compareTo(o1.getHighestOfResults()));
+		}else if(resultFormation==ResultFormation.SUM){						
+			sortedParticipants.sort((o1, o2) -> o2.getSumOfResults().compareTo(o1.getSumOfResults()));	
 			
-			
-		}else if(resultFormation==ResultFormation.SUM){
-			
-			serieParticipants.sort((o1, o2) -> o2.getSumOfResults().compareTo(o1.getSumOfResults()));
-			
-		}else if(resultFormation==ResultFormation.AVERAGE){
-			
-			serieParticipants.sort((o1, o2) -> o2.getAverageOfResults().compareTo(o1.getAverageOfResults()));
-			
+		}else if(resultFormation==ResultFormation.AVERAGE){						
+			sortedParticipants.sort((o1, o2) -> o2.getAverageOfResults().compareTo(o1.getAverageOfResults()));			
 		}
 	}
 	

@@ -28,7 +28,7 @@ import javafx.util.Callback;
 public class SeriesTabController {
 
 	MainController main;
-	@FXML ListView<Participant> listView;
+	@FXML ListView<Participant> participantsListview;
 	@FXML Label nameOfSportAndSerie;
 	@FXML ImageView firstPlace;
 	@FXML ImageView secondPlace;
@@ -48,9 +48,9 @@ public class SeriesTabController {
 	public void taytaListView(){
 		
 		ObservableList<Participant> myObservableList = FXCollections.observableList(serie.serieParticipants);
-		listView.setItems(myObservableList);
+		participantsListview.setItems(myObservableList);
 		
-		listView.setCellFactory(new Callback<ListView<Participant>, ListCell<Participant>>(){
+		participantsListview.setCellFactory(new Callback<ListView<Participant>, ListCell<Participant>>(){
 		
 		@Override
         public ListCell<Participant> call(ListView<Participant> p) {
@@ -86,7 +86,7 @@ public class SeriesTabController {
 		
 		if (e.getClickCount() == 2) {
 			Participant participant=null;
-			 participant = listView.getSelectionModel().getSelectedItem();
+			participant = participantsListview.getSelectionModel().getSelectedItem();
 		
 			try{
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/SetResults.fxml" ));
@@ -122,15 +122,15 @@ public class SeriesTabController {
 	
 	@FXML	//mieti t‰‰ metodi uusiks
 	public void refreshListView(ActionEvent e){
-		serie.sortParticipantsByResult(sport.resultFormation);
-		main.listViewController.showSerieParticipantsInResultOrder(serie);
+		serie.sortParticipantsByResult(sport.resultFormation);		
+		main.listViewController.showSerieParticipantsInResultOrder(serie, sport);
 		setWinnersNames();		// Siirr‰ muualle t‰st‰ metodista
 		
 	}
 	
 	private void setWinnersNames(){
-		firstLabel.setText(serie.serieParticipants.get(0).toString());
-		secondLabel.setText(serie.serieParticipants.get(1).toString());
-		thirdLabel.setText(serie.serieParticipants.get(2).toString());
+		firstLabel.setText(serie.sortedParticipants.get(0).toString());
+		secondLabel.setText(serie.sortedParticipants.get(1).toString());
+		thirdLabel.setText(serie.sortedParticipants.get(2).toString());
 	}
 }
