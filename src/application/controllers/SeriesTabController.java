@@ -122,7 +122,7 @@ public class SeriesTabController {
 	
 	@FXML	//mieti t‰‰ metodi uusiks
 	public void refreshListView(ActionEvent e){
-		serie.sortParticipantsByResult(sport.resultFormation);		
+		serie.sortParticipantsByResult(sport.resultFormation, sport.highestWins);		
 		main.listViewController.showSerieParticipantsInResultOrder(serie, sport);
 		setWinnersNames();		// Siirr‰ muualle t‰st‰ metodista
 		

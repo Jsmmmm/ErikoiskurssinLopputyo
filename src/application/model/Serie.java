@@ -22,7 +22,7 @@ public class Serie {
 	}
 	
 	
-	public void sortParticipantsByResult(ResultFormation resultFormation){
+	public void sortParticipantsByResult(ResultFormation resultFormation, boolean highestWins){
 		
 		sortedParticipants=(ArrayList<Participant>)serieParticipants.clone();
 		
@@ -34,6 +34,10 @@ public class Serie {
 			
 		}else if(resultFormation==ResultFormation.AVERAGE){						
 			sortedParticipants.sort((o1, o2) -> o2.getAverageOfResults().compareTo(o1.getAverageOfResults()));			
+		}		
+		
+		if(!highestWins){
+			Collections.reverse(sortedParticipants);
 		}
 	}
 	
