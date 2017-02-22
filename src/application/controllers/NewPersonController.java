@@ -88,7 +88,7 @@ public class NewPersonController {
 	}
 
 
-	public void clearTextfields(){
+	public void clearTextfields(){		
 		firstName.clear();
 		lastName.clear();
 		age.clear();
@@ -102,12 +102,14 @@ public class NewPersonController {
 	
 	@FXML
 	public void saveButtonPressed(ActionEvent e){
+		
 		Competitor kilpailija=createPerson();
+		
 		if(kilpailija!=null){
-			main.competitors.add(kilpailija);
+			main.competition.competitors.add(kilpailija);				
 			main.treeViewViewController.addCompetitorToTW(kilpailija);
 			main.henkiloLaskuri(kilpailija, true);
-			cancelButtonPressed(e);
+			closeWindow(e);
 		}		
 	}
 	
@@ -117,7 +119,7 @@ public class NewPersonController {
 	}
 	
 	@FXML
-	public void cancelButtonPressed(ActionEvent e){
+	public void closeWindow(ActionEvent e){
 		 Stage stage = (Stage) cancel.getScene().getWindow();		   
 		 stage.close();
 	}

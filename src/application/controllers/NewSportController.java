@@ -102,7 +102,7 @@ public class NewSportController {
 			}
 		
 			Sport newSport=new Sport(lajinNimi, booleanGeneral, booleanMen, booleanWomen, booleanMenU18, booleanWomenU18, type, results, formation, highestWins);
-			main.sports.add(newSport);
+			main.competition.sports.add(newSport);
 			main.lisaaLajiPuunakymaan(newSport);
 			main.lajiJaSarjaLaskuri(true, amountOfSeries);
 			

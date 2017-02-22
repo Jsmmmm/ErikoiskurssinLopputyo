@@ -21,12 +21,6 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
-			//open opening screen on top of the main window
-			Parent root2 = FXMLLoader.load(getClass().getResource("/application/view/OpeningWindow.fxml"));					
-			Stage stage = new Stage();
-            stage.setScene(new Scene(root2));
-            stage.show();
-			
 			
 		} catch(Exception e) {
 			e.printStackTrace();

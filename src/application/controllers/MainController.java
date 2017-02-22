@@ -3,19 +3,29 @@ package application.controllers;
 
 import application.model.*;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.stage.Stage;
 
 
 
 //this class still needs to be translated to english
 public class MainController{
 	
-	Competition competition;
+	public Competition competition;
 	
 	AddPersonToSportController addPersonToSportController; 
 	@FXML PersonTabController personTabController;
@@ -28,12 +38,6 @@ public class MainController{
 	
 	
 	@FXML TabPane tabPane;
-	
-	ArrayList<Competitor> competitors = new ArrayList<Competitor>();
-	ArrayList<Person> persons = new ArrayList<Person>();	//persons&competitors seperate arraylists because of future use. //toimihenkilöt
-	ArrayList<Team> teams = new ArrayList<Team>();
-	ArrayList<Sport> sports = new ArrayList<Sport>(); 
-		
 	
 	
 	int amountOfCompetitors;
@@ -119,6 +123,7 @@ public class MainController{
 	}
 	
 	public void lisaaLajiPuunakymaan(Sport laji){
+		
 		treeViewViewController.addSportToTW(laji);
 		treeViewViewController.addResultsToTW(laji);
 	}
@@ -128,7 +133,7 @@ public class MainController{
 	public void poistaHenkilo(String nimi){
 		Competitor kilpailija = haeKilpailija(nimi);	
 		if(kilpailija!=null){
-			competitors.remove(kilpailija);
+			competition.competitors.remove(kilpailija);
 			henkiloLaskuri(kilpailija, false);
 		}else System.out.println("Virhe tuli poistettaessa kilpailijaa");					
 	}
@@ -136,21 +141,21 @@ public class MainController{
 	public void poistaJoukkue(String nimi){
 		Team joukkue = haeJoukkue(nimi);
 		if(joukkue!=null){
-			teams.remove(joukkue);
+			competition.teams.remove(joukkue);
 		} else System.out.println("Virhe tuli poistettaessa joukkuetta");							
 	}
 	
 	public void poistaLaji(String nimi){
 		Sport laji = haeLaji(nimi);		
 		if(laji!=null){
-			sports.remove(laji);	
+			competition.sports.remove(laji);	
 		}else System.out.println("Virhe tuli poistettaessa lajia");										
 	}
 	
 	
 	public Sport haeLaji(String lajinNimi){
 		Sport laji=null;
-		for (Sport haettavaLaji : sports) {
+		for (Sport haettavaLaji : competition.sports) {
 			if (lajinNimi.equals(haettavaLaji.toString())) {
 				laji=haettavaLaji;			
 				} 
@@ -165,7 +170,7 @@ public class MainController{
 		String etunimi = nimi[0];
 		String sukunimi = nimi[1];
 		int number =Integer.parseInt(nimi[2].substring(1));
-		for (Competitor kilpailija2 : competitors) {
+		for (Competitor kilpailija2 : competition.competitors) {
 			if (kilpailija2.getFirstName().equals(etunimi) && kilpailija2.getLastName().equals(sukunimi) && kilpailija2.getCompetitorNumber()==(number)) {
 				kilpailija=kilpailija2;				
 				}			
@@ -177,7 +182,7 @@ public class MainController{
 	
 	public Team haeJoukkue(String joukkueenNimi){
 		Team joukkue = null;
-		for(Team haettavaJoukkue : teams){
+		for(Team haettavaJoukkue : competition.teams){
 			if(joukkueenNimi.equals(haettavaJoukkue.toString())){
 				joukkue=haettavaJoukkue;
 			}
@@ -222,7 +227,7 @@ public class MainController{
 	
 	@FXML
 	public void initialize() {
-		
+		openOpeningWindow();
 		treeViewViewController.init(this);
 		listViewController.init(this);
 		mainTabController.init(this);
@@ -230,22 +235,71 @@ public class MainController{
 		
 	}
 	
+	public void openOpeningWindow(){
+		try{
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/OpeningWindow.fxml" ));
+			 Stage stage = new Stage();		 
+			 stage.setScene(new Scene((Parent) loader.load()));
+			 stage.setTitle("Welcome");
+			 OpeningWindowController controller = loader.<OpeningWindowController>getController();
+			 controller.init(this);
+			 stage.setAlwaysOnTop(true);
+			 stage.show();
+			
+			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan myï¿½hemmin pï¿½ï¿½stï¿½ siihen kï¿½siksi tï¿½stï¿½ luokasta
+		}
+		catch(Exception i){
+			i.printStackTrace();
+		}
+		
+	}
+	
 	
 	
 	public void printtaa(){
-		System.out.println("Toimii");
+		System.out.println("toimii");
 	}
 	
-	public void lataaKilpailu(Competition uusiKilpailu){
-		this.competition=uusiKilpailu;
+	
+	public void uusiKilpailu(Competition competition){
 		
-		competitors = uusiKilpailu.competitors;
-		persons = uusiKilpailu.persons;
-		teams = uusiKilpailu.teams;
-		sports = uusiKilpailu.sports; 
+		this.competition=competition;
 		
-		treeViewViewController.setKilpailunNimi(competition.getName());
+		//competition.competitors = new ArrayList<Competitor>();
+		//competition.persons = new ArrayList<Person>();	//persons&competitors seperate arraylists because of future use. //toimihenkilöt
+		//competition.teams = new ArrayList<Team>();
+		//competition.sports = new ArrayList<Sport>(); 
+		
 	}
+	
+	
+	
+	//pitäsköhän vasta tässä vaiheessa luoda arraylistit, eika mainControllerissa.  
+	public void lataaKilpailu(Competition loadedCompetition){
+		
+		//lisää tähän metodiin: ennen treeView:hen tietojenlataamista tyhjennä treeView!
+		
+		this.competition=loadedCompetition;
+		
+			
+		for(Competitor competitor : competition.competitors){
+			treeViewViewController.addCompetitorToTW(competitor);
+		}								
+		
+		
+		for(Team team : competition.teams){
+			treeViewViewController.addTeamToTW(team);
+		}
+		
+		
+		for(Sport sport : competition.sports){
+			treeViewViewController.addSportToTW(sport);
+			treeViewViewController.addResultsToTW(sport);
+		}
+		
+		
+	}
+	
 	
 	
 }

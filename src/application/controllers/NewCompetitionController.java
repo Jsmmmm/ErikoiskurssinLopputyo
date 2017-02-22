@@ -1,12 +1,15 @@
 package application.controllers;
 
+
+
 import application.model.Competition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CreateCompetitonController {
+public class NewCompetitionController {
 
 	@FXML TextField name;
 	@FXML Button save;
@@ -17,11 +20,13 @@ public class CreateCompetitonController {
 		this.main=main;
 	}
 	
+	
 	@FXML
-	private void createNewTournament(){
-		Competition tournament = new Competition();
-		tournament.setName(name.getText());
-		main.lataaKilpailu(tournament);	
+	private void createNewTournament(ActionEvent e){
+		Competition competition = new Competition();
+		competition.setName(name.getText());
+		main.uusiKilpailu(competition);	
+		
 		
 		Stage stage = (Stage) save.getScene().getWindow();
 	    stage.close();

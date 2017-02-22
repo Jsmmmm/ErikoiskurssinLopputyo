@@ -210,7 +210,9 @@ public class TreeViewController{
 	}
 	
 	   
-	
+	public void loadCompetitors(){
+		
+	}
 	
 	
 }

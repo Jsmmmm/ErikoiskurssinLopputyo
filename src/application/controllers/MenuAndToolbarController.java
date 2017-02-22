@@ -1,5 +1,13 @@
 package application.controllers;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import application.model.Competition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,8 +59,11 @@ public class MenuAndToolbarController {
 		
 	}
 	
+	//debuggaus testi-metodi
 	public void printtaa(ActionEvent e){
-		System.out.println("toimii");
+		System.out.println("nappi toimii");
+		System.out.println(main.competition.getName());
+		System.out.println(main.competition.competitors.get(1).toString());
 	}
 	
 	@FXML
@@ -103,6 +114,51 @@ public class MenuAndToolbarController {
 		}
 		catch(Exception i){
 			i.printStackTrace();
+		}
+	}
+	
+	@FXML
+	public void saveCompetition(ActionEvent e){
+		
+		try {
+			FileOutputStream fs = new FileOutputStream("Competition.ser");
+			try {
+				ObjectOutputStream os = new ObjectOutputStream(fs);
+				os.writeObject(main.competition);
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			
+			
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+	}
+	
+	@FXML
+	public void openCompetition(ActionEvent e){
+		
+		try {
+			FileInputStream fi = new FileInputStream("Competition.ser");
+			
+			try {
+				ObjectInputStream oi = new ObjectInputStream(fi);
+				try {
+					Competition opened=(Competition) oi.readObject();
+					main.lataaKilpailu(opened);	//tähän kohtaan kutsu metodia openCompetition.Se vois olla omassa luokassaan saveCompetitionin kanssa. Ei kuulu menu&toolbar.
+				} catch (ClassNotFoundException e3) {
+					
+					e3.printStackTrace();
+				}
+			} catch (IOException e2) {
+				
+				e2.printStackTrace();
+			}
+		} catch (FileNotFoundException e1) {
+			
+			e1.printStackTrace();
 		}
 	}
 	

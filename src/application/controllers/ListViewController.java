@@ -42,17 +42,17 @@ public class ListViewController {
             ListCell<Participant> cell = new ListCell<Participant>(){
             	
                 @Override
-                protected void updateItem(Participant t, boolean bln) {
-                    super.updateItem(t, bln);
-                    if (t != null && sport.resultFormation==ResultFormation.BEST) {
-                        setText(String.format("%-35s %s", t.toString()," Decisive result: ")+t.getHighestOfResults());
+                protected void updateItem(Participant participant, boolean bln) {
+                    super.updateItem(participant, bln);
+                    if (participant != null && sport.resultFormation==ResultFormation.BEST) {
+                        setText(String.format("%-35s %s", participant.toString()," Decisive result: ")+participant.getHighestOfResults());
                         //setText(t.toString()+" Decisive result: "+t.getHighestOfResults()); vanha tulostus
                     }
-                    else if (t != null && sport.resultFormation==ResultFormation.AVERAGE) {
-                    	setText(String.format("%-35s %s", t.toString()," Decisive result: ")+t.getAverageOfResults());
+                    else if (participant != null && sport.resultFormation==ResultFormation.AVERAGE) {
+                    	setText(String.format("%-35s %s", participant.toString()," Decisive result: ")+participant.getAverageOfResults());
                     }
-                    else if (t != null && sport.resultFormation==ResultFormation.SUM) {
-                    	setText(String.format("%-35s %s", t.toString()," Decisive result: ")+t.getSumOfResults());
+                    else if (participant != null && sport.resultFormation==ResultFormation.SUM) {
+                    	setText(String.format("%-35s %s", participant.toString()," Decisive result: ")+participant.getSumOfResults());
                     }
                 }
             };            

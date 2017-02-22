@@ -72,7 +72,7 @@
          <children>
             <Button fx:id="save" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#saveButtonPressed" text="Save" />
             <Button fx:id="clear" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#clearButtonPressed" text="Empty" />
-            <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#closeWindow" text="Cancel" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" />

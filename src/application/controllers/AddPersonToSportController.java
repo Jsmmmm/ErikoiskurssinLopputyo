@@ -53,7 +53,7 @@ public class AddPersonToSportController {
 	
 	public void fillListView(){
 		listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		ObservableList<Competitor> myObservableList = FXCollections.observableList(main.competitors);
+		ObservableList<Competitor> myObservableList = FXCollections.observableList(main.competition.competitors);
 		listView.setItems(myObservableList);
 		
 		listView.setCellFactory(new Callback<ListView<Competitor>, ListCell<Competitor>>(){
