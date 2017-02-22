@@ -1,5 +1,6 @@
 package application.controllers;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -17,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class MenuAndToolbarController {
@@ -119,47 +121,69 @@ public class MenuAndToolbarController {
 	
 	@FXML
 	public void saveCompetition(ActionEvent e){
+		 
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save file");
+		fileChooser.setInitialFileName(main.competition.getName()+".ser");
+		File savedFile = fileChooser.showSaveDialog(new Stage());
+
 		
-		try {
-			FileOutputStream fs = new FileOutputStream("Competition.ser");
-			try {
-				ObjectOutputStream os = new ObjectOutputStream(fs);
-				os.writeObject(main.competition);
-			} catch (IOException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			}
-			
-			
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}	
+        if(savedFile != null){
+        	
+        	try {
+    			FileOutputStream fs = new FileOutputStream(savedFile);
+    			try {
+    				ObjectOutputStream os = new ObjectOutputStream(fs);
+    				os.writeObject(main.competition);
+    			} catch (IOException e2) {
+    				
+    				e2.printStackTrace();
+    			}
+    			
+    			
+    		} catch (FileNotFoundException e1) {
+    			
+    			e1.printStackTrace();
+    		}	
+        }
+		
+		
+		
+		
 	}
 	
 	@FXML
 	public void openCompetition(ActionEvent e){
 		
-		try {
-			FileInputStream fi = new FileInputStream("Competition.ser");
-			
-			try {
-				ObjectInputStream oi = new ObjectInputStream(fi);
-				try {
-					Competition opened=(Competition) oi.readObject();
-					main.lataaKilpailu(opened);	//tähän kohtaan kutsu metodia openCompetition.Se vois olla omassa luokassaan saveCompetitionin kanssa. Ei kuulu menu&toolbar.
-				} catch (ClassNotFoundException e3) {
+		   FileChooser chooser = new FileChooser();
+		   FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("SER files (*.ser)", "*.ser");
+           chooser.getExtensionFilters().add(extFilter);
+		   chooser.setTitle("Load Competition");
+		   File file = chooser.showOpenDialog(new Stage());
+		    
+		    if(file!=null){
+		    	try {
+					FileInputStream fi = new FileInputStream(file);
 					
-					e3.printStackTrace();
+					try {
+						ObjectInputStream oi = new ObjectInputStream(fi);
+						try {
+							Competition opened=(Competition) oi.readObject();
+							main.lataaKilpailu(opened);	//tähän kohtaan kutsu metodia openCompetition.Se vois olla omassa luokassaan saveCompetitionin kanssa. Ei kuulu menu&toolbar.
+						} catch (ClassNotFoundException e3) {
+							
+							e3.printStackTrace();
+						}
+					} catch (IOException e2) {
+						
+						e2.printStackTrace();
+					}
+				} catch (FileNotFoundException e1) {
+					
+					e1.printStackTrace();
 				}
-			} catch (IOException e2) {
-				
-				e2.printStackTrace();
-			}
-		} catch (FileNotFoundException e1) {
-			
-			e1.printStackTrace();
-		}
+		    }
+	
 	}
 	
 }

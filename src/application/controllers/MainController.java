@@ -10,12 +10,12 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
@@ -264,11 +264,6 @@ public class MainController{
 	public void uusiKilpailu(Competition competition){
 		
 		this.competition=competition;
-		
-		//competition.competitors = new ArrayList<Competitor>();
-		//competition.persons = new ArrayList<Person>();	//persons&competitors seperate arraylists because of future use. //toimihenkilöt
-		//competition.teams = new ArrayList<Team>();
-		//competition.sports = new ArrayList<Sport>(); 
 		
 	}
 	

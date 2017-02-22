@@ -1,12 +1,13 @@
 package application.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import application.model.Sport.ResultFormation;//vie enumit omaan luokkaansa
 
 
-public class Serie {
+public class Serie implements Serializable{
 
 	Serie(String name){
 		this.serieName=name;

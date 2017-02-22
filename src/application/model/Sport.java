@@ -1,10 +1,11 @@
 package application.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
 
-public class Sport {
+public class Sport implements Serializable{
 
 	String sportName;
 

@@ -1,8 +1,9 @@
 package application.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Team{
+public class Team implements Serializable{
 	
 	String teamName;
 	ArrayList<Person> teamMembers;

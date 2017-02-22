@@ -1,6 +1,7 @@
 package application.model;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -8,7 +9,7 @@ import java.util.List;
 
 
 
-public class Participant{
+public class Participant implements Serializable{
 
 	Competitor competitor;
 	private Double[] results;	//toistaiseksi Double - vaihda Result[]
