@@ -1,6 +1,5 @@
 package application.controllers;
 
-import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,6 +34,7 @@ public class MainTabController {
 	@FXML Label teams;
 	@FXML Label sports;
 	@FXML Label series;
+	@FXML Label competitionName;
 	
 	/*@FXML
 	public void initialize(){
@@ -97,5 +97,31 @@ public class MainTabController {
 		}
 	}
 	
+	public void setCompetitionNameLabel(String name){
+		competitionName.setText(name);
+	}
+	
+	public void refreshMaintabStatistics(){
+		refreshCompetitors();
+		refreshSports();
+		refreshTeams();
+	}
+	
+	private void refreshCompetitors(){
+		competitors.setText(Integer.toString(main.competition.amountOfCompetitors));
+		men.setText(Integer.toString(main.competition.men));
+		menU18.setText(Integer.toString(main.competition.menU18));
+		women.setText(Integer.toString(main.competition.women));
+		womenU18.setText(Integer.toString(main.competition.womenU18));
+	}
+	
+	private void refreshSports(){
+		sports.setText(Integer.toString(main.competition.amountOfSports));
+		series.setText(Integer.toString(main.competition.amountOfSeries));
+	}
+	
+	private void refreshTeams(){
+		teams.setText(Integer.toString(main.competition.amountOfTeams));
+	}
 	
 }

@@ -23,10 +23,10 @@ public class TreeViewController{
 	MainController main;
 	
 	
-	  Image kilpailijaIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/userIcon.png"));
-	  Image joukkueIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/teamIcon.png"));
-	  Image lajiIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/sportsIcon.png"));
-	  Image trophyIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/trophyIcon.jpg"));
+	Image kilpailijaIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/userIcon.png"));
+	Image joukkueIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/teamIcon.png"));
+	Image lajiIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/sportsIcon.png"));
+	Image trophyIcon = new Image(getClass().getResourceAsStream("/application/Icons/Treeview_icons/trophyIcon.jpg"));
 	
 	
 	
@@ -62,7 +62,7 @@ public class TreeViewController{
 	
 	
 	public void addResultsToTW(Sport sport){
-	TreeItem<String> results = new TreeItem<>(sport.toString());
+		TreeItem<String> results = new TreeItem<>(sport.toString());
 		resultsLeaf.getChildren().add(results);
 		
 		if(sport.booleanGeneral){
@@ -190,10 +190,15 @@ public class TreeViewController{
 	
 	public void setKilpailunNimi(String nimi){
 	
-		
-
 	}
 	
+	
+	public void clearTreeView(){
+		competitorsLeaf.getChildren().clear();
+		teamsLeaf.getChildren().clear();
+		sportsLeaf.getChildren().clear();
+		resultsLeaf.getChildren().clear();
+	}
 	
 	
 	@FXML
@@ -210,9 +215,6 @@ public class TreeViewController{
 	}
 	
 	   
-	public void loadCompetitors(){
-		
-	}
 	
 	
 }

@@ -23,15 +23,7 @@ public class MainController{
 	@FXML TabPane tabPane;
 	
 	
-	int amountOfCompetitors;
-	int men;
-	int women;
-	int menU18;
-	int womenU18;
-	int amountOfSports;
-	int amountOfSeries;
-	int amountOfTeams;
-	
+
 	@FXML Tab sportTab;
 	@FXML Tab teamTab;
 	@FXML Tab personTab;
@@ -183,16 +175,21 @@ public class MainController{
 	public void setCompetition(Competition competition){
 		
 		this.competition=competition;
+		mainTabController.setCompetitionNameLabel(competition.getName());
+		treeViewViewController.clearTreeView();
+		mainTabController.refreshMaintabStatistics();
 		
 	}
 		
-		
+	
 	public void loadCompetition(Competition loadedCompetition){
-		
-		//lisää tähän metodiin: ennen treeView:hen kilpailun tietojenlataamista tyhjennä treeView!
-		
+						
 		this.competition=loadedCompetition;		
-			
+		mainTabController.setCompetitionNameLabel(competition.getName());
+		mainTabController.refreshMaintabStatistics();
+		treeViewViewController.clearTreeView();
+		
+		//vie loopit omaan metodiinsa
 		for(Competitor competitor : competition.competitors){
 			treeViewViewController.addCompetitorToTW(competitor);
 		}								
@@ -212,44 +209,45 @@ public class MainController{
 	
 	public void personCounter(Person person, Boolean addPerson){
 		if(addPerson==true){
-			amountOfCompetitors++;
-			mainTabController.competitors.setText(Integer.toString(amountOfCompetitors));
+			competition.amountOfCompetitors++;
+			mainTabController.competitors.setText(Integer.toString(competition.amountOfCompetitors));
 			if(person.isMale()){
 				if(person.getAge()>=18){
-					men++;
-					mainTabController.men.setText(Integer.toString(men));				
+					competition.men++;
+					mainTabController.men.setText(Integer.toString(competition.men));				
 				}else {
-					menU18++;
-					mainTabController.menU18.setText(Integer.toString(menU18));
+					competition.menU18++;
+					mainTabController.menU18.setText(Integer.toString(competition.menU18));
 				}
 			}else{
 				if(person.getAge()>=18){
-					women++;
-					mainTabController.women.setText(Integer.toString(women));
+					competition.women++;
+					mainTabController.women.setText(Integer.toString(competition.women));
 				}else{
-					womenU18++;
-					mainTabController.womenU18.setText(Integer.toString(womenU18));
+					competition.womenU18++;
+					mainTabController.womenU18.setText(Integer.toString(competition.womenU18));
+					}
 				}
-			}
-		}else{			
-			amountOfCompetitors--;
-			mainTabController.competitors.setText(Integer.toString(amountOfCompetitors));
+		 	}
+		 else{			
+			competition.amountOfCompetitors--;
+			mainTabController.competitors.setText(Integer.toString(competition.amountOfCompetitors));
 			
 			if(person.isMale()){
 				if(person.getAge()>=18){
-					men--;
-					mainTabController.men.setText(Integer.toString(men));				
+					competition.men--;
+					mainTabController.men.setText(Integer.toString(competition.men));				
 				}else {
-					menU18--;
-					mainTabController.menU18.setText(Integer.toString(menU18));
+					competition.menU18--;
+					mainTabController.menU18.setText(Integer.toString(competition.menU18));
 				}
 			}else{
 				if(person.getAge()>=18){
-					women--;
-					mainTabController.women.setText(Integer.toString(women));
+					competition.women--;
+					mainTabController.women.setText(Integer.toString(competition.women));
 				}else{
-					womenU18--;
-					mainTabController.womenU18.setText(Integer.toString(womenU18));
+					competition.womenU18--;
+					mainTabController.womenU18.setText(Integer.toString(competition.womenU18));
 				}
 			}
 		}		
@@ -257,24 +255,24 @@ public class MainController{
 	
 	public void teamCounter(boolean addTeam){
 		if(addTeam==true){
-			amountOfTeams++;			
+			competition.amountOfTeams++;			
 		}else{
-			amountOfTeams--;
+			competition.amountOfTeams--;
 		}
-		mainTabController.teams.setText(Integer.toString(amountOfTeams));
+		mainTabController.teams.setText(Integer.toString(competition.amountOfTeams));
 	}
 	
 	
 	//TODO: separate serieCounter to its own method
 	public void sportAndSerieCounter(boolean add, int sarjat){
 		if(add==true){
-			amountOfSports++;
-			amountOfSeries=amountOfSeries+sarjat;
+			competition.amountOfSports++;
+			competition.amountOfSeries=competition.amountOfSeries+sarjat;
 		}else{
 			//you cannot delete sport in the program. yet.
 		}
-		mainTabController.sports.setText(Integer.toString(amountOfSports));
-		mainTabController.series.setText(Integer.toString(amountOfSeries));
+		mainTabController.sports.setText(Integer.toString(competition.amountOfSports));
+		mainTabController.series.setText(Integer.toString(competition.amountOfSeries));
 	}
 	
 	

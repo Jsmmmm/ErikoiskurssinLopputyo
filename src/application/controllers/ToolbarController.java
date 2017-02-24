@@ -78,7 +78,7 @@ public class ToolbarController {
 			 NewPersonController controller = loader.<NewPersonController>getController();
 			 controller.init(main);
 			 stage.show();
-			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
+			// return stage; 
 		}
 		catch(Exception i){
 			i.printStackTrace();
@@ -91,11 +91,11 @@ public class ToolbarController {
 			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewSport.fxml" ));
 			 Stage stage = new Stage();		 
 			 stage.setScene(new Scene((Parent) loader.load()));
-			 stage.setTitle("Uusi Laji");
+			 stage.setTitle("New Sport");
 			 NewSportController controller = loader.<NewSportController>getController();
 			 controller.init(main);
 			 stage.show();
-			 //return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
+			 //return stage; 
 		}
 		catch(Exception i){
 			i.printStackTrace();
@@ -108,11 +108,11 @@ public class ToolbarController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewTeam.fxml" ));
 			Stage stage = new Stage();		 
 			stage.setScene(new Scene((Parent) loader.load()));
-			stage.setTitle("Uusi Joukkue");
+			stage.setTitle("New Team");
 			NewTeamController controller = loader.<NewTeamController>getController();
 			controller.init(main);
 			stage.show();
-			//return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta			
+			//return stage; 		
 		}
 		catch(Exception i){
 			i.printStackTrace();
@@ -126,7 +126,6 @@ public class ToolbarController {
 		fileChooser.setTitle("Save file");
 		fileChooser.setInitialFileName(main.competition.getName()+".ser");
 		File savedFile = fileChooser.showSaveDialog(new Stage());
-
 		
         if(savedFile != null){
         	
@@ -138,18 +137,12 @@ public class ToolbarController {
     			} catch (IOException e2) {
     				
     				e2.printStackTrace();
-    			}
-    			
-    			
+    			}   			    			
     		} catch (FileNotFoundException e1) {
     			
     			e1.printStackTrace();
     		}	
         }
-		
-		
-		
-		
 	}
 	
 	@FXML
@@ -197,7 +190,7 @@ public class ToolbarController {
 			 NewCompetitionController controller = loader.<NewCompetitionController>getController();
 			 controller.init(main);
 			 stage.show();
-			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
+			// return stage;
 			 			 
 			 
 		}

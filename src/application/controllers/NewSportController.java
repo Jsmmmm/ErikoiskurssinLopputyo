@@ -106,7 +106,7 @@ public class NewSportController {
 			main.addSportToTW(newSport);
 			main.sportAndSerieCounter(true, amountOfSeries);
 			
-			//vie uuteen metodiin
+			//vie uuteen metodiin, karmasevan pitkä metodi ja suorittaa liikaa eri juttuja
 			try{				
 				Tab tab = new Tab();
 				
@@ -118,7 +118,7 @@ public class NewSportController {
 				controller.openInformationOfSport(newSport);
 				tab.setText(newSport.toString());
 				tab.isClosable();
-				main.tabPane.getSelectionModel().select(tab);;
+				main.tabPane.getSelectionModel().select(tab);
 				//return tab;
 				
 			}catch(Exception i){
