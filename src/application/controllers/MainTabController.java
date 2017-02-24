@@ -35,6 +35,7 @@ public class MainTabController {
 	@FXML Label teams;
 	@FXML Label sports;
 	@FXML Label series;
+	
 	/*@FXML
 	public void initialize(){
 		
@@ -44,9 +45,6 @@ public class MainTabController {
 		main=mainController;
 		
 	}
-	
-	
-	
 
 	@FXML
 	public void newPerson(ActionEvent e){
@@ -58,7 +56,7 @@ public class MainTabController {
 			 NewPersonController controller = loader.<NewPersonController>getController();
 			 controller.init(main);
 			 stage.show();
-			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
+			// return stage; 
 		}
 		catch(Exception i){
 			i.printStackTrace();
@@ -75,7 +73,7 @@ public class MainTabController {
 			 NewSportController controller = loader.<NewSportController>getController();
 			 controller.init(main);
 			 stage.show();
-			 //return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
+			 //return stage; 
 		}
 		catch(Exception i){
 			i.printStackTrace();
@@ -92,7 +90,7 @@ public class MainTabController {
 			NewTeamController controller = loader.<NewTeamController>getController();
 			controller.init(main);
 			stage.show();
-			//return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta			
+			//return stage; 	
 		}
 		catch(Exception i){
 			i.printStackTrace();

@@ -23,12 +23,20 @@ public class NewCompetitionController {
 	
 	@FXML
 	private void createNewTournament(ActionEvent e){
-		Competition competition = new Competition();
-		competition.setName(name.getText());
-		main.uusiKilpailu(competition);	
 		
-		
-		Stage stage = (Stage) save.getScene().getWindow();
+		if(!name.getText().isEmpty()){
+			Competition competition = new Competition();
+			competition.setName(name.getText());
+			main.setCompetition(competition);	
+			closeWindow(e);	
+		}
+				
+	}
+	
+	@FXML
+	private void closeWindow(ActionEvent e){
+		Stage stage = (Stage) cancel.getScene().getWindow();
 	    stage.close();
 	}
+	
 }

@@ -11,7 +11,7 @@
          <children>
             <TabPane fx:id="tabPane">
               <tabs>
-                  <Tab fx:id="mainValilehti" closable="false" text="Main">
+                  <Tab fx:id="mainTab" closable="false" text="Main">
                      <content>                      
                          <fx:include fx:id="mainTab" source="MainTab.fxml" />                                               
                      </content>
@@ -28,6 +28,6 @@
       <fx:include fx:id="treeViewView" source="TreeViewView.fxml" />
    </left>
    <top>
-      <fx:include fx:id="menuAndToolbar" source="MenuAndToolbar.fxml" />
+      <fx:include fx:id="toolbar" source="Toolbar.fxml" />
    </top>
 </BorderPane>

@@ -108,7 +108,7 @@ public class NewPersonController {
 		if(kilpailija!=null){
 			main.competition.competitors.add(kilpailija);				
 			main.treeViewViewController.addCompetitorToTW(kilpailija);
-			main.henkiloLaskuri(kilpailija, true);
+			main.personCounter(kilpailija, true);
 			closeWindow(e);
 		}		
 	}
@@ -123,6 +123,8 @@ public class NewPersonController {
 		 Stage stage = (Stage) cancel.getScene().getWindow();		   
 		 stage.close();
 	}
+	
+	
 	
 	@FXML
 	private void initialize(){

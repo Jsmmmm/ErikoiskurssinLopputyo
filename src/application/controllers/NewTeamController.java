@@ -39,7 +39,7 @@ public class NewTeamController {
 			if(team!=null){
 				main.competition.teams.add(team);
 				main.treeViewViewController.addTeamToTW(team);
-				main.joukkueLaskuri(true);
+				main.teamCounter(true);
 			}
 	}
 	

@@ -21,7 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class MenuAndToolbarController {
+public class ToolbarController {
 
 	MainController main;
 	
@@ -159,9 +159,10 @@ public class MenuAndToolbarController {
 		   FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("SER files (*.ser)", "*.ser");
            chooser.getExtensionFilters().add(extFilter);
 		   chooser.setTitle("Load Competition");
+		   
 		   File file = chooser.showOpenDialog(new Stage());
-		    
-		    if(file!=null){
+		    		   
+		   if(file!=null){
 		    	try {
 					FileInputStream fi = new FileInputStream(file);
 					
@@ -169,7 +170,7 @@ public class MenuAndToolbarController {
 						ObjectInputStream oi = new ObjectInputStream(fi);
 						try {
 							Competition opened=(Competition) oi.readObject();
-							main.lataaKilpailu(opened);	//tähän kohtaan kutsu metodia openCompetition.Se vois olla omassa luokassaan saveCompetitionin kanssa. Ei kuulu menu&toolbar.
+							main.loadCompetition(opened);	//tähän kohtaan kutsu metodia openCompetition.Se vois olla omassa luokassaan saveCompetitionin kanssa. Ei kuulu menu&toolbar.
 						} catch (ClassNotFoundException e3) {
 							
 							e3.printStackTrace();
@@ -182,8 +183,27 @@ public class MenuAndToolbarController {
 					
 					e1.printStackTrace();
 				}
-		    }
+		    }		    		    
+	}
 	
+	@FXML
+	public void newCompetition(ActionEvent e){
+		
+		try{
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewCompetition.fxml" ));
+			 Stage stage = new Stage();		 
+			 stage.setScene(new Scene((Parent) loader.load()));
+			 stage.setTitle("New Tournament");
+			 NewCompetitionController controller = loader.<NewCompetitionController>getController();
+			 controller.init(main);
+			 stage.show();
+			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan myï¿½hemmin pï¿½ï¿½stï¿½ siihen kï¿½siksi tï¿½stï¿½ luokasta
+			 			 
+			 
+		}
+		catch(Exception i){
+			i.printStackTrace();
+		}
 	}
 	
 }

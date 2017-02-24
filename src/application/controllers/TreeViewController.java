@@ -88,16 +88,16 @@ public class TreeViewController{
 		TreeItem<String> toBeRemoved = treeView.getSelectionModel().getSelectedItem();		
 		if(treeView.getSelectionModel().getSelectedItem().getParent() == competitorsLeaf){
 			toBeRemoved.getParent().getChildren().remove(toBeRemoved);
-			main.poistaHenkilo(toBeRemoved.getValue());	
+			main.deleteCompetitor(toBeRemoved.getValue());	
 			
 			
 		}else if(treeView.getSelectionModel().getSelectedItem().getParent() == teamsLeaf){
 			toBeRemoved.getParent().getChildren().remove(toBeRemoved);
-			main.poistaJoukkue(toBeRemoved.getValue());
+			main.deleteTeam(toBeRemoved.getValue());
 			
 		}else if(treeView.getSelectionModel().getSelectedItem().getParent() == sportsLeaf){
 			toBeRemoved.getParent().getChildren().remove(toBeRemoved);
-			main.poistaLaji(toBeRemoved.getValue());
+			main.deleteSport(toBeRemoved.getValue());
 			
 		}
 	}
@@ -117,7 +117,7 @@ public class TreeViewController{
 						tab.setContent((Node) loader.load());				
 						PersonTabController controller = loader.<PersonTabController>getController();
 						controller.init(main, tab);
-						controller.openPersonInformation(main.haeKilpailija(target.getValue()));
+						controller.openPersonInformation(main.getCompetitor(target.getValue()));
 						tab.setText(target.getValue());
 						tab.isClosable();
 						//return tab;
@@ -136,7 +136,7 @@ public class TreeViewController{
 						tab.setContent((Node) loader.load());				
 						TeamTabController controller = loader.<TeamTabController>getController();					
 						controller.init(main, tab);
-						controller.openTeamInformation(main.haeJoukkue(target.getValue()));
+						controller.openTeamInformation(main.getTeam(target.getValue()));
 						tab.setText(target.getValue());
 						tab.isClosable();
 					}catch(Exception e){
@@ -152,7 +152,7 @@ public class TreeViewController{
 						tab.setContent((Node) loader.load());				
 						SportTabController controller = loader.<SportTabController>getController();	
 						controller.init(main);
-						controller.openInformationOfSport(main.haeLaji(target.getValue()));
+						controller.openInformationOfSport(main.getSport(target.getValue()));
 						tab.setText(target.getValue());
 						tab.isClosable();
 					}catch(Exception e){
@@ -169,9 +169,9 @@ public class TreeViewController{
 						SeriesTabController controllerX = loader.<SeriesTabController>getController();	
 						
 					
-						Sport sport = main.haeLaji(target.getParent().getValue());
+						Sport sport = main.getSport(target.getParent().getValue());
 						
-						Serie serie = main.haeSarja(sport, target.getValue());
+						Serie serie = main.getSerie(sport, target.getValue());
 						
 						controllerX.init(main, serie, sport);
 						controllerX.taytaListView();

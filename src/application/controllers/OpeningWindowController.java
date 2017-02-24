@@ -23,21 +23,10 @@ public class OpeningWindowController {
 	
 	@FXML
 	public void newTournamentPressed(ActionEvent e){
-		try{
-			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewCompetition.fxml" ));
-			 Stage stage = new Stage();		 
-			 stage.setScene(new Scene((Parent) loader.load()));
-			 stage.setTitle("New Tournament");
-			 NewCompetitionController controller = loader.<NewCompetitionController>getController();
-			 controller.init(main);
-			 stage.show();
-			// return stage; //viittaus avautuneeseen ikkunaan jos halutaan my�hemmin p��st� siihen k�siksi t�st� luokasta
-			 			 
-			 closeWindow(e);
-		}
-		catch(Exception i){
-			i.printStackTrace();
-		}
+		
+		main.toolbarController.newCompetition(e);	 			 
+		closeWindow(e);
+
 	}
 	
 
@@ -49,9 +38,9 @@ public class OpeningWindowController {
 	@FXML
 	public void openTournamentPressed(ActionEvent e){
 		
-		closeWindow(e);
-		main.menuAndToolbarController.openCompetition(e);
-
+		closeWindow(e);		
+		main.toolbarController.openCompetition(e);
+		
 	}
 	
 	

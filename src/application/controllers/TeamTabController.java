@@ -68,7 +68,7 @@ public class TeamTabController {
 	public void delete(ActionEvent e){
 		main.treeViewViewController.delete(e);	
 		main.tabPane.getTabs().remove(tab);
-		main.joukkueLaskuri(false);
+		main.teamCounter(false);
 	} 
 	
 }
