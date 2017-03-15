@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
@@ -171,6 +173,12 @@ public class MainController{
 		System.out.println("toimii");
 	}
 	
+	//returns true if competition is set
+	protected boolean checkCompetition(){
+		if(this.competition!=null){
+			return true;
+		}return false;
+	}
 	
 	public void setCompetition(Competition competition){
 		
@@ -275,7 +283,13 @@ public class MainController{
 		mainTabController.series.setText(Integer.toString(competition.amountOfSeries));
 	}
 	
-	
+	//alert dialog that pops up if user tries to create new sport / competitor / team without first creating / loading competition.
+	protected void noCompetitionAlert(){		
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("No competition selected");		
+		alert.setContentText("Create new competition or load existing one and try again.");
+		alert.showAndWait();
+	}
 	
 	
 }

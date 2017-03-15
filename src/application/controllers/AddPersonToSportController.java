@@ -1,6 +1,7 @@
 package application.controllers;
 
-import application.model.Person;
+
+
 import application.model.Sport;
 import application.model.Participant;
 import javafx.collections.FXCollections;
@@ -16,6 +17,9 @@ import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import application.model.Competitor;
+
+
+
 public class AddPersonToSportController {
 			
 	MainController main;

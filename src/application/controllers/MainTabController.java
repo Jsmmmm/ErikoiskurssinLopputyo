@@ -46,54 +46,72 @@ public class MainTabController {
 		
 	}
 
+	
+	//TODO remove newPerson / newSport / newTeam methods, dublicate code -> ToolbarController
 	@FXML
 	public void newPerson(ActionEvent e){
-		try{
-			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewPerson.fxml" ));
-			 Stage stage = new Stage();		 
-			 stage.setScene(new Scene((Parent) loader.load()));
-			 stage.setTitle("New Person");
-			 NewPersonController controller = loader.<NewPersonController>getController();
-			 controller.init(main);
-			 stage.show();
-			// return stage; 
+		if(main.checkCompetition()){
+			try{
+				 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewPerson.fxml" ));
+				 Stage stage = new Stage();		 
+				 stage.setScene(new Scene((Parent) loader.load()));
+				 stage.setTitle("New Person");
+				 NewPersonController controller = loader.<NewPersonController>getController();
+				 controller.init(main);
+				 stage.show();
+				// return stage; 
+			}
+			catch(Exception i){
+				i.printStackTrace();
+			}
+		}else{
+			Dialogs.noCompetitionAlert();
 		}
-		catch(Exception i){
-			i.printStackTrace();
-		}
+		
 	}
 	
+	//TODO remove newPerson / newSport / newTeam methods, dublicate code -> ToolbarController
 	@FXML
 	public void newSport(ActionEvent e){
-		try{
-			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewSport.fxml" ));
-			 Stage stage = new Stage();		 
-			 stage.setScene(new Scene((Parent) loader.load()));
-			 stage.setTitle("New Sport");
-			 NewSportController controller = loader.<NewSportController>getController();
-			 controller.init(main);
-			 stage.show();
-			 //return stage; 
+		if(main.checkCompetition()){
+			try{
+				 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewSport.fxml" ));
+				 Stage stage = new Stage();		 
+				 stage.setScene(new Scene((Parent) loader.load()));
+				 stage.setTitle("New Sport");
+				 NewSportController controller = loader.<NewSportController>getController();
+				 controller.init(main);
+				 stage.show();
+				 //return stage; 
+			}
+			catch(Exception i){
+				i.printStackTrace();
+			}
+		}else{
+			Dialogs.noCompetitionAlert();
 		}
-		catch(Exception i){
-			i.printStackTrace();
-		}
+	
 	}
 	
+	//TODO remove newPerson / newSport / newTeam methods, dublicate code -> ToolbarController
 	@FXML
 	public void newTeam(ActionEvent e){
-		try{
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewTeam.fxml" ));
-			Stage stage = new Stage();		 
-			stage.setScene(new Scene((Parent) loader.load()));
-			stage.setTitle("New Team");
-			NewTeamController controller = loader.<NewTeamController>getController();
-			controller.init(main);
-			stage.show();
-			//return stage; 	
-		}
-		catch(Exception i){
-			i.printStackTrace();
+		if(main.checkCompetition()){
+			try{
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewTeam.fxml" ));
+				Stage stage = new Stage();		 
+				stage.setScene(new Scene((Parent) loader.load()));
+				stage.setTitle("New Team");
+				NewTeamController controller = loader.<NewTeamController>getController();
+				controller.init(main);
+				stage.show();
+				//return stage; 		
+			}
+			catch(Exception i){
+				i.printStackTrace();
+			}
+		}else{
+			Dialogs.noCompetitionAlert();
 		}
 	}
 	
