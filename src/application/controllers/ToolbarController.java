@@ -41,7 +41,7 @@ public class ToolbarController {
 	@FXML Button testButton;
 	
 	@FXML
-	public void initialize(){
+	private void initialize(){
 		newCompetition.setGraphic(new ImageView(newFile));
 		newCompetition.setPadding(Insets.EMPTY);
 		openSavedCompetition.setGraphic(new ImageView(open));
@@ -56,10 +56,62 @@ public class ToolbarController {
 		newSport.setPadding(Insets.EMPTY);
 	}
 	
-	public void init(MainController mainController){
-		main=mainController;
-		
+	protected void init(MainController mainController){
+		main=mainController;		
 	}
+	
+	@FXML
+	protected void newCompetition(ActionEvent e){		
+		try{
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewCompetition.fxml" ));
+			 Stage stage = new Stage();		 
+			 stage.setScene(new Scene((Parent) loader.load()));
+			 stage.setTitle("New Tournament");
+			 NewCompetitionController controller = loader.<NewCompetitionController>getController();
+			 controller.init(main);
+			 stage.show();	 			 
+		}
+		catch(Exception i){
+			i.printStackTrace();
+		}
+	}
+	
+	@FXML
+	protected void openCompetition(ActionEvent e){		
+		FileChooser chooser = new FileChooser();
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("SER files (*.ser)", "*.ser");
+        chooser.getExtensionFilters().add(extFilter);
+		chooser.setTitle("Load Competition");		   
+		File file = chooser.showOpenDialog(new Stage());	   
+		FileInputStream fi = null;
+		ObjectInputStream oi = null;
+		   
+		if(file!=null){
+			try {
+				fi = new FileInputStream(file);
+				oi = new ObjectInputStream(fi);
+				try {
+					Competition opened = (Competition) oi.readObject();
+					main.loadCompetition(opened);
+				}
+				catch (ClassNotFoundException e2) {							
+					e2.printStackTrace();
+				}					
+			}
+		    catch (IOException e1) {					
+		    	e1.printStackTrace();
+			}
+		    finally{					
+		    	try {
+					oi.close();
+				}
+		    	catch (IOException e3) {					
+					e3.printStackTrace();
+				}
+			}								
+		}
+	}		    		    
+	
 	
 	//debuggaus testi-metodi
 	public void printtaa(ActionEvent e){
@@ -160,58 +212,8 @@ public class ToolbarController {
         }
 	}
 	
-	@FXML
-	public void openCompetition(ActionEvent e){
-		
-		   FileChooser chooser = new FileChooser();
-		   FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("SER files (*.ser)", "*.ser");
-           chooser.getExtensionFilters().add(extFilter);
-		   chooser.setTitle("Load Competition");
-		   
-		   File file = chooser.showOpenDialog(new Stage());
-		    		   
-		   if(file!=null){
-		    	try {
-					FileInputStream fi = new FileInputStream(file);
-					
-					try {
-						ObjectInputStream oi = new ObjectInputStream(fi);
-						try {
-							Competition opened=(Competition) oi.readObject();
-							main.loadCompetition(opened);	//tähän kohtaan kutsu metodia openCompetition.Se vois olla omassa luokassaan saveCompetitionin kanssa. Ei kuulu menu&toolbar.
-						} catch (ClassNotFoundException e3) {
-							
-							e3.printStackTrace();
-						}
-					} catch (IOException e2) {
-						
-						e2.printStackTrace();
-					}
-				} catch (FileNotFoundException e1) {
-					
-					e1.printStackTrace();
-				}
-		    }		    		    
-	}
 	
-	@FXML
-	public void newCompetition(ActionEvent e){
-		
-		try{
-			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/NewCompetition.fxml" ));
-			 Stage stage = new Stage();		 
-			 stage.setScene(new Scene((Parent) loader.load()));
-			 stage.setTitle("New Tournament");
-			 NewCompetitionController controller = loader.<NewCompetitionController>getController();
-			 controller.init(main);
-			 stage.show();
-			// return stage;
-			 			 
-			 
-		}
-		catch(Exception i){
-			i.printStackTrace();
-		}
-	}
+	
+	
 	
 }

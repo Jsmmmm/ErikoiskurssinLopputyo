@@ -126,7 +126,7 @@ public class MainTabController {
 	}
 	
 	private void refreshCompetitors(){
-		competitors.setText(Integer.toString(main.competition.amountOfCompetitors));
+		competitors.setText(Integer.toString(main.competition.numberOfCompetitors));
 		men.setText(Integer.toString(main.competition.men));
 		menU18.setText(Integer.toString(main.competition.menU18));
 		women.setText(Integer.toString(main.competition.women));
@@ -134,12 +134,12 @@ public class MainTabController {
 	}
 	
 	private void refreshSports(){
-		sports.setText(Integer.toString(main.competition.amountOfSports));
-		series.setText(Integer.toString(main.competition.amountOfSeries));
+		sports.setText(Integer.toString(main.competition.numberOfSports));
+		series.setText(Integer.toString(main.competition.numberOfSeries));
 	}
 	
 	private void refreshTeams(){
-		teams.setText(Integer.toString(main.competition.amountOfTeams));
+		teams.setText(Integer.toString(main.competition.numberOfTeams));
 	}
 	
 }

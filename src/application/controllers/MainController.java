@@ -24,17 +24,39 @@ public class MainController{
 	@FXML ToolbarController toolbarController;		
 	@FXML TabPane tabPane;
 	
-	
-
 	@FXML Tab sportTab;
 	@FXML Tab teamTab;
 	@FXML Tab personTab;
-	@FXML Tab competitionTab;
+	@FXML Tab competitionTab;	
 	
-
 	
-	public void addSportToTW(Sport sport){
+	@FXML
+	private void initialize() {
+		openOpeningWindow(); //when program is booted opening window will open on top of main view
+		treeViewViewController.init(this);
+		listViewController.init(this);
+		mainTabController.init(this);
+		toolbarController.init(this);		
+	}
+	
+	private void openOpeningWindow(){
+		try{
+			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/OpeningWindow.fxml" ));
+			 Stage stage = new Stage();		 
+			 stage.setScene(new Scene((Parent) loader.load()));
+			 stage.setTitle("Welcome");
+			 OpeningWindowController controller = loader.<OpeningWindowController>getController();
+			 controller.init(this);
+			 stage.setAlwaysOnTop(true);
+			 stage.show();			
+		}
+		catch(Exception i){
+			i.printStackTrace();
+		}
 		
+	}		
+	
+	public void addSportToTW(Sport sport){		
 		treeViewViewController.addSportToTW(sport);
 		treeViewViewController.addResultsToTW(sport);
 	}
@@ -46,7 +68,7 @@ public class MainController{
 			competition.competitors.remove(competitor);
 			personCounter(competitor, false);
 		}else{
-			System.out.println("Virhe tuli poistettaessa kilpailijaa");					
+			System.out.println("Virhe tuli poistettaessa kilpailijaa");	//for debugging				
 		}
 	}
 	
@@ -136,38 +158,7 @@ public class MainController{
 		Team team = getTeam(nameOfTeam);
 		teamTabController.openTeamInformation(team);
 	}
-	
-	
-	
-	@FXML
-	public void initialize() {
-		openOpeningWindow();
-		treeViewViewController.init(this);
-		listViewController.init(this);
-		mainTabController.init(this);
-		toolbarController.init(this);
-		
-	}
-	
-	public void openOpeningWindow(){
-		try{
-			 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/OpeningWindow.fxml" ));
-			 Stage stage = new Stage();		 
-			 stage.setScene(new Scene((Parent) loader.load()));
-			 stage.setTitle("Welcome");
-			 OpeningWindowController controller = loader.<OpeningWindowController>getController();
-			 controller.init(this);
-			 stage.setAlwaysOnTop(true);
-			 stage.show();
-			
-			// return stage; //viittaus avautuneeseen ikkunaan
-		}
-		catch(Exception i){
-			i.printStackTrace();
-		}
-		
-	}		
-	
+
 	//for debugging
 	public void printtaa(){
 		System.out.println("toimii");
@@ -180,18 +171,15 @@ public class MainController{
 		}return false;
 	}
 	
-	public void setCompetition(Competition competition){
-		
+	public void setCompetition(Competition competition){		
 		this.competition=competition;
 		mainTabController.setCompetitionNameLabel(competition.getName());
 		treeViewViewController.clearTreeView();
-		mainTabController.refreshMaintabStatistics();
-		
+		mainTabController.refreshMaintabStatistics();		
 	}
 		
 	
-	public void loadCompetition(Competition loadedCompetition){
-						
+	public void loadCompetition(Competition loadedCompetition){						
 		this.competition=loadedCompetition;		
 		mainTabController.setCompetitionNameLabel(competition.getName());
 		mainTabController.refreshMaintabStatistics();
@@ -202,23 +190,20 @@ public class MainController{
 			treeViewViewController.addCompetitorToTW(competitor);
 		}								
 		
-		
 		for(Team team : competition.teams){
 			treeViewViewController.addTeamToTW(team);
 		}
-		
-		
+				
 		for(Sport sport : competition.sports){
 			treeViewViewController.addSportToTW(sport);
 			treeViewViewController.addResultsToTW(sport);
-		}
-	
+		}	
 	}
 	
 	public void personCounter(Person person, Boolean addPerson){
 		if(addPerson==true){
-			competition.amountOfCompetitors++;
-			mainTabController.competitors.setText(Integer.toString(competition.amountOfCompetitors));
+			competition.numberOfCompetitors++;
+			mainTabController.competitors.setText(Integer.toString(competition.numberOfCompetitors));
 			if(person.isMale()){
 				if(person.getAge()>=18){
 					competition.men++;
@@ -238,8 +223,8 @@ public class MainController{
 				}
 		 	}
 		 else{			
-			competition.amountOfCompetitors--;
-			mainTabController.competitors.setText(Integer.toString(competition.amountOfCompetitors));
+			competition.numberOfCompetitors--;
+			mainTabController.competitors.setText(Integer.toString(competition.numberOfCompetitors));
 			
 			if(person.isMale()){
 				if(person.getAge()>=18){
@@ -263,24 +248,24 @@ public class MainController{
 	
 	public void teamCounter(boolean addTeam){
 		if(addTeam==true){
-			competition.amountOfTeams++;			
+			competition.numberOfTeams++;			
 		}else{
-			competition.amountOfTeams--;
+			competition.numberOfTeams--;
 		}
-		mainTabController.teams.setText(Integer.toString(competition.amountOfTeams));
+		mainTabController.teams.setText(Integer.toString(competition.numberOfTeams));
 	}
 	
 	
 	//TODO: separate serieCounter to its own method
 	public void sportAndSerieCounter(boolean add, int sarjat){
 		if(add==true){
-			competition.amountOfSports++;
-			competition.amountOfSeries=competition.amountOfSeries+sarjat;
+			competition.numberOfSports++;
+			competition.numberOfSeries=competition.numberOfSeries+sarjat;
 		}else{
 			//you cannot delete sport in the program. yet.
 		}
-		mainTabController.sports.setText(Integer.toString(competition.amountOfSports));
-		mainTabController.series.setText(Integer.toString(competition.amountOfSeries));
+		mainTabController.sports.setText(Integer.toString(competition.numberOfSports));
+		mainTabController.series.setText(Integer.toString(competition.numberOfSeries));
 	}
 	
 	//alert dialog that pops up if user tries to create new sport / competitor / team without first creating / loading competition.

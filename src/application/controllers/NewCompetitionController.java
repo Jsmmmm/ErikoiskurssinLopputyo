@@ -16,21 +16,17 @@ public class NewCompetitionController {
 	@FXML Button cancel;
 	MainController main;
 	
-	public void init(MainController main){
+	protected void init(MainController main){
 		this.main=main;
 	}
 	
-	
 	@FXML
-	private void createNewTournament(ActionEvent e){
-		
+	private void createNewTournament(ActionEvent e){		
 		if(!name.getText().isEmpty()){
-			Competition competition = new Competition();
-			competition.setName(name.getText());
+			Competition competition = Competition.newCompetition(name.getText());
 			main.setCompetition(competition);	
 			closeWindow(e);	
-		}
-				
+		}				
 	}
 	
 	@FXML
